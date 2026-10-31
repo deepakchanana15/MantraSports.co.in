@@ -4,8 +4,8 @@ import { AdminSidebar } from '@/components/admin/AdminSidebar'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Admin — Mantra Sports NL',
-    template: '%s | Admin — Mantra Sports NL',
+    default: 'Admin — Mantra Sports India',
+    template: '%s | Admin — Mantra Sports India',
   },
   robots: { index: false, follow: false },
 }

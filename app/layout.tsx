@@ -28,19 +28,18 @@ export const metadata: Metadata = {
   },
   description: SITE_CONFIG.seo.defaultDescription,
   keywords: [
-    'cricketbats Nederland',
-    'cricket uitrusting kopen',
+    'English willow cricket bats India',
+    'buy cricket bat online India',
     'Mantra Sports',
-    'cricket beschermende uitrusting',
-    'cricket teamkleding groothandel',
-    'aangepaste cricket kleding',
-    'cricketballen',
-    'cricket bats Netherlands',
-    'cricket equipment NL',
+    'cricket protective gear',
+    'cricket batting pads and gloves',
+    'leather cricket balls',
+    'custom cricket teamwear',
+    'cricket equipment wholesale India',
   ],
-  authors: [{ name: 'Mantra Sports NL' }],
-  creator: 'Mantra Sports NL',
-  publisher: 'Mantra Sports NL',
+  authors: [{ name: 'Mantra Sports India' }],
+  creator: 'Mantra Sports India',
+  publisher: 'Mantra Sports International',
   robots: {
     index: true,
     follow: true,
@@ -48,7 +47,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'nl_NL',
+    locale: 'en_IN',
     siteName: SITE_CONFIG.name,
     title: SITE_CONFIG.seo.defaultTitle,
     description: SITE_CONFIG.seo.defaultDescription,
@@ -76,7 +75,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
-      lang="nl"
+      lang="en-IN"
       suppressHydrationWarning
     >
       <head>

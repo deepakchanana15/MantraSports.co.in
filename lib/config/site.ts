@@ -2,35 +2,45 @@ import type { NavItem } from '@/types'
 
 // ─── Core Site Configuration ─────────────────────────────────────────────────
 export const SITE_CONFIG = {
-  name: 'Mantra Sports NL',
-  tagline: 'Speel zonder grenzen.',
+  name: 'Mantra Sports India',
+  tagline: 'Play without limits.',
   description:
-    'Mantra Sports NL — Premium cricketbats, beschermende uitrusting, ballen, teamkleding en accessoires. Gebouwd voor prestaties. Wereldwijd vertrouwd.',
-  // Canonical production origin — the apex domain 308-redirects here, so all
+    'Mantra Sports India — premium English willow cricket bats, protective gear, balls, teamwear and accessories. Built for performance. Trusted worldwide.',
+  // Canonical production origin — the apex domain redirects here, so all
   // absolute URLs (metadataBase, canonicals, sitemap, robots, JSON-LD) use this host.
-  url: 'https://www.mantrasports.nl',
-  locale: 'nl-NL',
-  region: 'nl',
-  currency: 'EUR',
-  currencySymbol: '€',
+  url: 'https://www.mantrasports.co.in',
+  locale: 'en-IN',
+  region: 'in',
+  currency: 'INR',
+  currencySymbol: '₹',
 
   contact: {
-    email: 'info@mantrasports.nl',
-    phone: '+61 46 624 2222',
-    address: 'Unit 2, 5 Ford Court, Newnham TAS 7248, Australië',
-    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? 'TO_BE_PROVIDED',
+    email: 'support@mantrasports.com.au',
+    phone: '+91 83689 15399',
+    address: '75, Judges Enclave, Ahimsa Khand - 2, Indirapuram, Ghaziabad, Uttar Pradesh 201014, India',
+    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '918368915399',
   },
 
-  // Operating company (parent company, Australia)
+  // Operating business (seller of record in India)
   company: {
-    legalName: 'Mantra Corporation Pty Ltd',
-    abn: '13 675 757 838',
-    street: 'Unit 2, 5 Ford Court',
-    postalCode: '7248',
-    city: 'Newnham, Launceston',
-    region: 'Tasmanië',
-    country: 'Australië',
-    countryCode: 'AU',
+    legalName: 'Mantra Sports International',
+    entityType: 'Sole Proprietorship',
+    gstin: '09IVBPS2213F1ZM',
+    street: '75, Judges Enclave, Ahimsa Khand - 2, Indirapuram',
+    postalCode: '201014',
+    city: 'Ghaziabad',
+    region: 'Uttar Pradesh',
+    regionCode: 'UP',
+    country: 'India',
+    countryCode: 'IN',
+  },
+
+  // Grievance Officer — Consumer Protection (E-Commerce) Rules, 2020
+  grievanceOfficer: {
+    name: 'Ravi Kumar Singh',
+    designation: 'Manager',
+    phone: '+91 83689 15399',
+    email: 'support@mantrasports.com.au',
   },
 
   social: {
@@ -41,10 +51,10 @@ export const SITE_CONFIG = {
   },
 
   seo: {
-    titleTemplate: '%s | Mantra Sports NL',
-    defaultTitle: 'Mantra Sports NL — Premium Cricket Uitrusting',
+    titleTemplate: '%s | Mantra Sports India',
+    defaultTitle: 'Mantra Sports India — Premium English Willow Cricket Bats & Gear',
     defaultDescription:
-      'Premium cricketbats, beschermende uitrusting, teamkleding en accessoires bij Mantra Sports Nederland. Groothandel & B2B-aanvragen welkom.',
+      'Shop premium English willow cricket bats, protective gear, leather balls, teamwear and accessories from Mantra Sports India. Free delivery across India. B2B & wholesale enquiries welcome.',
     defaultOgImage: '/images/og-default.jpg',
     twitterHandle: '@mantrasports',
   },
@@ -55,47 +65,47 @@ export const SITE_CONFIG = {
 export function getWhatsAppUrl(message?: string): string {
   const number = SITE_CONFIG.contact.whatsapp.replace(/\D/g, '')
   const encoded = encodeURIComponent(
-    message ?? 'Hallo, ik wil graag informeren over Mantra Sports producten.'
+    message ?? "Hi, I'd like to know more about Mantra Sports products."
   )
   return `https://wa.me/${number}?text=${encoded}`
 }
 
 export function getProductWhatsAppUrl(productName: string): string {
-  const message = `Hallo, ik ben geïnteresseerd in ${productName}. Kunt u mij meer informatie geven?`
+  const message = `Hi, I'm interested in the ${productName}. Could you share more details?`
   return getWhatsAppUrl(message)
 }
 
-// ─── Navigation (Dutch frontend) ──────────────────────────────────────────────
+// ─── Navigation ───────────────────────────────────────────────────────────────
 
 export const MAIN_NAV: NavItem[] = [
   {
     label: 'Shop',
     href: '/shop',
     children: [
-      { label: 'Alle Producten', href: '/shop' },
-      { label: 'Cricketbats', href: '/categories/cricket-bats' },
-      { label: 'Beschermende Uitrusting', href: '/categories/protective-gear' },
-      { label: 'Ballen', href: '/categories/balls' },
-      { label: 'Accessoires', href: '/categories/accessories' },
-      { label: 'Teamkleding', href: '/categories/teamwear' },
-      { label: 'Aangepaste Kleding', href: '/categories/custom-apparel' },
+      { label: 'All Products', href: '/shop' },
+      { label: 'Cricket Bats', href: '/categories/cricket-bats' },
+      { label: 'Protective Gear', href: '/categories/protective-gear' },
+      { label: 'Balls', href: '/categories/balls' },
+      { label: 'Accessories', href: '/categories/accessories' },
+      { label: 'Teamwear', href: '/categories/teamwear' },
+      { label: 'Custom Apparel', href: '/categories/custom-apparel' },
     ],
   },
   {
-    label: 'Collecties',
+    label: 'Collections',
     href: '/collections',
   },
   {
-    label: 'Groothandel',
+    label: 'Wholesale',
     href: '/wholesale',
     children: [
-      { label: 'Groothandelsaanvraag', href: '/wholesale' },
-      { label: 'B2B-Partnerschappen', href: '/b2b' },
-      { label: 'Word Dealer', href: '/become-a-dealer' },
+      { label: 'Wholesale Enquiry', href: '/wholesale' },
+      { label: 'B2B Partnerships', href: '/b2b' },
+      { label: 'Become a Dealer', href: '/become-a-dealer' },
     ],
   },
   {
-    label: 'Over Ons',
+    label: 'About',
     href: '/about',
   },
   {
@@ -110,36 +120,37 @@ export const MAIN_NAV: NavItem[] = [
 
 export const FOOTER_NAV = {
   products: {
-    title: 'Producten',
+    title: 'Products',
     links: [
-      { label: 'Cricketbats', href: '/categories/cricket-bats' },
-      { label: 'Beschermende Uitrusting', href: '/categories/protective-gear' },
-      { label: 'Ballen', href: '/categories/balls' },
-      { label: 'Accessoires', href: '/categories/accessories' },
-      { label: 'Teamkleding', href: '/categories/teamwear' },
-      { label: 'Aangepaste Kleding', href: '/categories/custom-apparel' },
+      { label: 'Cricket Bats', href: '/categories/cricket-bats' },
+      { label: 'Protective Gear', href: '/categories/protective-gear' },
+      { label: 'Balls', href: '/categories/balls' },
+      { label: 'Accessories', href: '/categories/accessories' },
+      { label: 'Teamwear', href: '/categories/teamwear' },
+      { label: 'Custom Apparel', href: '/categories/custom-apparel' },
     ],
   },
   company: {
-    title: 'Bedrijf',
+    title: 'Company',
     links: [
-      { label: 'Over Ons', href: '/about' },
-      { label: 'Groothandel', href: '/wholesale' },
-      { label: 'B2B-Partnerschappen', href: '/b2b' },
-      { label: 'Word Dealer', href: '/become-a-dealer' },
+      { label: 'About Us', href: '/about' },
+      { label: 'Wholesale', href: '/wholesale' },
+      { label: 'B2B Partnerships', href: '/b2b' },
+      { label: 'Become a Dealer', href: '/become-a-dealer' },
       { label: 'Blog', href: '/blog' },
       { label: 'Contact', href: '/contact' },
     ],
   },
   support: {
-    title: 'Hulp & Ondersteuning',
+    title: 'Help & Support',
     links: [
       { label: 'FAQ', href: '/faq' },
-      { label: 'Verzendbeleid', href: '/shipping-policy' },
-      { label: 'Retourbeleid', href: '/returns-policy' },
-      { label: 'Privacybeleid', href: '/privacy-policy' },
-      { label: 'Algemene Voorwaarden', href: '/terms-and-conditions' },
-      { label: 'Sitemap', href: '/sitemap.xml' },
+      { label: 'Track Your Order', href: '/order-status' },
+      { label: 'Shipping Policy', href: '/shipping-policy' },
+      { label: 'Returns & Refunds', href: '/returns-policy' },
+      { label: 'Privacy Policy', href: '/privacy-policy' },
+      { label: 'Terms & Conditions', href: '/terms-and-conditions' },
+      { label: 'Grievance Redressal', href: '/company-information#grievance-officer' },
     ],
   },
 }
@@ -155,31 +166,18 @@ export const DEFAULT_CATEGORIES = [
   { name: 'Custom Apparel', slug: 'custom-apparel', sortOrder: 6 },
 ] as const
 
-// Dutch display names — category names in the DB are stored in English
-export const CATEGORY_NAMES_NL: Record<string, string> = {
-  'cricket-bats':    'Cricketbats',
-  'balls':           'Ballen',
-  'protective-gear': 'Beschermende Uitrusting',
-  'accessories':     'Accessoires',
-  'teamwear':        'Teamkleding',
-  'custom-apparel':  'Aangepaste Kleding',
-}
-
-export function categoryNameNl(slug: string, fallback: string): string {
-  return CATEGORY_NAMES_NL[slug] ?? fallback
-}
-
 // ─── Default Site Settings ────────────────────────────────────────────────────
+// Editable in /admin/settings. Values here are used until a setting is saved.
 
 export const DEFAULT_SITE_SETTINGS = {
   hero_image_url: '',
-  site_name: 'Mantra Sports NL',
-  site_tagline: 'Speel zonder grenzen.',
+  site_name: 'Mantra Sports India',
+  site_tagline: 'Play without limits.',
   site_description: SITE_CONFIG.description,
-  contact_email: 'info@mantrasports.nl',
+  contact_email: SITE_CONFIG.contact.email,
   contact_phone: SITE_CONFIG.contact.phone,
   contact_address: SITE_CONFIG.contact.address,
-  whatsapp_number: 'TO_BE_PROVIDED',
+  whatsapp_number: '918368915399',
   social_instagram: '',
   social_facebook: '',
   social_linkedin: '',
@@ -187,7 +185,20 @@ export const DEFAULT_SITE_SETTINGS = {
   social_twitter: '',
   social_tiktok: '',
   social_pinterest: '',
-  footer_text: `© ${new Date().getFullYear()} Mantra Sports. Alle rechten voorbehouden.`,
+  footer_text: `© ${new Date().getFullYear()} Mantra Sports International. All rights reserved.`,
   meta_title: SITE_CONFIG.seo.defaultTitle,
   meta_description: SITE_CONFIG.seo.defaultDescription,
+  // Shipping & returns — shown on policy pages, FAQ, checkout and the trust bar
+  shipping_processing_time: '1–2 business days',
+  shipping_delivery_time: '3–7 business days within India (up to 15 business days for items shipped from Australia)',
+  return_window_days: '7',
+  response_time_hours: '24',
+  announcement_text: 'Free delivery across India on all orders',
+  // GST invoice defaults — used when a product has no HSN code / GST rate of its own
+  default_gst_rate: '',
+  default_hsn_code: '',
+  // Google reviews (Google Business Profile) — see /admin/settings
+  google_place_id: '',
+  google_reviews_url: '',
+  google_reviews_enabled: 'false',
 } as const

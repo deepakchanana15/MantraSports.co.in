@@ -46,7 +46,7 @@ export async function sendMail(options: SendMailOptions): Promise<boolean> {
 
   try {
     await transporter.sendMail({
-      from: process.env.SMTP_FROM ?? `"Mantra Sports NL" <noreply@mantrasports.nl>`,
+      from: process.env.SMTP_FROM ?? `"Mantra Sports India" <noreply@mantrasports.co.in>`,
       to: options.to,
       subject: options.subject,
       html: options.html,

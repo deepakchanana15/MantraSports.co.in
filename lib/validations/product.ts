@@ -44,7 +44,7 @@ export const productSchema = z.object({
     .optional()
     .nullable(),
 
-  currency: z.string().length(3).default('EUR'),
+  currency: z.string().length(3).default('INR'),
 
   stockStatus: z.enum(['IN_STOCK', 'OUT_OF_STOCK', 'ON_REQUEST']).default('IN_STOCK'),
 

@@ -4,41 +4,41 @@ import { Award, Package, Truck, Headphones, ChevronRight } from 'lucide-react'
 import { WholesaleForm } from './WholesaleForm'
 
 export const metadata: Metadata = {
-  title: 'Groothandel & B2B',
+  title: 'Wholesale & B2B Cricket Equipment',
   description:
-    'Groothandelsaanvragen voor clubs, scholen en retailers. Premium cricketuitrusting tegen voordelige B2B-prijzen — EU-wijd geleverd.',
+    'Wholesale cricket equipment for clubs, schools, academies and retailers across India. Request volume pricing on Mantra Sports bats, protective gear, balls and teamwear.',
 }
 
 const BENEFITS = [
   {
     icon: Award,
-    title: 'Premium Kwaliteit',
-    text: 'Dezelfde professionele producten die internationale spelers gebruiken — nu voor jouw team of winkel.',
+    title: 'Premium Quality',
+    text: 'The same Mantra Sports range sold worldwide — English willow bats, protective gear and match balls for your team or store.',
   },
   {
     icon: Package,
-    title: 'Flexibele Hoeveelheden',
-    text: 'Of het nu 10 of 500 stuks zijn — we bieden schaalbare groothandelsprijzen voor elke bestelling.',
+    title: 'Flexible Quantities',
+    text: 'From a single team kit to a full season order — volume pricing that scales with your requirement.',
   },
   {
     icon: Truck,
-    title: 'EU-wijde Verzending',
-    text: 'Snelle en betrouwbare levering naar alle EU-landen, direct naar jouw adres of magazijn.',
+    title: 'Delivery Across India',
+    text: 'Delivered to your club, school, academy or store anywhere in India.',
   },
   {
     icon: Headphones,
-    title: 'Persoonlijke Service',
-    text: 'Ons B2B-team staat klaar voor individuele aanvragen, maatwerk en volumekortingen.',
+    title: 'Personal Service',
+    text: 'A dedicated contact for quotes, custom branding, sizing and repeat orders.',
   },
 ]
 
 const WHO_FOR = [
-  'Cricketclubs & Sportverenigingen',
-  'Scholen & Universiteiten',
-  'Sportwinkels & Retailers',
-  'Wederverkopers & Distributeurs',
-  'Cricket-academies',
-  'Nationale & Regionale Bonden',
+  'Cricket Clubs & Associations',
+  'Schools, Colleges & Universities',
+  'Cricket Academies & Coaching Centres',
+  'Sports Shops & Retailers',
+  'Resellers & Distributors',
+  'Corporate & Tournament Organisers',
 ]
 
 export default function WholesalePage() {
@@ -46,38 +46,38 @@ export default function WholesalePage() {
     <div className="bg-white">
 
       {/* ── Breadcrumb ── */}
-      <div style={{ borderBottom: '1px solid #E0DFDB', padding: '12px 60px', background: '#F8F7F4' }}>
-        <nav className="flex items-center gap-2 text-[12px]" style={{ color: '#6B6B6B' }}>
-          <Link href="/" className="transition-colors hover:text-[#e85d1a]">Startpagina</Link>
+      <div className="px-4 py-3 sm:px-8 lg:px-[60px]" style={{ borderBottom: '1px solid #E0DFDB', background: '#F8F7F4' }}>
+        <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[12px]" style={{ color: '#6B6B6B' }}>
+          <Link href="/" className="transition-colors hover:text-[#e85d1a]">Home</Link>
           <ChevronRight className="h-3 w-3" />
-          <span style={{ color: '#111111' }}>Groothandel</span>
+          <span style={{ color: '#111111' }}>Wholesale</span>
         </nav>
       </div>
 
       {/* ── Hero ── */}
       <div style={{ background: '#111111', borderBottom: '1px solid #1c1c1c' }}>
-        <div style={{ padding: '72px 60px' }}>
+        <div className="px-4 py-14 sm:px-8 lg:px-[60px] lg:py-[72px]">
           <p className="mb-3 font-display text-[11px] font-semibold uppercase tracking-[0.22em]" style={{ color: '#e85d1a' }}>
-            Voor Clubs & Dealers
+            For Clubs &amp; Dealers
           </p>
-          <h1 className="mb-4 font-display font-bold uppercase leading-tight tracking-[0.01em]" style={{ fontSize: 'clamp(36px, 5vw, 64px)', color: '#ffffff' }}>
-            Groothandel & B2B-aanvragen
+          <h1 className="mb-4 font-display font-bold uppercase leading-tight tracking-[0.01em]" style={{ fontSize: 'clamp(34px, 5vw, 64px)', color: '#ffffff' }}>
+            Wholesale &amp; B2B Enquiries
           </h1>
           <p className="max-w-[560px] text-[16px] font-light leading-[1.8]" style={{ color: '#A0A0A0' }}>
-            Mantra Sports NL levert premium cricketuitrusting aan clubs, scholen, dealers en academies door heel Europa — tegen eerlijke groothandelsprijzen en met persoonlijke service.
+            Mantra Sports India supplies premium cricket equipment to clubs, schools, academies and retailers across India — with fair volume pricing and personal service.
           </p>
         </div>
       </div>
 
       {/* ── Main content ── */}
-      <div style={{ padding: '64px 60px' }}>
-        <div className="grid gap-16" style={{ gridTemplateColumns: '1fr 1.2fr', alignItems: 'start' }}>
+      <div className="px-4 py-12 sm:px-8 lg:px-[60px] lg:py-16">
+        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
 
           {/* Left — info */}
           <div>
-            <p className="mb-2 font-display text-[11px] font-semibold uppercase tracking-[0.22em]" style={{ color: '#e85d1a' }}>Waarom Mantra Sports</p>
-            <h2 className="mb-8 font-display text-[32px] font-bold uppercase leading-tight tracking-[0.02em]" style={{ color: '#111111' }}>
-              Jouw betrouwbare cricketpartner
+            <p className="mb-2 font-display text-[11px] font-semibold uppercase tracking-[0.22em]" style={{ color: '#e85d1a' }}>Why Mantra Sports</p>
+            <h2 className="mb-8 font-display text-[28px] font-bold uppercase leading-tight tracking-[0.02em] sm:text-[32px]" style={{ color: '#111111' }}>
+              Your Reliable Cricket Partner
             </h2>
 
             <div className="mb-10 space-y-0" style={{ border: '1px solid #E0DFDB' }}>
@@ -95,7 +95,7 @@ export default function WholesalePage() {
             </div>
 
             <div style={{ border: '1px solid #E0DFDB', padding: '24px', background: '#F8F7F4' }}>
-              <p className="mb-4 font-display text-[12px] font-semibold uppercase tracking-[0.14em]" style={{ color: '#6B6B6B' }}>Geschikt voor</p>
+              <p className="mb-4 font-display text-[12px] font-semibold uppercase tracking-[0.14em]" style={{ color: '#6B6B6B' }}>Ideal for</p>
               <ul className="space-y-2">
                 {WHO_FOR.map((item) => (
                   <li key={item} className="flex items-center gap-2 text-[14px]" style={{ color: '#333333' }}>
@@ -109,7 +109,7 @@ export default function WholesalePage() {
 
           {/* Right — form */}
           <div>
-            <WholesaleForm />
+            <WholesaleForm heading="Request Wholesale Pricing" />
           </div>
         </div>
       </div>

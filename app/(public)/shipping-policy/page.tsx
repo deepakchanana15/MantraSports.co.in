@@ -2,112 +2,102 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ContentPage } from '@/components/layout/ContentPage'
 import { SITE_CONFIG } from '@/lib/config/site'
+import { getSiteSettings } from '@/lib/utils/settings'
 
 export const metadata: Metadata = {
-  title: 'Verzendbeleid',
+  title: 'Shipping Policy',
   description:
-    'Verzending, levertijden, verzendkosten en invoerrechten voor bestellingen bij Mantra Sports Nederland. Bestellingen worden verzonden vanuit Australië.',
+    'Free delivery across India on all Mantra Sports orders. Processing times, delivery times, tracking and import duty for items shipped from Australia.',
 }
 
-export default function ShippingPolicyPage() {
-  const email = SITE_CONFIG.contact.email
+export default async function ShippingPolicyPage() {
+  const { contact_email, shipping_processing_time, shipping_delivery_time } = await getSiteSettings([
+    'contact_email',
+    'shipping_processing_time',
+    'shipping_delivery_time',
+  ])
 
   return (
     <ContentPage
-      eyebrow="Klantenservice"
-      title="Verzendbeleid"
-      intro="Alles over het verwerken, verzenden en bezorgen van je bestelling bij Mantra Sports Nederland."
-      breadcrumb={[{ label: 'Verzendbeleid' }]}
-      meta="Laatst bijgewerkt: 31 oktober 2026"
+      eyebrow="Customer Service"
+      title="Shipping Policy"
+      intro="Everything about how we process, ship and deliver your Mantra Sports India order."
+      breadcrumb={[{ label: 'Shipping Policy' }]}
+      meta="Last updated: 31 October 2026"
     >
-      <h2>Waar verzenden we vandaan?</h2>
+      <h2>Free Delivery Across India</h2>
       <p>
-        Bestellingen bij Mantra Sports Nederland worden verzorgd door {SITE_CONFIG.company.legalName} en verzonden
-        vanuit Australië. Daardoor gelden er andere levertijden dan bij een Nederlandse webwinkel, en kunnen er bij invoer
-        in de EU kosten bijkomen (zie <a href="#invoerrechten">Invoerrechten en btw</a>).
+        Delivery is <strong>free on every online order</strong> shipped to an address in India. The price you see at checkout
+        is the total you pay — there are no extra shipping charges, cash-handling fees or hidden costs. We currently deliver
+        within India only.
       </p>
 
-      <h2>Bestellen en orderbevestiging</h2>
+      <h2>Where Orders Ship From</h2>
       <p>
-        Je bestelt bij ons via een offerteaanvraag: via het <Link href="/contact">contactformulier</Link>, de knop
-        &lsquo;Offerte aanvragen&rsquo; op een productpagina, WhatsApp of per e-mail. In onze offerte vermelden we de prijs,
-        de verzendkosten en de verwachte levertijd. Zodra je de offerte hebt geaccepteerd en de betaling is ontvangen,
-        ontvang je een orderbevestiging per e-mail.
+        Orders are sold and fulfilled by {SITE_CONFIG.company.legalName}, Ghaziabad, Uttar Pradesh. Most products are dispatched
+        from our stock in India. Some products are shipped to you from the Mantra Sports warehouse in Australia; these may take
+        longer to arrive (see delivery times below).
       </p>
 
-      <h2>Verwerking en verzending</h2>
+      <h2>Order Confirmation</h2>
       <p>
-        Mantra Sports verzendt bestellingen doorgaans binnen <strong>1 tot 4 werkdagen</strong> na ontvangst van de bestelling
-        en betaling*. Bestellingen worden tijdens normale werktijden verwerkt.
-      </p>
-      <p>
-        Bats die we op jouw verzoek inkloppen (&lsquo;knocking-in&rsquo;) hebben hiervoor ongeveer 7 dagen nodig en worden
-        daarna verzonden.
+        After you pay online, you receive an order confirmation by email with your order number and a link to your tax invoice.
+        You can check the status of your order at any time on our <Link href="/order-status">order tracking page</Link>.
       </p>
 
-      <h2>Levertijden</h2>
-      <div className="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Bestemming</th><th>Levertijd na verzending</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Nederland, België en de rest van Europa</td><td>5 – 14 werkdagen</td></tr>
-            <tr><td>Verenigd Koninkrijk</td><td>5 – 14 werkdagen</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <h2>Processing Time</h2>
       <p>
-        * Sommige artikelen moeten eerst vanuit een andere locatie naar ons worden overgebracht voordat ze kunnen worden verzonden,
-        wat de levertijd kan beïnvloeden. De genoemde levertijden zijn schattingen. We verzenden zo snel mogelijk; bij langere
-        vertraging nemen we contact met je op om je bestelling te bespreken. Douaneafhandeling kan de levertijd verlengen.
+        We usually dispatch orders within <strong>{shipping_processing_time}</strong> of payment. Orders are processed on working
+        days (Monday to Saturday, excluding public holidays).
       </p>
 
-      <h2>Track &amp; trace</h2>
+      <h2>Delivery Time</h2>
       <p>
-        Zodra je bestelling is verzonden, ontvang je per e-mail een trackingnummer waarmee je de status van je zending online
-        kunt volgen.
+        Estimated delivery after dispatch: <strong>{shipping_delivery_time}</strong>. Delivery to remote areas, the North-East
+        and island territories can take a few days longer. Delivery times are estimates — if your order is significantly delayed
+        we will contact you.
       </p>
 
-      <h2>Verzendkosten</h2>
+      <h2>Tracking</h2>
       <p>
-        Verzendkosten worden berekend op basis van gewicht, afmetingen en bestemming en staan altijd vooraf in je offerte.
-        Voor extra volumineuze artikelen kunnen hogere kosten van de vervoerder gelden; we laten je dat altijd van tevoren weten.
-        Voor bestellingen vanaf €100 is de verzending gratis, tenzij in je offerte uitdrukkelijk anders is vermeld.
+        When your order ships, we email you the courier name and tracking number so you can follow your parcel online. The same
+        details appear on your order page.
       </p>
 
-      <h2 id="invoerrechten">Invoerrechten en btw</h2>
+      <h2 id="import-duty">Import Duty &amp; Customs</h2>
       <p>
-        Omdat we vanuit Australië (buiten de EU) verzenden, kan je zending bij invoer worden belast met invoerbtw, eventuele
-        invoerrechten en inklaringskosten van de vervoerder of douane. Tenzij in je offerte anders is vermeld, zijn deze kosten
-        voor rekening van de ontvanger. Ook kunnen douanebeperkingen van toepassing zijn.
+        For products shipped from Australia, <strong>any customs duty and IGST on import are paid by us</strong> — you do not pay
+        anything extra on delivery. The courier or customs authority may ask the recipient for KYC details (such as PAN or
+        Aadhaar) to clear the parcel, as required under Indian customs rules. Please respond promptly if contacted, so your
+        delivery is not delayed.
       </p>
 
-      <h2>Bezorging</h2>
+      <h2>Delivery Address</h2>
       <p>
-        Je bezorggegevens moeten een volledig straatadres en een telefoonnummer bevatten waarop je overdag bereikbaar bent.
-        Zonder deze gegevens kunnen we je bestelling niet verzenden.
+        Please provide a complete address with PIN code and a mobile number on which you are reachable during the day. We
+        cannot change the delivery address once an order has shipped. If a delivery attempt fails, the courier will usually try
+        again or contact you to arrange delivery.
       </p>
       <p>
-        Ben je niet thuis? De vervoerder doet doorgaans een nieuwe bezorgpoging of laat het pakket achter bij een afhaalpunt.
-        Je kunt ook zelf contact opnemen met de vervoerder om een ander bezorgmoment af te spreken.
-      </p>
-      <p>
-        Het risico van verlies of beschadiging van de producten gaat pas op jou over op het moment dat jij (of een door jou
-        aangewezen persoon) het pakket in ontvangst neemt.
+        Please check your parcel when it arrives. If the package is visibly damaged or tampered with, note this with the courier
+        and contact us within 48 hours with photos.
       </p>
 
-      <h2>Beschikbaarheid van producten</h2>
+      <h2>Out-of-Stock Items</h2>
       <p>
-        Het kan voorkomen dat een product op het moment van bestellen is uitverkocht. In dat geval laten we je dat per e-mail
-        weten en bespreken we de mogelijkheden. Sommige uitverkochte artikelen zijn nog via onze leveranciers verkrijgbaar; we
-        doen dan ons best om het artikel alsnog voor je te bestellen.
+        Occasionally an item may sell out after you order. If that happens we will contact you straight away and offer an
+        alternative or a full refund to your original payment method.
       </p>
 
-      <h2>Vragen?</h2>
+      <h2>Bulk &amp; B2B Orders</h2>
       <p>
-        Wil je een nauwkeurigere inschatting van de levertijd? Mail ons via <a href={`mailto:${email}`}>{email}</a>.
-        Zie ook ons <Link href="/returns-policy">retour- en garantiebeleid</Link> en de <Link href="/faq">veelgestelde vragen</Link>.
+        Delivery terms for wholesale, club and dealer orders are agreed in your quote. <Link href="/b2b">Request a B2B quote</Link>.
+      </p>
+
+      <h2>Questions?</h2>
+      <p>
+        Email <a href={`mailto:${contact_email}`}>{contact_email}</a> or WhatsApp {SITE_CONFIG.contact.phone}. See also our{' '}
+        <Link href="/returns-policy">returns policy</Link> and <Link href="/faq">FAQ</Link>.
       </p>
     </ContentPage>
   )

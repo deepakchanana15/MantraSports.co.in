@@ -7,6 +7,7 @@ import { Menu, X, Search, ChevronDown } from 'lucide-react'
 import { cn } from '@/lib/utils/cn'
 import { MAIN_NAV, SITE_CONFIG } from '@/lib/config/site'
 import type { NavItem } from '@/types'
+import { CartButton } from '@/components/layout/CartButton'
 
 // ── Logo mark — inline SVG fallback while PNG loads ──────────────────────────
 function LogoMark({ className }: { className?: string }) {
@@ -30,7 +31,7 @@ function LogoMark({ className }: { className?: string }) {
   )
 }
 
-export function Navbar() {
+export function Navbar({ announcementText = '' }: { announcementText?: string }) {
   const pathname = usePathname()
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
@@ -59,20 +60,21 @@ export function Navbar() {
 
   return (
     <>
-      {/* ── Announcement Bar ─────────────────────────────────────────── */}
-      <div
-        style={{ background: '#111111' }}
-        className="py-[9px] px-4 text-center text-[12px] font-medium tracking-[0.08em] text-white"
-      >
-        🏏 Gratis verzending vanaf €100 &nbsp;|&nbsp; Code{' '}
-        <strong>ERSTBESTELLUNG5</strong> voor 5% korting
-        <Link
-          href="/shop"
-          className="ml-2 text-[#e85d1a] hover:underline"
+      {/* ── Announcement Bar (text editable in /admin/settings) ───────── */}
+      {announcementText && (
+        <div
+          style={{ background: '#111111' }}
+          className="py-[9px] px-4 text-center text-[12px] font-medium tracking-[0.08em] text-white"
         >
-          Nu shoppen →
-        </Link>
-      </div>
+          🏏 {announcementText}
+          <Link
+            href="/shop"
+            className="ml-2 text-[#e85d1a] hover:underline"
+          >
+            Shop now →
+          </Link>
+        </div>
+      )}
 
       {/* ── Sticky Nav ───────────────────────────────────────────────── */}
       <header
@@ -81,14 +83,13 @@ export function Navbar() {
       >
         <nav
           ref={navRef}
-          aria-label="Hoofdnavigatie"
-          className="mx-auto flex h-[72px] max-w-none items-center justify-between"
-          style={{ padding: '0 60px' }}
+          aria-label="Main navigation"
+          className="mx-auto flex h-[72px] max-w-none items-center justify-between px-4 sm:px-8 xl:px-[60px]"
         >
           {/* ── Logo ───────────────────────────────────────────────── */}
           <Link
             href="/"
-            aria-label={`${SITE_CONFIG.name} — Startpagina`}
+            aria-label={`${SITE_CONFIG.name} — Home`}
             className="flex shrink-0 items-center gap-3.5 text-decoration-none"
           >
             {logoError ? (
@@ -105,7 +106,7 @@ export function Navbar() {
             )}
             <div className="leading-none">
               <span
-                className="block font-display text-[22px] font-semibold tracking-[0.04em]"
+                className="block font-display text-[19px] font-semibold tracking-[0.04em] sm:text-[22px]"
                 style={{ color: '#111111' }}
               >
                 MANTRA SPORTS
@@ -114,7 +115,7 @@ export function Navbar() {
                 className="mt-[1px] block text-[10px] font-medium uppercase tracking-[0.2em]"
                 style={{ color: '#e85d1a' }}
               >
-                Nederland
+                India
               </span>
             </div>
           </Link>
@@ -133,9 +134,9 @@ export function Navbar() {
           </ul>
 
           {/* ── Right Actions ───────────────────────────────────────── */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             {/* Search */}
-            <form method="GET" action="/shop" className="relative hidden sm:block">
+            <form method="GET" action="/shop" className="relative hidden md:block">
               <Search
                 className="pointer-events-none absolute top-1/2 -translate-y-1/2"
                 style={{ left: 11, width: 14, height: 14, color: '#6B6B6B' }}
@@ -144,8 +145,8 @@ export function Navbar() {
               <input
                 name="q"
                 type="search"
-                placeholder="Producten zoeken…"
-                className="w-[200px] rounded-[4px] border text-[13px] outline-none transition-colors"
+                placeholder="Search products…"
+                className="w-[170px] xl:w-[200px] rounded-[4px] border text-[13px] outline-none transition-colors"
                 style={{
                   background: '#F2F1EE',
                   borderColor: '#E0DFDB',
@@ -164,25 +165,27 @@ export function Navbar() {
                   e.currentTarget.style.background = '#F2F1EE'
                   e.currentTarget.style.borderColor = '#E0DFDB'
                 }}
-                aria-label="Producten zoeken"
+                aria-label="Search products"
               />
             </form>
 
+            <CartButton />
+
             {/* CTA */}
             <Link
-              href="/contact"
+              href="/b2b"
               className="hidden rounded-[2px] px-[22px] py-[10px] font-display text-[14px] font-medium uppercase tracking-[0.08em] text-white transition-colors lg:block"
               style={{ background: '#e85d1a' }}
               onMouseEnter={(e) => { e.currentTarget.style.background = '#c44b0f' }}
               onMouseLeave={(e) => { e.currentTarget.style.background = '#e85d1a' }}
             >
-              Offerte aanvragen
+              Request a Quote
             </Link>
 
             {/* Hamburger */}
             <button
               type="button"
-              aria-label={isMobileOpen ? 'Menu sluiten' : 'Menu openen'}
+              aria-label={isMobileOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isMobileOpen}
               aria-controls="mobile-menu"
               onClick={() => setIsMobileOpen((prev) => !prev)}
@@ -210,6 +213,15 @@ export function Navbar() {
         )}
       >
         <div className="flex-1 px-5 py-6">
+          <form method="GET" action="/shop" className="mb-4 md:hidden">
+            <input
+              name="q"
+              type="search"
+              placeholder="Search products…"
+              aria-label="Search products"
+              className="h-11 w-full rounded-[4px] border border-[#E0DFDB] bg-[#F2F1EE] px-4 text-sm text-[#111] outline-none focus:border-[#e85d1a] focus:bg-white"
+            />
+          </form>
           <ul className="space-y-1" role="list">
             {MAIN_NAV.map((item) => (
               <li key={item.label}>
@@ -250,11 +262,11 @@ export function Navbar() {
 
         <div className="border-t p-4" style={{ borderColor: '#F2F1EE' }}>
           <Link
-            href="/contact"
+            href="/b2b"
             className="block rounded-[2px] px-4 py-3 text-center font-display text-sm font-bold uppercase tracking-widest text-white"
             style={{ background: '#e85d1a' }}
           >
-            Offerte aanvragen
+            Request a B2B Quote
           </Link>
         </div>
       </div>

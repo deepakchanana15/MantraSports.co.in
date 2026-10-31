@@ -14,9 +14,9 @@ type CardProduct = {
 }
 
 const STOCK_BADGE: Record<string, { label: string; cls: string }> = {
-  IN_STOCK:     { label: 'Op voorraad',    cls: 'bg-green-100 text-green-700' },
-  OUT_OF_STOCK: { label: 'Niet leverbaar', cls: 'bg-red-100 text-red-600' },
-  ON_REQUEST:   { label: 'Op aanvraag',    cls: 'bg-orange-100 text-orange-700' },
+  IN_STOCK:     { label: 'In Stock',       cls: 'bg-green-100 text-green-700' },
+  OUT_OF_STOCK: { label: 'Out of Stock',   cls: 'bg-red-100 text-red-600' },
+  ON_REQUEST:   { label: 'On Request',     cls: 'bg-orange-100 text-orange-700' },
 }
 
 export function ProductCard({ product }: { product: CardProduct }) {
@@ -52,7 +52,7 @@ export function ProductCard({ product }: { product: CardProduct }) {
           </span>
         ) : product.isNewArrival ? (
           <span className="absolute left-3 top-3 bg-[#111111] px-2 py-0.5 font-display text-[11px] font-bold uppercase text-white tracking-wider">
-            Nieuw
+            New
           </span>
         ) : product.isBestSeller ? (
           <span className="absolute left-3 top-3 bg-[#E85D1A] px-2 py-0.5 font-display text-[11px] font-bold uppercase text-white tracking-wider">
@@ -63,7 +63,7 @@ export function ProductCard({ product }: { product: CardProduct }) {
         {/* Hover overlay CTA */}
         <div className="absolute inset-x-0 bottom-0 flex translate-y-full items-center justify-center bg-[#111111] py-3 transition-transform duration-300 group-hover:translate-y-0">
           <span className="font-display text-[11px] font-bold uppercase tracking-[0.18em] text-white">
-            Nu aanvragen
+            View Product
           </span>
         </div>
       </div>
@@ -91,7 +91,7 @@ export function ProductCard({ product }: { product: CardProduct }) {
               {formatPrice(price)}
             </span>
           ) : (
-            <span className="font-display text-xs font-medium text-[#999]">Prijs op aanvraag</span>
+            <span className="font-display text-xs font-medium text-[#999]">Price on Request</span>
           )}
         </div>
         {stock && (

@@ -15,8 +15,8 @@ function HeroImageField({ currentUrl, disabled }: { currentUrl: string; disabled
     if (!file) return
     setUploading(true)
     try {
-      const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME ?? 'dgeaaga0s'
-      const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET ?? 'mantrasports_nl'
+      const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+      const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET
       if (!cloudName || !uploadPreset) throw new Error('Cloudinary is not configured.')
       const fd = new FormData()
       fd.append('file', file)
@@ -70,32 +70,43 @@ function HeroImageField({ currentUrl, disabled }: { currentUrl: string; disabled
   )
 }
 
-const FIELDS = [
+type FieldDef = { key: string; label: string; type: string; placeholder?: string; hint?: string; options?: { value: string; label: string }[] }
+
+const FIELDS: { section: string; items: FieldDef[] }[] = [
   { section: 'Branding', items: [
-    { key: 'site_name',    label: 'Site Name',    type: 'text',     placeholder: 'Mantra Sports NL' },
-    { key: 'site_tagline', label: 'Tagline',      type: 'text',     placeholder: 'Speel zonder grenzen.' },
+    { key: 'site_name',    label: 'Site Name',    type: 'text',     placeholder: 'Mantra Sports India' },
+    { key: 'site_tagline', label: 'Tagline',      type: 'text',     placeholder: 'Play without limits.' },
+    { key: 'announcement_text', label: 'Announcement Bar Text', type: 'text', placeholder: 'Free delivery across India on all orders', hint: 'Shown in the black bar at the top of every page. Leave empty to hide it.' },
   ]},
   { section: 'Contact', items: [
-    { key: 'contact_email',   label: 'Contact Email',   type: 'email',  placeholder: 'info@mantrasports.nl' },
-    { key: 'contact_phone',   label: 'Phone Number',    type: 'tel',    placeholder: '+31 ...' },
-    { key: 'contact_address', label: 'Address',         type: 'text',   placeholder: 'Straat, Stad, Nederland' },
-    { key: 'whatsapp_number', label: 'WhatsApp Number', type: 'tel',    placeholder: '+31...' },
+    { key: 'contact_email',   label: 'Contact Email',   type: 'email',  placeholder: 'support@mantrasports.com.au' },
+    { key: 'contact_phone',   label: 'Phone Number',    type: 'tel',    placeholder: '+91 83689 15399' },
+    { key: 'contact_address', label: 'Address',         type: 'text',   placeholder: 'Street, City, State PIN, India' },
+  ]},
+  { section: 'Shipping & Returns', items: [
+    { key: 'shipping_processing_time', label: 'Order Processing Time', type: 'text', placeholder: '1–2 business days', hint: 'Shown on the Shipping Policy and FAQ.' },
+    { key: 'shipping_delivery_time',   label: 'Delivery Time',         type: 'text', placeholder: '3–7 business days within India', hint: 'Shown on product pages, checkout, order emails and policies.' },
+    { key: 'return_window_days',       label: 'Return Window (days, numbers only)', type: 'text', placeholder: '7' },
+    { key: 'response_time_hours',      label: 'Enquiry Response Time (hours, numbers only)', type: 'text', placeholder: '24' },
+  ]},
+  { section: 'GST Invoices', items: [
+    { key: 'default_gst_rate', label: 'Default GST Rate (%)', type: 'text', placeholder: 'e.g. 5', hint: 'Used on tax invoices for products without their own GST rate. Prices on the site are GST-inclusive. Confirm the rate with your CA.' },
+    { key: 'default_hsn_code', label: 'Default HSN Code', type: 'text', placeholder: 'e.g. 9506', hint: 'Used on tax invoices for products without their own HSN code.' },
+  ]},
+  { section: 'Google Reviews', items: [
+    { key: 'google_reviews_enabled', label: 'Show Google reviews on the homepage', type: 'select', options: [{ value: 'false', label: 'No' }, { value: 'true', label: 'Yes' }], hint: 'Needs the GOOGLE_PLACES_API_KEY environment variable on the server.' },
+    { key: 'google_place_id',        label: 'Google Place ID', type: 'text', placeholder: 'ChIJ…', hint: 'Find it at developers.google.com/maps/documentation/places/web-service/place-id by searching your business name.' },
+    { key: 'google_reviews_url',     label: 'Google Reviews Link (optional)', type: 'url', placeholder: 'https://g.page/r/…', hint: 'Where "Read all reviews on Google" points. Defaults to your Google Maps listing.' },
   ]},
   { section: 'Social Media', items: [
     { key: 'social_instagram',  label: 'Instagram URL',  type: 'url', placeholder: 'https://instagram.com/mantrasports' },
     { key: 'social_facebook',   label: 'Facebook URL',   type: 'url', placeholder: 'https://facebook.com/mantrasports' },
     { key: 'social_linkedin',   label: 'LinkedIn URL',   type: 'url', placeholder: 'https://linkedin.com/company/mantrasports' },
     { key: 'social_youtube',    label: 'YouTube URL',    type: 'url', placeholder: 'https://youtube.com/@mantrasports' },
-    { key: 'social_twitter',    label: 'X (Twitter) URL', type: 'url', placeholder: 'https://x.com/mantrasports' },
-    { key: 'social_tiktok',     label: 'TikTok URL',     type: 'url', placeholder: 'https://tiktok.com/@mantrasports' },
-    { key: 'social_pinterest',  label: 'Pinterest URL',  type: 'url', placeholder: 'https://pinterest.com/mantrasports' },
   ]},
   { section: 'SEO', items: [
-    { key: 'meta_title',       label: 'Default Meta Title',       type: 'text',     placeholder: 'Mantra Sports NL — Premium Cricket' },
+    { key: 'meta_title',       label: 'Default Meta Title',       type: 'text',     placeholder: 'Mantra Sports India — Premium Cricket' },
     { key: 'meta_description', label: 'Default Meta Description', type: 'textarea', placeholder: '160 chars max...' },
-  ]},
-  { section: 'Footer', items: [
-    { key: 'footer_text', label: 'Footer Copyright Text', type: 'text', placeholder: '© 2025 Mantra Sports. Alle rechten voorbehouden.' },
   ]},
 ]
 
@@ -138,10 +149,19 @@ export function SettingsForm({
         <div key={section} className="rounded border border-neutral-200 bg-white p-6">
           <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-neutral-500">{section}</h2>
           <div className="space-y-4">
-            {items.map(({ key, label, type, placeholder }) => (
+            {items.map(({ key, label, type, placeholder, hint, options }) => (
               <div key={key}>
                 <label className="mb-1.5 block text-sm font-medium text-neutral-700">{label}</label>
-                {type === 'textarea' ? (
+                {type === 'select' ? (
+                  <select
+                    name={`setting_${key}`}
+                    defaultValue={settings[key] ?? ''}
+                    disabled={disabled}
+                    className={inputCls}
+                  >
+                    {options?.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
+                  </select>
+                ) : type === 'textarea' ? (
                   <textarea
                     name={`setting_${key}`}
                     defaultValue={settings[key] ?? ''}
@@ -160,6 +180,7 @@ export function SettingsForm({
                     className={inputCls}
                   />
                 )}
+                {hint && <p className="mt-1 text-xs text-neutral-400">{hint}</p>}
               </div>
             ))}
           </div>

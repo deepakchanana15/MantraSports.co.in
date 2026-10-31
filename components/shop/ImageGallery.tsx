@@ -43,7 +43,7 @@ export function ImageGallery({ images, name }: { images: GalleryImage[]; name: s
             <button
               key={i}
               onClick={() => setSelected(i)}
-              aria-label={`Bild ${i + 1} anzeigen`}
+              aria-label={`View image ${i + 1}`}
               className={`h-20 w-20 shrink-0 overflow-hidden border-2 bg-[#F8F7F4] transition-colors ${
                 selected === i ? 'border-[#E85D1A]' : 'border-transparent hover:border-[#ccc]'
               }`}

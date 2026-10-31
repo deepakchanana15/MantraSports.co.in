@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { auth } from '@/auth'
 import { prisma } from '@/lib/db/prisma'
-import { Package, FolderOpen, MessageSquare, FileText } from 'lucide-react'
+import { Package, ShoppingCart, MessageSquare, FileText } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Dashboard',
@@ -9,15 +9,15 @@ export const metadata: Metadata = {
 
 async function getDashboardStats() {
   try {
-    const [products, collections, enquiries, blogPosts] = await Promise.all([
+    const [products, toPack, enquiries, blogPosts] = await Promise.all([
       prisma.product.count(),
-      prisma.collection.count(),
+      prisma.order.count({ where: { status: { in: ['PAID', 'PROCESSING'] } } }),
       prisma.enquiry.count({ where: { status: 'NEW' } }),
       prisma.blogPost.count(),
     ])
-    return { products, collections, enquiries, blogPosts, dbConnected: true }
+    return { products, toPack, enquiries, blogPosts, dbConnected: true }
   } catch {
-    return { products: 0, collections: 0, enquiries: 0, blogPosts: 0, dbConnected: false }
+    return { products: 0, toPack: 0, enquiries: 0, blogPosts: 0, dbConnected: false }
   }
 }
 
@@ -34,11 +34,12 @@ export default async function DashboardPage() {
       description: 'Manage product catalogue',
     },
     {
-      label: 'Collections',
-      value: stats.collections,
-      icon: FolderOpen,
-      href: '/admin/collections',
-      description: 'Curated product groups',
+      label: 'Orders to Pack',
+      value: stats.toPack,
+      icon: ShoppingCart,
+      href: '/admin/orders',
+      description: 'Paid orders awaiting dispatch',
+      highlight: stats.toPack > 0,
     },
     {
       label: 'New Enquiries',
@@ -118,6 +119,7 @@ export default async function DashboardPage() {
         </h2>
         <div className="flex flex-wrap gap-3">
           {[
+            { label: 'View Orders', href: '/admin/orders' },
             { label: 'Add Product', href: '/admin/products/new' },
             { label: 'New Collection', href: '/admin/collections/new' },
             { label: 'View Enquiries', href: '/admin/enquiries' },

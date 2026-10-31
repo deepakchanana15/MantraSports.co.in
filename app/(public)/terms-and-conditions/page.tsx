@@ -2,207 +2,178 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ContentPage } from '@/components/layout/ContentPage'
 import { SITE_CONFIG } from '@/lib/config/site'
+import { getSiteSettings } from '@/lib/utils/settings'
 
 export const metadata: Metadata = {
-  title: 'Algemene Voorwaarden',
+  title: 'Terms & Conditions',
   description:
-    'De algemene voorwaarden van Mantra Sports Nederland (Mantra Corporation Pty Ltd) voor het gebruik van mantrasports.nl en voor bestellingen.',
+    'Terms and conditions for using mantrasports.co.in and buying from Mantra Sports International (Mantra Sports India).',
 }
 
-export default function TermsPage() {
-  const { company, contact } = SITE_CONFIG
-  const email = contact.email
+export default async function TermsPage() {
+  const { company } = SITE_CONFIG
+  const { contact_email, contact_phone, return_window_days } = await getSiteSettings([
+    'contact_email',
+    'contact_phone',
+    'return_window_days',
+  ])
+  const email = contact_email
 
   return (
     <ContentPage
-      eyebrow="Juridisch"
-      title="Algemene Voorwaarden"
-      intro="Lees deze voorwaarden goed door voordat je de website gebruikt of een bestelling plaatst."
-      breadcrumb={[{ label: 'Algemene Voorwaarden' }]}
-      meta="Laatst bijgewerkt: 31 oktober 2026"
+      eyebrow="Legal"
+      title="Terms & Conditions"
+      intro="These terms apply to your use of mantrasports.co.in and to every purchase you make from us. Please read them before placing an order."
+      breadcrumb={[{ label: 'Terms & Conditions' }]}
+      meta="Last updated: 31 October 2026"
     >
-      <h2>Overzicht</h2>
+      <h2>Overview</h2>
       <p>
-        Deze website wordt geëxploiteerd door {company.legalName} (ABN {company.abn}), {company.street}, {company.city}{' '}
-        {company.postalCode}, {company.region}, {company.country}, handelend als Mantra Sports Nederland. Op de hele website
-        verwijzen &lsquo;wij&rsquo;, &lsquo;ons&rsquo; en &lsquo;onze&rsquo; naar Mantra Sports Nederland.
+        This website is operated by <strong>{company.legalName}</strong> ({company.entityType}), {SITE_CONFIG.contact.address},
+        GSTIN {company.gstin} (&lsquo;Mantra Sports India&rsquo;, &lsquo;we&rsquo;, &lsquo;us&rsquo;). We are the seller of all
+        products on this website. By using the website or placing an order, you agree to these terms, together with our{' '}
+        <Link href="/privacy-policy">Privacy Policy</Link>, <Link href="/shipping-policy">Shipping Policy</Link> and{' '}
+        <Link href="/returns-policy">Returns Policy</Link>.
       </p>
       <p>
-        Door onze website te bezoeken en/of iets bij ons te kopen, maak je gebruik van onze &lsquo;Dienst&rsquo; en ga je akkoord
-        met deze algemene voorwaarden (&lsquo;Voorwaarden&rsquo;), inclusief de aanvullende voorwaarden en het beleid waarnaar
-        hierin wordt verwezen. Deze Voorwaarden gelden voor alle gebruikers van de website.
-      </p>
-      <p>
-        Waar in deze Voorwaarden sprake is van een &lsquo;consument&rsquo;, bedoelen we een natuurlijke persoon die niet handelt
-        in de uitoefening van een beroep of bedrijf. Niets in deze Voorwaarden beperkt de rechten die consumenten op grond van
-        dwingend recht hebben.
+        Nothing in these terms limits your rights as a consumer under the Consumer Protection Act, 2019 and the Consumer
+        Protection (E-Commerce) Rules, 2020.
       </p>
 
-      <h2>1. Gebruik van de website</h2>
+      <h2>1. Using the Website</h2>
       <ul>
+        <li>You must be at least 18 years old to place an order, or have the involvement of a parent or guardian.</li>
+        <li>You agree to provide accurate, current and complete information when ordering or contacting us.</li>
         <li>
-          Door akkoord te gaan met deze Voorwaarden verklaar je meerderjarig te zijn, of minderjarig te zijn met toestemming van
-          je ouder of voogd.
+          You must not use the website for any unlawful purpose, attempt to interfere with its security or operation, or
+          introduce malicious code.
         </li>
-        <li>Je mag onze producten en de website niet gebruiken voor illegale of ongeoorloofde doeleinden.</li>
-        <li>Je mag geen virussen of andere schadelijke code verspreiden.</li>
-        <li>
-          Je mag (delen van) de Dienst niet kopiëren, dupliceren, verkopen of anderszins exploiteren zonder onze uitdrukkelijke
-          schriftelijke toestemming.
-        </li>
-        <li>
-          Het is verboden de website te gebruiken om anderen lastig te vallen of te misleiden, om onjuiste informatie te
-          verstrekken, om persoonsgegevens van anderen te verzamelen, om spam te versturen of geautomatiseerd gegevens te
-          verzamelen, of om de beveiliging van de website te omzeilen.
-        </li>
-        <li>Bij overtreding van deze regels kunnen we je de toegang tot de Dienst ontzeggen.</li>
+        <li>We may refuse service, cancel orders or restrict access where we reasonably suspect fraud or misuse.</li>
       </ul>
 
-      <h2>2. Informatie op de website</h2>
+      <h2>2. Product Information</h2>
       <p>
-        We doen ons best om de informatie op de website juist, volledig en actueel te houden. Toch kan informatie onvolledig of
-        verouderd zijn of (type)fouten bevatten, bijvoorbeeld in productbeschrijvingen, prijzen, verzendkosten, levertijden of
-        beschikbaarheid. We behouden ons het recht voor om zulke fouten te corrigeren. Kennelijke vergissingen en fouten binden
-        ons niet.
-      </p>
-      <p>
-        We doen ons best om kleuren en afbeeldingen van producten zo nauwkeurig mogelijk weer te geven, maar kunnen niet
-        garanderen dat jouw beeldscherm de kleuren precies weergeeft.
+        We take care to describe and photograph products accurately, including key specifications and country of origin where
+        applicable. Natural materials such as English willow vary, so grain, colour and weight can differ slightly from the
+        photos. Colours may also look different depending on your screen. If a product you receive is not as described, you can
+        return it under our <Link href="/returns-policy">Returns Policy</Link>.
       </p>
 
-      <h2>3. Prijzen</h2>
+      <h2>3. Prices</h2>
       <ul>
-        <li>Prijzen op de website zijn in euro&apos;s.</li>
+        <li>All prices are in Indian Rupees (₹) and <strong>include GST</strong>.</li>
+        <li>Delivery within India is free. The total shown at checkout is the full amount you pay — there are no hidden charges.</li>
         <li>
-          Prijzen kunnen zonder voorafgaande kennisgeving wijzigen. Een prijswijziging heeft geen invloed op een offerte die al
-          door jou is geaccepteerd of een bestelling die al door ons is bevestigd.
-        </li>
-        <li>
-          Verzendkosten en eventuele invoerkosten staan vermeld in je offerte en in ons{' '}
-          <Link href="/shipping-policy">verzendbeleid</Link>.
+          We may change prices at any time, but changes do not affect orders already confirmed. If a product is listed at an
+          obviously incorrect price due to an error, we will contact you before dispatch and you may cancel for a full refund.
         </li>
       </ul>
 
-      <h2>4. Offerte en totstandkoming van de overeenkomst</h2>
+      <h2>4. Placing an Order</h2>
+      <p>
+        When you place an order and complete payment, you make an offer to buy the products in your cart. We send an order
+        confirmation by email once payment is received; a contract is formed when we dispatch the products. We may decline or
+        cancel an order (for example if an item is out of stock, or we suspect fraud), in which case we refund you in full to
+        your original payment method.
+      </p>
+
+      <h2>5. Payment</h2>
+      <p>
+        Payments are processed securely by Razorpay. We accept the methods shown at checkout, which may include UPI,
+        debit and credit cards (including RuPay), netbanking and wallets. Orders are prepaid; cash on delivery is not offered
+        unless stated at checkout. We do not store your card or banking credentials.
+      </p>
+
+      <h2>6. Delivery</h2>
+      <p>
+        We deliver within India only. Delivery times and terms are set out in our <Link href="/shipping-policy">Shipping
+        Policy</Link>. Risk in the products passes to you on delivery. For items shipped from Australia, any import duty and IGST
+        are paid by us.
+      </p>
+
+      <h2>7. Cancellations, Returns &amp; Exchanges</h2>
+      <p>
+        You may cancel before dispatch for a full refund. Unused items can be returned within {return_window_days} days of
+        delivery, and damaged, defective or wrong items will always be replaced or refunded. Full details are in our{' '}
+        <Link href="/returns-policy">Returns, Refunds &amp; Warranty Policy</Link>.
+      </p>
+
+      <h2>8. Warranty</h2>
+      <p>
+        Products carry the manufacturer&apos;s warranty described in our <Link href="/returns-policy#warranty">Returns, Refunds
+        &amp; Warranty Policy</Link>, in addition to your statutory rights for defective goods.
+      </p>
+
+      <h2>9. Liability</h2>
+      <p>
+        To the extent permitted by law, our total liability for any claim relating to an order is limited to the amount you paid
+        for that order. We are not liable for indirect or consequential losses. Nothing in these terms excludes liability that
+        cannot be excluded by law, including for product defects, deficiency in service or negligence causing injury.
+      </p>
+      <p>
+        Cricket is a contact sport. Protective equipment reduces but does not eliminate the risk of injury. Always choose the
+        correct size, check equipment for damage before use, and replace a helmet after a heavy impact.
+      </p>
+
+      <h2>10. Intellectual Property</h2>
+      <p>
+        All content on this website — including the Mantra Sports name and logo, text, images and design — belongs to Mantra
+        Sports or its licensors and may not be copied or used without written permission.
+      </p>
+
+      <h2>11. Reviews &amp; Submissions</h2>
+      <p>
+        Any reviews shown on this website come from genuine customers (for example, via our Google Business Profile). We do not
+        publish fake reviews or edit reviews to change their meaning. If you send us feedback or ideas, you allow us to use them
+        without obligation to you.
+      </p>
+
+      <h2>12. Third-Party Links</h2>
+      <p>
+        The website may link to third-party websites (such as Razorpay, courier tracking pages or social media). We are not
+        responsible for their content or practices.
+      </p>
+
+      <h2>13. Personal Data</h2>
+      <p>
+        We handle your personal data as described in our <Link href="/privacy-policy">Privacy Policy</Link>.
+      </p>
+
+      <h2>14. Business &amp; Wholesale Customers</h2>
+      <p>
+        Wholesale, B2B, club and dealer orders placed through a quote are governed by the terms in that quote. Where a quote is
+        silent, these terms apply. Business buyers who provide a GSTIN at checkout receive a GST invoice showing their GSTIN.
+      </p>
+
+      <h2>15. Complaints &amp; Grievances</h2>
+      <p>
+        If you have a complaint, please contact us first at <a href={`mailto:${email}`}>{email}</a> or {contact_phone}. You can
+        also contact our <Link href="/company-information#grievance-officer">Grievance Officer</Link>, who acknowledges
+        complaints within 48 hours and aims to resolve them within one month. You may also approach the National Consumer
+        Helpline (1915) or the appropriate Consumer Disputes Redressal Commission.
+      </p>
+
+      <h2>16. Governing Law</h2>
+      <p>
+        These terms are governed by the laws of India. Subject to your rights as a consumer to file a complaint where you reside
+        or work, the courts at Ghaziabad, Uttar Pradesh have jurisdiction over disputes.
+      </p>
+
+      <h2>17. General</h2>
       <ul>
+        <li>If any part of these terms is found invalid, the rest remains in force.</li>
+        <li>Our failure to enforce a term does not waive our right to enforce it later.</li>
         <li>
-          Je bestelt bij ons via een offerteaanvraag. Een offerte is vrijblijvend en geldig gedurende de termijn die in de offerte
-          staat.
-        </li>
-        <li>
-          De overeenkomst komt tot stand wanneer je onze offerte accepteert en wij je bestelling per e-mail bevestigen.
-        </li>
-        <li>
-          We kunnen een bestelling weigeren of de hoeveelheid per persoon, huishouden of bestelling beperken, bijvoorbeeld bij
-          vermoeden van misbruik of fraude. Als we een bevestigde bestelling wijzigen of annuleren, laten we je dat zo snel
-          mogelijk weten en betalen we een eventueel al betaald bedrag volledig terug.
-        </li>
-        <li>
-          Je bent verantwoordelijk voor het verstrekken van juiste en volledige gegevens, zoals je naam, e-mailadres en
-          bezorgadres.
-        </li>
-      </ul>
-
-      <h2>5. Betaling</h2>
-      <p>
-        De betaalwijze en betaalinstructies staan in je offerte of factuur. Betalingen worden verwerkt via beveiligde
-        betaalomgevingen. Creditcardgegevens worden altijd versleuteld verzonden.
-      </p>
-
-      <h2>6. Levering</h2>
-      <p>
-        Bestellingen worden verzonden vanuit Australië. Levertijden, verzendkosten en informatie over invoerbtw en invoerrechten
-        vind je in ons <Link href="/shipping-policy">verzendbeleid</Link>. Het risico van verlies of beschadiging gaat voor
-        consumenten pas over op het moment van bezorging.
-      </p>
-
-      <h2>7. Herroepingsrecht, retourneren en ruilen</h2>
-      <p>
-        Consumenten hebben een herroepingsrecht van 14 dagen na ontvangst, dat wij voor ongebruikte artikelen verlengen tot 30
-        dagen. Maatwerk en gepersonaliseerde producten zijn uitgesloten van het herroepingsrecht. Alle details, inclusief het
-        modelformulier voor herroeping, vind je in ons <Link href="/returns-policy">retour- en garantiebeleid</Link>.
-      </p>
-
-      <h2>8. Garantie en conformiteit</h2>
-      <p>
-        De producten die we leveren, voldoen aan de overeenkomst en aan wat je redelijkerwijs mag verwachten. Je hebt als
-        consument altijd recht op de wettelijke garantie. Daarnaast geven wij een eigen garantie per productcategorie, zoals
-        beschreven in ons <Link href="/returns-policy">retour- en garantiebeleid</Link>.
-      </p>
-
-      <h2>9. Aansprakelijkheid</h2>
-      <p>
-        We kunnen niet garanderen dat de website altijd ononderbroken, tijdig, veilig of foutloos beschikbaar is. Voor zover
-        wettelijk toegestaan, zijn wij, onze bestuurders, medewerkers, gelieerde ondernemingen en leveranciers niet aansprakelijk
-        voor indirecte schade of gevolgschade, zoals gederfde winst of omzet, die voortvloeit uit het gebruik van de website of
-        van via de website verkregen producten. Deze beperking geldt niet bij opzet of bewuste roekeloosheid en doet niets af aan
-        je wettelijke rechten als consument.
-      </p>
-
-      <h2>10. Intellectueel eigendom</h2>
-      <p>
-        Alle teksten, afbeeldingen, logo&apos;s en andere materialen op deze website zijn eigendom van Mantra Sports of haar
-        licentiegevers en mogen niet zonder onze schriftelijke toestemming worden gebruikt.
-      </p>
-
-      <h2>11. Opmerkingen, feedback en andere inzendingen</h2>
-      <p>
-        Als je ons ideeën, suggesties of andere materialen stuurt (&lsquo;opmerkingen&rsquo;), mogen we deze zonder beperking
-        bewerken, kopiëren, publiceren en anderszins gebruiken. We zijn niet verplicht opmerkingen vertrouwelijk te houden, er
-        een vergoeding voor te betalen of erop te reageren. Je bent zelf verantwoordelijk voor je opmerkingen; deze mogen geen
-        inbreuk maken op rechten van derden en geen onrechtmatige, beledigende of schadelijke inhoud bevatten.
-      </p>
-
-      <h2>12. Links naar derden</h2>
-      <p>
-        Links op de website kunnen naar websites van derden leiden die niet aan ons zijn verbonden. We zijn niet verantwoordelijk
-        voor de inhoud of juistheid van die websites en niet aansprakelijk voor schade in verband met producten of diensten van
-        derden. Lees het beleid van zulke derden zorgvuldig.
-      </p>
-
-      <h2>13. Persoonsgegevens</h2>
-      <p>
-        Op de verwerking van je persoonsgegevens is ons <Link href="/privacy-policy">privacybeleid</Link> van toepassing.
-      </p>
-
-      <h2>14. Zakelijke afnemers en groothandel</h2>
-      <p>
-        Voor clubs, scholen, dealers en andere zakelijke afnemers kunnen in de offerte of een aparte overeenkomst afwijkende
-        afspraken worden gemaakt, bijvoorbeeld over prijzen, aantallen, betaling en levering. Het herroepingsrecht en andere
-        regels die specifiek voor consumenten gelden, zijn niet van toepassing op zakelijke afnemers.
-      </p>
-
-      <h2>15. Klachten</h2>
-      <p>
-        Heb je een klacht? Neem contact met ons op via <a href={`mailto:${email}`}>{email}</a>. We bevestigen je klacht en streven
-        ernaar deze binnen 14 dagen inhoudelijk te beantwoorden.
-      </p>
-
-      <h2>16. Toepasselijk recht</h2>
-      <p>
-        Op deze Voorwaarden en op overeenkomsten met ons is het recht van Tasmanië, Australië, van toepassing. Ben je een
-        consument met woonplaats in de Europese Unie, dan behoud je daarnaast de bescherming die de dwingende bepalingen van het
-        recht van je woonland je bieden, en kun je een geschil ook voorleggen aan de bevoegde rechter in je woonland.
-      </p>
-
-      <h2>17. Overige bepalingen</h2>
-      <ul>
-        <li>
-          Is een bepaling van deze Voorwaarden onwettig, nietig of niet afdwingbaar, dan blijven de overige bepalingen
-          onverminderd van kracht. De betreffende bepaling wordt dan zoveel mogelijk uitgevoerd binnen wat wettelijk is
-          toegestaan.
-        </li>
-        <li>Als wij een recht of bepaling niet uitoefenen of handhaven, betekent dat niet dat we daarvan afstand doen.</li>
-        <li>
-          We kunnen deze Voorwaarden van tijd tot tijd wijzigen. De meest recente versie staat altijd op deze pagina. Op een
-          bestelling zijn de Voorwaarden van toepassing die golden op het moment dat je de bestelling plaatste.
+          We may update these terms from time to time. The version on this page at the time of your order applies to that
+          order.
         </li>
       </ul>
 
       <h2>18. Contact</h2>
       <p>
-        Vragen over deze Voorwaarden kun je sturen naar <a href={`mailto:${email}`}>{email}</a>. Onze volledige gegevens vind je
-        op de pagina <Link href="/company-information">bedrijfsgegevens</Link>.
+        {company.legalName}<br />
+        {SITE_CONFIG.contact.address}<br />
+        Email: <a href={`mailto:${email}`}>{email}</a> · Phone / WhatsApp: {contact_phone}
       </p>
     </ContentPage>
   )

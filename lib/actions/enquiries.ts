@@ -5,6 +5,7 @@ import { prisma } from '@/lib/db/prisma'
 import { revalidatePath } from 'next/cache'
 import type { EnquiryStatus, EnquiryType } from '@prisma/client'
 import { headers } from 'next/headers'
+import { rateLimit } from '@/lib/utils/rate-limit'
 
 const MANTRA_OS_CUSTOMER_TYPE: Record<EnquiryType, string> = {
   GENERAL: 'General Contact',
@@ -12,11 +13,14 @@ const MANTRA_OS_CUSTOMER_TYPE: Record<EnquiryType, string> = {
   QUOTE: 'Quote Request',
 }
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
 /**
- * Mirrors this enquiry into MantraOS as a lead Opportunity, so head office
- * sees every site enquiry in one pipeline alongside Meta/website/WhatsApp
- * leads. Never throws — a MantraOS outage must not block a real visitor's
- * enquiry from being saved and emailed as it always has been.
+ * Sends this enquiry to MantraOS as a lead Opportunity, so head office sees
+ * every site enquiry in one pipeline alongside Meta/website/WhatsApp leads.
+ * Never throws — a MantraOS outage must not block a real visitor's enquiry
+ * from being saved. Awaited (with a timeout) so serverless hosting doesn't
+ * cut the request off after the response is sent.
  */
 async function sendToMantraOS(params: {
   name: string
@@ -25,6 +29,7 @@ async function sendToMantraOS(params: {
   company: string | null
   country: string | null
   quantity: number | null
+  productName: string | null
   message: string | null
   type: EnquiryType
 }) {
@@ -32,8 +37,9 @@ async function sendToMantraOS(params: {
   if (!key) return
 
   const extra = [
+    params.productName && `Product: ${params.productName}`,
     params.company && `Organization/Club: ${params.company}`,
-    params.country && `Country: ${params.country}`,
+    params.country && `Country/City: ${params.country}`,
     params.quantity && `Estimated quantity: ${params.quantity}`,
   ].filter(Boolean)
   const message = [params.message, ...extra].filter(Boolean).join('\n')
@@ -42,6 +48,7 @@ async function sendToMantraOS(params: {
     await fetch('https://mantra-os-api.vercel.app/v1/leads/intake', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-intake-key': key },
+      signal: AbortSignal.timeout(5000),
       body: JSON.stringify({
         name: params.name,
         email: params.email,
@@ -63,13 +70,19 @@ export async function submitEnquiry(formData: FormData): Promise<{ ok: boolean; 
     const phone = (formData.get('phone') as string) || null
     const company = (formData.get('company') as string) || null
     const country = (formData.get('country') as string) || null
-    const quantity = formData.get('quantity') ? parseInt(formData.get('quantity') as string, 10) : null
+    const quantity = formData.get('quantity') ? parseInt(formData.get('quantity') as string, 10) || null : null
+    const productName = (formData.get('productName') as string) || null
     const message = (formData.get('message') as string) || null
 
-    if (!name || !email) return { ok: false, error: 'Naam en e-mailadres zijn verplicht.' }
+    if (!name || !email) return { ok: false, error: 'Name and email are required.' }
+    if (!EMAIL_RE.test(email)) return { ok: false, error: 'Please enter a valid email address.' }
 
     const hdrs = await headers()
-    const ip = hdrs.get('x-forwarded-for')?.split(',')[0] ?? hdrs.get('x-real-ip') ?? null
+    const ip = hdrs.get('x-forwarded-for')?.split(',')[0]?.trim() ?? hdrs.get('x-real-ip') ?? null
+
+    if (!rateLimit(`enquiry:${ip ?? 'unknown'}`, { maxRequests: 5, windowMs: 10 * 60 * 1000 }).success) {
+      return { ok: false, error: 'Too many enquiries. Please wait a few minutes and try again.' }
+    }
 
     await prisma.enquiry.create({
       data: {
@@ -80,17 +93,18 @@ export async function submitEnquiry(formData: FormData): Promise<{ ok: boolean; 
         company,
         country,
         quantity,
+        productName,
         message,
         ipAddress: ip,
       },
     })
 
-    void sendToMantraOS({ name, email, phone, company, country, quantity, message, type })
+    await sendToMantraOS({ name, email, phone, company, country, quantity, productName, message, type })
 
     revalidatePath('/admin/enquiries')
     return { ok: true }
   } catch {
-    return { ok: false, error: 'Er is iets misgegaan. Probeer het opnieuw.' }
+    return { ok: false, error: 'Something went wrong. Please try again.' }
   }
 }
 

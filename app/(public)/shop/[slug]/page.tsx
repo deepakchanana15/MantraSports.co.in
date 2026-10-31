@@ -1,12 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { MessageCircle, Mail, Tag, Check, Clock, PackageX } from 'lucide-react'
+import { MessageCircle, Users, Tag, Check, Clock, PackageX, Truck, ShieldCheck, RefreshCw } from 'lucide-react'
 import { prisma } from '@/lib/db/prisma'
 import { formatPrice, calculateDiscount } from '@/lib/utils/format'
 import { ImageGallery } from '@/components/shop/ImageGallery'
 import { ProductCard } from '@/components/shop/ProductCard'
-import { getProductWhatsAppUrl, categoryNameNl } from '@/lib/config/site'
+import { AddToCart } from '@/components/shop/AddToCart'
+import { ProductSchema } from '@/components/seo/JsonLd'
+import { getProductWhatsAppUrl } from '@/lib/config/site'
+import { getSiteSettings } from '@/lib/utils/settings'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -28,9 +31,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const STOCK_INFO: Record<string, { label: string; icon: typeof Check; cls: string }> = {
-  IN_STOCK:     { label: 'Op voorraad',     icon: Check,    cls: 'text-green-600' },
-  OUT_OF_STOCK: { label: 'Niet leverbaar',  icon: PackageX, cls: 'text-red-500' },
-  ON_REQUEST:   { label: 'Op aanvraag',     icon: Clock,    cls: 'text-orange-500' },
+  IN_STOCK:     { label: 'In Stock',     icon: Check,    cls: 'text-green-600' },
+  OUT_OF_STOCK: { label: 'Out of Stock', icon: PackageX, cls: 'text-red-500' },
+  ON_REQUEST:   { label: 'Available on Request', icon: Clock, cls: 'text-orange-500' },
 }
 
 export default async function ProductDetailPage({ params }: Props) {
@@ -66,25 +69,43 @@ export default async function ProductDetailPage({ params }: Props) {
 
   if (!product) notFound()
 
+  const { return_window_days, shipping_delivery_time, response_time_hours } = await getSiteSettings([
+    'return_window_days',
+    'shipping_delivery_time',
+    'response_time_hours',
+  ])
+
   const price = product.price ? Number(product.price.toString()) : null
   const salePrice = product.salePrice ? Number(product.salePrice.toString()) : null
+  const unitPrice = salePrice ?? price
   const discount = price && salePrice ? calculateDiscount(price, salePrice) : 0
   const stock = STOCK_INFO[product.stockStatus]
   const StockIcon = stock?.icon ?? Check
+  const canBuy = unitPrice != null && product.stockStatus === 'IN_STOCK'
 
   const features: string[] = product.features
     ? product.features.split('\n').map((f: string) => f.trim()).filter(Boolean)
     : []
 
   const whatsappUrl = getProductWhatsAppUrl(product.name)
-  const contactUrl = `/contact?product=${encodeURIComponent(product.slug)}`
+  const b2bUrl = `/b2b?product=${encodeURIComponent(product.slug)}`
 
   return (
     <>
-      <div style={{ maxWidth: 1440, margin: '0 auto', padding: '40px 60px 80px' }}>
+      <ProductSchema
+        name={product.name}
+        description={product.metaDescription ?? product.description?.slice(0, 300) ?? undefined}
+        image={product.images[0]?.url}
+        price={unitPrice ?? undefined}
+        sku={product.sku ?? undefined}
+        availability={product.stockStatus === 'OUT_OF_STOCK' ? 'OutOfStock' : product.stockStatus === 'ON_REQUEST' ? 'PreOrder' : 'InStock'}
+        url={`/shop/${product.slug}`}
+      />
+
+      <div className="mx-auto max-w-[1440px] px-4 pb-20 pt-8 sm:px-8 lg:px-[60px] lg:pt-10">
         {/* Breadcrumb */}
-        <nav className="mb-8 flex items-center gap-1.5 text-xs text-[#999]">
-          <Link href="/" className="hover:text-[#E85D1A] transition-colors">Startpagina</Link>
+        <nav className="mb-8 flex flex-wrap items-center gap-1.5 text-xs text-[#999]" aria-label="Breadcrumb">
+          <Link href="/" className="hover:text-[#E85D1A] transition-colors">Home</Link>
           <span>/</span>
           <Link href="/shop" className="hover:text-[#E85D1A] transition-colors">Shop</Link>
           {product.category && (
@@ -94,7 +115,7 @@ export default async function ProductDetailPage({ params }: Props) {
                 href={`/categories/${product.category.slug}`}
                 className="hover:text-[#E85D1A] transition-colors"
               >
-                {categoryNameNl(product.category.slug, product.category.name)}
+                {product.category.name}
               </Link>
             </>
           )}
@@ -103,15 +124,7 @@ export default async function ProductDetailPage({ params }: Props) {
         </nav>
 
         {/* Product layout */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: 64,
-            alignItems: 'start',
-          }}
-          className="max-sm:!grid-cols-1 max-lg:gap-10"
-        >
+        <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-2 lg:gap-16">
           {/* Gallery */}
           <ImageGallery images={product.images} name={product.name} />
 
@@ -129,15 +142,15 @@ export default async function ProductDetailPage({ params }: Props) {
                   marginBottom: 8,
                 }}
               >
-                {categoryNameNl(product.category.slug, product.category.name)}
+                {product.category.name}
               </p>
             )}
 
             <h1
+              className="text-[28px] sm:text-[36px]"
               style={{
                 fontFamily: 'var(--font-oswald), Oswald, sans-serif',
                 fontWeight: 700,
-                fontSize: 36,
                 letterSpacing: '-0.02em',
                 textTransform: 'uppercase',
                 color: '#111111',
@@ -149,20 +162,22 @@ export default async function ProductDetailPage({ params }: Props) {
             </h1>
 
             {product.sku && (
-              <p className="mb-4 text-xs text-[#999]">Artikelnr.: {product.sku}</p>
+              <p className="mb-4 text-xs text-[#999]">SKU: {product.sku}</p>
             )}
 
             {/* Price */}
-            <div className="mb-4 flex items-baseline gap-3">
+            <div className="mb-1 flex flex-wrap items-baseline gap-3">
               {salePrice != null ? (
                 <>
                   <span style={{ fontFamily: 'var(--font-oswald)', fontSize: 28, fontWeight: 700, color: '#111' }}>
                     {formatPrice(salePrice)}
                   </span>
                   <span className="text-base text-[#999] line-through">{formatPrice(price)}</span>
-                  <span className="rounded bg-[#E85D1A] px-2 py-0.5 font-display text-xs font-bold text-white">
-                    -{discount}%
-                  </span>
+                  {discount > 0 && (
+                    <span className="rounded bg-[#E85D1A] px-2 py-0.5 font-display text-xs font-bold text-white">
+                      -{discount}%
+                    </span>
+                  )}
                 </>
               ) : price != null ? (
                 <span style={{ fontFamily: 'var(--font-oswald)', fontSize: 28, fontWeight: 700, color: '#111' }}>
@@ -170,10 +185,13 @@ export default async function ProductDetailPage({ params }: Props) {
                 </span>
               ) : (
                 <span style={{ fontFamily: 'var(--font-oswald)', fontSize: 18, fontWeight: 600, color: '#999' }}>
-                  Prijs op aanvraag
+                  Price on Request
                 </span>
               )}
             </div>
+            {unitPrice != null && (
+              <p className="mb-4 text-xs text-[#6B6B6B]">Inclusive of all taxes · Free delivery across India</p>
+            )}
 
             {/* Stock */}
             {stock && (
@@ -183,21 +201,72 @@ export default async function ProductDetailPage({ params }: Props) {
               </div>
             )}
 
-            <div style={{ borderTop: '1px solid #E0DFDB', margin: '20px 0' }} />
+            {/* Buy */}
+            {canBuy ? (
+              <AddToCart
+                product={{
+                  id: product.id,
+                  slug: product.slug,
+                  name: product.name,
+                  imageUrl: product.images[0]?.url ?? null,
+                  unitPrice: unitPrice!,
+                  optionName: product.optionName,
+                  optionValues: product.optionValues ?? [],
+                  maxQty: product.stockQty,
+                }}
+              />
+            ) : (
+              <p className="rounded-[2px] border border-[#E0DFDB] bg-[#F8F7F4] p-4 text-sm text-[#444]">
+                {product.stockStatus === 'OUT_OF_STOCK'
+                  ? 'This product is currently out of stock. Message us on WhatsApp and we will let you know when it is back.'
+                  : 'This product is available on request. Message us on WhatsApp for price and availability.'}
+              </p>
+            )}
+
+            {/* Enquiry options */}
+            <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 rounded-[2px] px-4 py-3 font-display text-[13px] font-bold uppercase tracking-[0.1em] text-white transition-all hover:brightness-90"
+                style={{ background: '#25D366' }}
+              >
+                <MessageCircle size={16} />
+                Ask on WhatsApp
+              </a>
+              <Link
+                href={b2bUrl}
+                className="flex items-center justify-center gap-2 rounded-[2px] border-2 border-[#111] px-4 py-3 font-display text-[13px] font-bold uppercase tracking-[0.1em] text-[#111] transition-colors hover:bg-[#111] hover:text-white"
+              >
+                <Users size={16} />
+                Bulk / Team Quote
+              </Link>
+            </div>
+            <p className="mt-2 text-center text-xs text-[#999]">
+              Buying for a club, school or shop? Request a B2B quote — we usually reply within {response_time_hours} hours.
+            </p>
+
+            {/* Delivery & returns */}
+            <ul className="mt-6 space-y-2 border-y border-[#E0DFDB] py-4 text-sm text-[#444]">
+              <li className="flex items-start gap-2"><Truck className="mt-0.5 h-4 w-4 shrink-0 text-[#E85D1A]" /> Free delivery — {shipping_delivery_time}</li>
+              <li className="flex items-start gap-2"><RefreshCw className="mt-0.5 h-4 w-4 shrink-0 text-[#E85D1A]" /> {return_window_days}-day returns — <Link href="/returns-policy" className="underline">see policy</Link></li>
+              <li className="flex items-start gap-2"><ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#E85D1A]" /> Secure payment via Razorpay — UPI, cards, netbanking</li>
+            </ul>
 
             {/* Description */}
             {product.description && (
-              <div className="mb-6">
-                <p className="text-sm leading-relaxed text-[#444]">{product.description}</p>
+              <div className="my-6">
+                <p className="whitespace-pre-line text-sm leading-relaxed text-[#444]">{product.description}</p>
               </div>
             )}
 
             {/* Features */}
             {features.length > 0 && (
               <div className="mb-6">
-                <h3 className="mb-3 font-display text-xs font-bold uppercase tracking-[0.15em] text-[#111]">
-                  Kenmerken
-                </h3>
+                <h2 className="mb-3 font-display text-xs font-bold uppercase tracking-[0.15em] text-[#111]">
+                  Features
+                </h2>
                 <ul className="space-y-1.5">
                   {features.map((f, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-[#444]">
@@ -209,62 +278,17 @@ export default async function ProductDetailPage({ params }: Props) {
               </div>
             )}
 
-            <div style={{ borderTop: '1px solid #E0DFDB', margin: '20px 0' }} />
-
-            {/* CTAs */}
-            <div className="flex flex-col gap-3">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:brightness-90 transition-all"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: 8,
-                  background: '#25D366',
-                  color: '#fff',
-                  padding: '14px 24px',
-                  fontFamily: 'var(--font-oswald), Oswald, sans-serif',
-                  fontWeight: 700,
-                  fontSize: 13,
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                  textDecoration: 'none',
-                }}
-              >
-                <MessageCircle size={16} />
-                Aanvragen via WhatsApp
-              </a>
-
-              <Link
-                href={contactUrl}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: 8,
-                  background: '#E85D1A',
-                  color: '#fff',
-                  padding: '14px 24px',
-                  fontFamily: 'var(--font-oswald), Oswald, sans-serif',
-                  fontWeight: 700,
-                  fontSize: 13,
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                  textDecoration: 'none',
-                }}
-                className="hover:bg-[#cc4e14] transition-colors"
-              >
-                <Mail size={16} />
-                Offerte aanvragen
-              </Link>
-            </div>
-
-            <p className="mt-3 text-center text-xs text-[#999]">
-              We reageren doorgaans binnen 24 uur.
-            </p>
+            {/* Mandatory product details (E-Commerce Rules / Legal Metrology) */}
+            <dl className="mb-6 grid grid-cols-[auto_1fr] gap-x-6 gap-y-1.5 text-sm">
+              {product.countryOfOrigin && (
+                <>
+                  <dt className="text-[#999]">Country of origin</dt>
+                  <dd className="text-[#333]">{product.countryOfOrigin}</dd>
+                </>
+              )}
+              <dt className="text-[#999]">Sold by</dt>
+              <dd className="text-[#333]"><Link href="/company-information" className="underline">Mantra Sports International</Link></dd>
+            </dl>
 
             {/* Tags */}
             {product.tags?.length > 0 && (
@@ -297,16 +321,10 @@ export default async function ProductDetailPage({ params }: Props) {
                   color: '#111',
                 }}
               >
-                Vergelijkbare producten
+                You May Also Like
               </h2>
             </div>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
-                gap: 28,
-              }}
-            >
+            <div className="grid grid-cols-2 gap-4 sm:gap-7 lg:grid-cols-4">
               {related.map((p: any) => (
                 <ProductCard key={p.id} product={p} />
               ))}

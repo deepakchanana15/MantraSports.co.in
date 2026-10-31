@@ -12,11 +12,13 @@ import {
   Settings,
   LogOut,
   Mail,
+  ShoppingCart,
 } from 'lucide-react'
 import { cn } from '@/lib/utils/cn'
 
 const NAV = [
   { href: '/admin/dashboard',   label: 'Dashboard',   icon: LayoutDashboard },
+  { href: '/admin/orders',      label: 'Orders',      icon: ShoppingCart },
   { href: '/admin/products',    label: 'Products',    icon: Package },
   { href: '/admin/collections', label: 'Collections', icon: FolderOpen },
   { href: '/admin/enquiries',   label: 'Enquiries',   icon: MessageSquare },

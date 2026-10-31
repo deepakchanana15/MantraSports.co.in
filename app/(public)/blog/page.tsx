@@ -8,9 +8,9 @@ import { formatDate } from '@/lib/utils/format'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Blog — Cricket Tips & Gidsen',
+  title: 'Blog — Cricket Tips & Guides',
   description:
-    'Tips, koopgidsen en advies over cricketbats, beschermende uitrusting en meer van de cricketspecialisten van Mantra Sports Nederland.',
+    'Tips, buying guides and advice on cricket bats, protective gear and more from the cricket specialists at Mantra Sports India.',
 }
 
 export default async function BlogIndexPage() {
@@ -28,19 +28,19 @@ export default async function BlogIndexPage() {
 
   return (
     <ContentPage
-      eyebrow="Tips & gidsen"
+      eyebrow="Tips & Guides"
       title="Blog"
-      intro="Advies van onze cricketspecialisten: van de juiste batmaat tot het onderhoud van je uitrusting."
+      intro="Advice from our cricket specialists — from choosing the right bat size to looking after your gear."
       breadcrumb={[{ label: 'Blog' }]}
       prose={false}
     >
       {posts.length === 0 ? (
         <div className="py-16 text-center" style={{ border: '1px solid #E0DFDB' }}>
-          <p className="font-display text-xl font-bold uppercase text-[#111]">Binnenkort meer artikelen</p>
-          <p className="mt-2 text-sm text-[#999]">We werken aan nieuwe tips en gidsen — kom snel terug.</p>
+          <p className="font-display text-xl font-bold uppercase text-[#111]">More Articles Coming Soon</p>
+          <p className="mt-2 text-sm text-[#999]">We are working on new tips and guides — check back soon.</p>
         </div>
       ) : (
-        <div className="grid gap-8" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))' }}>
+        <div className="grid gap-8" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))' }}>
           {posts.map((post) => (
             <Link key={post.slug} href={`/blog/${post.slug}`} className="group flex flex-col" style={{ border: '1px solid #E0DFDB' }}>
               {post.featuredImageUrl && (
@@ -64,7 +64,7 @@ export default async function BlogIndexPage() {
                 </h2>
                 {post.excerpt && <p className="mb-4 text-[14px] leading-relaxed" style={{ color: '#6B6B6B' }}>{post.excerpt}</p>}
                 <span className="mt-auto inline-flex items-center gap-1.5 font-display text-[12px] font-bold uppercase tracking-wider" style={{ color: '#e85d1a' }}>
-                  Lees meer <ArrowRight className="h-3.5 w-3.5" />
+                  Read more <ArrowRight className="h-3.5 w-3.5" />
                 </span>
               </div>
             </Link>

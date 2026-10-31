@@ -10,6 +10,23 @@ function requireAuth() {
   // Auth is checked server-side; this is defence-in-depth
 }
 
+/** India-specific product fields: buyer option, country of origin, GST invoice data. */
+function indiaFields(formData: FormData) {
+  const str = (k: string) => ((formData.get(k) as string) ?? '').trim()
+  const optionValues = str('optionValues').split(',').map((v) => v.trim()).filter(Boolean)
+  const gstRate = str('gstRate') ? parseFloat(str('gstRate')) : null
+  if (gstRate !== null && (Number.isNaN(gstRate) || gstRate < 0 || gstRate > 28)) {
+    throw new Error('GST rate must be a number between 0 and 28')
+  }
+  return {
+    optionName: optionValues.length > 0 ? str('optionName') || 'Size' : null,
+    optionValues,
+    countryOfOrigin: str('countryOfOrigin') || null,
+    hsnCode: str('hsnCode') || null,
+    gstRate,
+  }
+}
+
 interface ImageData {
   url: string
   altText: string
@@ -61,6 +78,8 @@ export async function createProduct(formData: FormData): Promise<{ id: string }>
       tags,
       metaTitle: (formData.get('metaTitle') as string) || null,
       metaDescription: (formData.get('metaDescription') as string) || null,
+      regions: ['in'],
+      ...indiaFields(formData),
       images: {
         create: images.map((img, i) => ({
           url: img.url,
@@ -113,6 +132,7 @@ export async function updateProduct(id: string, formData: FormData): Promise<voi
         tags,
         metaTitle: (formData.get('metaTitle') as string) || null,
         metaDescription: (formData.get('metaDescription') as string) || null,
+        ...indiaFields(formData),
         images: {
           create: images.map((img, i) => ({
             url: img.url,
@@ -127,6 +147,7 @@ export async function updateProduct(id: string, formData: FormData): Promise<voi
 
   revalidatePath('/admin/products')
   revalidatePath(`/admin/products/${id}/edit`)
+  revalidatePath(`/shop/${slug}`)
   revalidatePath('/')
 }
 

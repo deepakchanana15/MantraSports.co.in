@@ -11,7 +11,7 @@ interface ContentPageProps {
   title: string
   intro?: string
   breadcrumb: Crumb[]
-  /** Shown under the hero, e.g. "Laatst bijgewerkt: …" */
+  /** Shown under the hero, e.g. "Last updated: …" */
   meta?: string
   /** Wrap children in .prose with a readable max width (default true) */
   prose?: boolean
@@ -24,9 +24,9 @@ export function ContentPage({ eyebrow, title, intro, breadcrumb, meta, prose = t
     <div className="bg-white">
 
       {/* ── Breadcrumb ── */}
-      <div style={{ borderBottom: '1px solid #E0DFDB', padding: '12px 60px', background: '#F8F7F4' }}>
+      <div className="px-4 py-3 sm:px-8 lg:px-[60px]" style={{ borderBottom: '1px solid #E0DFDB', background: '#F8F7F4' }}>
         <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-[12px]" style={{ color: '#6B6B6B' }}>
-          <Link href="/" className="transition-colors hover:text-[#e85d1a]">Startpagina</Link>
+          <Link href="/" className="transition-colors hover:text-[#e85d1a]">Home</Link>
           {breadcrumb.map((crumb, i) => (
             <span key={crumb.label} className="flex items-center gap-2">
               <ChevronRight className="h-3 w-3" />
@@ -42,7 +42,7 @@ export function ContentPage({ eyebrow, title, intro, breadcrumb, meta, prose = t
 
       {/* ── Hero ── */}
       <div style={{ background: '#111111', borderBottom: '1px solid #1c1c1c' }}>
-        <div style={{ padding: '64px 60px' }}>
+        <div className="px-4 py-12 sm:px-8 lg:px-[60px] lg:py-16">
           <p className="mb-3 font-display text-[11px] font-semibold uppercase tracking-[0.22em]" style={{ color: '#e85d1a' }}>
             {eyebrow}
           </p>
@@ -61,7 +61,7 @@ export function ContentPage({ eyebrow, title, intro, breadcrumb, meta, prose = t
       </div>
 
       {/* ── Body ── */}
-      <div style={{ padding: '64px 60px' }}>
+      <div className="px-4 py-12 sm:px-8 lg:px-[60px] lg:py-16">
         {prose ? <div className="prose" style={{ maxWidth: 820 }}>{children}</div> : children}
       </div>
 

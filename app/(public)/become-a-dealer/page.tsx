@@ -5,55 +5,55 @@ import { ContentPage } from '@/components/layout/ContentPage'
 import { WholesaleForm } from '../wholesale/WholesaleForm'
 
 export const metadata: Metadata = {
-  title: 'Word Dealer',
+  title: 'Become a Dealer',
   description:
-    'Word dealer van Mantra Sports in Nederland of België. Verkoop premium cricketbats, beschermende uitrusting en accessoires tegen groothandelsprijzen.',
+    'Become a Mantra Sports dealer in India. Stock premium English willow cricket bats, protective gear, balls and accessories at trade prices.',
 }
 
 const BENEFITS = [
   {
     icon: Tag,
-    title: 'Groothandelsprijzen',
-    text: 'Aantrekkelijke inkoopprijzen op ons assortiment, zodat je met een gezonde marge kunt verkopen.',
+    title: 'Trade Pricing',
+    text: 'Attractive buying prices across our range, so you can sell with a healthy margin.',
   },
   {
     icon: Store,
-    title: 'Volledig assortiment',
-    text: 'Cricketbats, beschermende uitrusting, ballen, accessoires en teamkleding — alles van één leverancier.',
+    title: 'Complete Range',
+    text: 'Cricket bats, protective gear, balls, accessories and teamwear — all from one supplier.',
   },
   {
     icon: ImageIcon,
-    title: 'Productinformatie & beelden',
-    text: 'Productbeschrijvingen en afbeeldingen om Mantra Sports-producten in je winkel of webshop te presenteren.',
+    title: 'Product Content',
+    text: 'Product descriptions and images to present Mantra Sports products in your store or online shop.',
   },
   {
     icon: Handshake,
-    title: 'Persoonlijke begeleiding',
-    text: 'Een vast aanspreekpunt in ons team voor bestellingen, advies en vragen.',
+    title: 'Personal Support',
+    text: 'A dedicated contact in our team for orders, advice and questions.',
   },
 ]
 
 const WHO = [
-  'Sportwinkels en cricketspeciaalzaken',
-  'Webwinkels in sportartikelen',
-  'Wederverkopers en distributeurs',
-  'Clubs met een eigen clubwinkel',
+  'Sports shops and cricket specialists',
+  'Online sports retailers',
+  'Resellers and distributors',
+  'Clubs and academies with their own pro shop',
 ]
 
 export default function BecomeADealerPage() {
   return (
     <ContentPage
-      eyebrow="Dealerprogramma"
-      title="Word Dealer"
-      intro="Breng premium cricketuitrusting van Mantra Sports naar jouw klanten. We zoeken dealers in Nederland, België en de rest van Europa."
-      breadcrumb={[{ label: 'Groothandel', href: '/wholesale' }, { label: 'Word Dealer' }]}
+      eyebrow="Dealer Programme"
+      title="Become a Dealer"
+      intro="Bring premium Mantra Sports cricket equipment to your customers. We are looking for dealers in cities and towns across India."
+      breadcrumb={[{ label: 'Wholesale', href: '/wholesale' }, { label: 'Become a Dealer' }]}
       prose={false}
     >
-      <div className="grid gap-16" style={{ gridTemplateColumns: '1fr 1.2fr', alignItems: 'start' }}>
+      <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
         <div>
-          <p className="mb-2 font-display text-[11px] font-semibold uppercase tracking-[0.22em]" style={{ color: '#e85d1a' }}>Waarom dealer worden</p>
-          <h2 className="mb-8 font-display text-[32px] font-bold uppercase leading-tight tracking-[0.02em]" style={{ color: '#111111' }}>
-            Groeien met Mantra Sports
+          <p className="mb-2 font-display text-[11px] font-semibold uppercase tracking-[0.22em]" style={{ color: '#e85d1a' }}>Why become a dealer</p>
+          <h2 className="mb-8 font-display text-[28px] font-bold uppercase leading-tight tracking-[0.02em] sm:text-[32px]" style={{ color: '#111111' }}>
+            Grow With Mantra Sports
           </h2>
 
           <div className="mb-10" style={{ border: '1px solid #E0DFDB' }}>
@@ -71,7 +71,7 @@ export default function BecomeADealerPage() {
           </div>
 
           <div style={{ border: '1px solid #E0DFDB', padding: '24px', background: '#F8F7F4' }}>
-            <p className="mb-4 font-display text-[12px] font-semibold uppercase tracking-[0.14em]" style={{ color: '#6B6B6B' }}>Wie we zoeken</p>
+            <p className="mb-4 font-display text-[12px] font-semibold uppercase tracking-[0.14em]" style={{ color: '#6B6B6B' }}>Who we&apos;re looking for</p>
             <ul className="space-y-2">
               {WHO.map((item) => (
                 <li key={item} className="flex items-center gap-2 text-[14px]" style={{ color: '#333333' }}>
@@ -83,14 +83,14 @@ export default function BecomeADealerPage() {
           </div>
 
           <p className="mt-6 text-[14px] leading-relaxed" style={{ color: '#6B6B6B' }}>
-            Meld je aan via het formulier. Vermeld de naam van je bedrijf, je land en de productgroepen waarin je geïnteresseerd
-            bent — we nemen contact met je op om de mogelijkheden te bespreken. Voor clubs en scholen: zie{' '}
-            <Link href="/b2b" className="underline hover:text-[#e85d1a]">B2B-partnerschappen</Link>.
+            Apply using the form. Include your business name, city and the product groups you are interested in, and
+            we&apos;ll contact you to discuss the opportunity. For clubs and schools, see{' '}
+            <Link href="/b2b" className="underline hover:text-[#e85d1a]">B2B partnerships</Link>.
           </p>
         </div>
 
         <div>
-          <WholesaleForm />
+          <WholesaleForm heading="Apply to Become a Dealer" />
         </div>
       </div>
     </ContentPage>

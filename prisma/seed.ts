@@ -13,6 +13,7 @@ config({ path: '.env.local' })
 import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcryptjs'
 import { DEFAULT_SITE_SETTINGS, DEFAULT_CATEGORIES } from '../lib/config/site'
+import { BAT_SIZE_GUIDE } from './seed-content/bat-size-guide'
 
 const prisma = new PrismaClient()
 
@@ -50,7 +51,7 @@ async function main() {
     await prisma.siteSetting.upsert({
       where: { key },
       create: { key, value: String(value), type: 'STRING' },
-      update: { value: String(value) },
+      update: {}, // never overwrite values edited in /admin/settings
     })
   }
   console.log(`✅ ${Object.keys(DEFAULT_SITE_SETTINGS).length} site settings configured\n`)
@@ -89,6 +90,22 @@ async function main() {
   })
 
   console.log('✅ Blog categories seeded\n')
+
+  // ── 5. Starter blog post: Cricket Bat Size Guide ─────────────
+  // Created once; later edits in the admin are never overwritten.
+  const tips = await prisma.blogCategory.findUnique({ where: { slug: 'cricket-tips' } })
+  await prisma.blogPost.upsert({
+    where: { slug: BAT_SIZE_GUIDE.slug },
+    create: {
+      ...BAT_SIZE_GUIDE,
+      status: 'PUBLISHED',
+      publishedAt: new Date(),
+      metaKeywords: ['cricket bat size chart', 'cricket bat size by height', 'which size cricket bat'],
+      ...(tips ? { categories: { create: [{ categoryId: tips.id }] } } : {}),
+    },
+    update: {},
+  })
+  console.log('✅ Blog post seeded: Cricket Bat Size Guide\n')
   console.log('🎉 Seed complete! You can now start the development server.')
   console.log('   Admin login: http://localhost:3000/admin/login')
   console.log('   Email:      ', adminEmail)

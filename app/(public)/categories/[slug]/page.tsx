@@ -14,31 +14,49 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       select: { name: true, metaTitle: true, metaDescription: true, description: true },
     })
     if (!cat) return {}
-    const nlName = NL_NAMES[slug] ?? cat.name
-    // DB meta fields for categories are English seed data — build Dutch metadata here
+    const seo = CATEGORY_SEO[slug]
+    // DB meta fields for categories are generic seed data — India SEO copy lives here
     return {
-      title: `${nlName} kopen`,
-      description: `Koop ${nlName.toLowerCase()} bij Mantra Sports NL. Premium cricketuitrusting met persoonlijk advies — ook groothandel voor clubs en scholen.`,
+      title: seo?.title ?? `Buy ${cat.name} Online in India`,
+      description: seo?.description ?? `Shop ${cat.name.toLowerCase()} from Mantra Sports India. Premium cricket gear with free delivery across India.`,
     }
   } catch {
     return {}
   }
 }
 
-const NL_NAMES: Record<string, string> = {
-  'cricket-bats':    'Cricketbats',
-  'balls':           'Ballen',
-  'protective-gear': 'Beschermende Uitrusting',
-  'accessories':     'Accessoires',
-  'teamwear':        'Teamkleding',
-  'custom-apparel':  'Aangepaste Kleding',
+const CATEGORY_SEO: Record<string, { title: string; description: string }> = {
+  'cricket-bats': {
+    title: 'English Willow Cricket Bats — Buy Online in India',
+    description: 'Shop Mantra Sports English willow cricket bats — Magnitude, Raptor and Cobra ranges. 12-month bat warranty and free delivery across India.',
+  },
+  'protective-gear': {
+    title: 'Cricket Protective Gear — Batting Pads, Gloves & Helmets',
+    description: 'Buy cricket batting pads, batting gloves, wicket-keeping gloves and helmets from Mantra Sports India. Free delivery across India.',
+  },
+  'balls': {
+    title: 'Leather Cricket Balls — Red, White & Pink',
+    description: 'Shop leather cricket balls in red, white, pink and yellow from Mantra Sports India for matches and training. Free delivery across India.',
+  },
+  'accessories': {
+    title: 'Cricket Accessories — Grips, Mallets & Kit Bags',
+    description: 'Cricket bat grips, grip cones, bat mallets, scuff sheets and kit bags from Mantra Sports India. Free delivery across India.',
+  },
+  'teamwear': {
+    title: 'Cricket Teamwear for Clubs & Academies',
+    description: 'Cricket teamwear for clubs, schools and academies from Mantra Sports India. Request a team quote.',
+  },
+  'custom-apparel': {
+    title: 'Custom Cricket Teamwear & Apparel',
+    description: 'Custom cricket jerseys, trousers and team kit made to order for clubs, schools and academies across India. Request a B2B quote from Mantra Sports.',
+  },
 }
 
 const SORT_OPTIONS = [
-  { value: 'newest',     label: 'Nieuwste' },
-  { value: 'featured',   label: 'Aanbevolen' },
-  { value: 'price_asc',  label: 'Prijs ↑' },
-  { value: 'price_desc', label: 'Prijs ↓' },
+  { value: 'newest',     label: 'Newest' },
+  { value: 'featured',   label: 'Featured' },
+  { value: 'price_asc',  label: 'Price ↑' },
+  { value: 'price_desc', label: 'Price ↓' },
 ]
 
 const PER_PAGE = 24
@@ -88,7 +106,7 @@ export default async function CategoryPage({
   }
 
   const totalPages = Math.ceil(total / PER_PAGE)
-  const displayName = NL_NAMES[slug] ?? category.name
+  const displayName = category.name
 
   return (
     <>
@@ -101,7 +119,7 @@ export default async function CategoryPage({
             background: `linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.7)), url(${category.imageUrl}) center/cover no-repeat`,
           }}
         >
-          <div style={{ padding: '0 60px 32px', maxWidth: 1440, width: '100%', margin: '0 auto' }}>
+          <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-8 lg:px-[60px]" style={{ paddingBottom: 32 }}>
             <h1
               style={{
                 fontFamily: 'var(--font-oswald), Oswald, sans-serif',
@@ -121,10 +139,10 @@ export default async function CategoryPage({
       )}
 
       <section style={{ borderBottom: '1px solid #E0DFDB' }}>
-        <div style={{ padding: category.imageUrl ? '20px 60px 0' : '48px 60px 0', maxWidth: 1440, margin: '0 auto' }}>
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-8 lg:px-[60px]" style={{ paddingTop: category.imageUrl ? 20 : 48 }}>
           {/* Breadcrumb */}
           <nav className="mb-4 flex items-center gap-1.5 text-xs text-[#999]">
-            <Link href="/" className="hover:text-[#E85D1A] transition-colors">Startpagina</Link>
+            <Link href="/" className="hover:text-[#E85D1A] transition-colors">Home</Link>
             <span>/</span>
             <Link href="/shop" className="hover:text-[#E85D1A] transition-colors">Shop</Link>
             <span>/</span>
@@ -153,7 +171,7 @@ export default async function CategoryPage({
 
           {/* Sort / count bar */}
           <div className="flex items-center justify-between py-3">
-            <p className="text-xs text-[#999]">{total} {total === 1 ? 'Product' : 'Producten'}</p>
+            <p className="text-xs text-[#999]">{total} {total === 1 ? 'Product' : 'Products'}</p>
             <form method="GET" className="flex items-center gap-2">
               {page > 1 && <input type="hidden" name="page" value="1" />}
               <select
@@ -177,16 +195,16 @@ export default async function CategoryPage({
       </section>
 
       {/* Grid */}
-      <section style={{ padding: '48px 60px 80px', maxWidth: 1440, margin: '0 auto' }}>
+      <section className="mx-auto max-w-[1440px] px-4 sm:px-8 lg:px-[60px]" style={{ paddingTop: 48, paddingBottom: 80 }}>
         {products.length === 0 ? (
           <div className="py-24 text-center">
-            <p className="font-display text-xl font-bold uppercase text-[#111]">Geen producten gevonden</p>
-            <p className="mt-2 text-sm text-[#999]">In deze categorie zijn nog geen producten beschikbaar.</p>
+            <p className="font-display text-xl font-bold uppercase text-[#111]">No Products Found</p>
+            <p className="mt-2 text-sm text-[#999]">There are no products in this category yet.</p>
             <Link
               href="/shop"
               className="mt-6 inline-block border border-[#111] px-6 py-2.5 font-display text-xs font-bold uppercase tracking-widest text-[#111] hover:bg-[#111] hover:text-white transition-colors"
             >
-              Alle producten bekijken
+              View All Products
             </Link>
           </div>
         ) : (
@@ -210,7 +228,7 @@ export default async function CategoryPage({
               <Link href={`/categories/${slug}?sort=${sort}&page=${page - 1}`}
                 className="border border-[#E0DFDB] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#444] hover:border-[#111] transition-colors"
               >
-                ← Vorige
+                ← Previous
               </Link>
             )}
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
@@ -227,7 +245,7 @@ export default async function CategoryPage({
               <Link href={`/categories/${slug}?sort=${sort}&page=${page + 1}`}
                 className="border border-[#E0DFDB] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#444] hover:border-[#111] transition-colors"
               >
-                Volgende →
+                Next →
               </Link>
             )}
           </div>

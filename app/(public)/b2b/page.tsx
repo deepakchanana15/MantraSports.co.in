@@ -3,56 +3,68 @@ import Link from 'next/link'
 import { Shirt, Users, Package, Headphones } from 'lucide-react'
 import { ContentPage } from '@/components/layout/ContentPage'
 import { WholesaleForm } from '../wholesale/WholesaleForm'
+import { prisma } from '@/lib/db/prisma'
 
 export const metadata: Metadata = {
-  title: 'B2B-Partnerschappen',
+  title: 'B2B Partnerships — Team Kit for Clubs, Schools & Academies',
   description:
-    'B2B-partnerschappen met Mantra Sports: cricketuitrusting, teamkleding en kitbags in clubkleuren voor clubs, scholen, academies en bonden in Nederland en Europa.',
+    'B2B partnerships with Mantra Sports India: cricket equipment, custom teamwear and kit bags in club colours for clubs, schools, academies and associations across India.',
 }
 
 const OFFERS = [
   {
     icon: Shirt,
-    title: 'Maatwerk in clubkleuren',
-    text: 'Teamkleding, kitbags en uitrusting in de kleuren en met het logo van jouw club of school.',
+    title: 'Custom Club Kit',
+    text: 'Teamwear, kit bags and equipment in your club or school colours, with your logo.',
   },
   {
     icon: Package,
-    title: 'Volumeprijzen',
-    text: 'Scherpe prijzen voor grotere aantallen — van een teamset tot de uitrusting voor een hele vereniging.',
+    title: 'Volume Pricing',
+    text: 'Sharp pricing for larger quantities — from a single team set to equipment for a whole academy.',
   },
   {
     icon: Users,
-    title: 'Voor elk niveau',
-    text: 'Van juniorbats en beschermers voor de jeugd tot premium Engels wilgenhout voor het eerste team.',
+    title: 'For Every Squad',
+    text: 'Gear for practice nets and match days alike, from training balls to premium English willow for your first XI.',
   },
   {
     icon: Headphones,
-    title: 'Direct contact',
-    text: 'Je spreekt direct met ons team voor persoonlijk advies over maten, materialen en levering.',
+    title: 'Direct Contact',
+    text: 'Speak directly with our team for advice on sizes, materials and delivery schedules.',
   },
 ]
 
 const STEPS = [
-  { title: 'Aanvraag', text: 'Vertel ons via het formulier wat je nodig hebt: producten, aantallen en eventuele wensen voor maatwerk.' },
-  { title: 'Offerte', text: 'Je ontvangt een offerte op maat met prijzen, verzendkosten en de verwachte levertijd.' },
-  { title: 'Levering', text: 'Na akkoord gaan we aan de slag en leveren we je bestelling op het afgesproken adres.' },
+  { title: 'Enquiry', text: 'Tell us what you need using the form: products, quantities and any custom branding.' },
+  { title: 'Quote', text: 'You receive a tailored quote with pricing, GST and expected delivery time.' },
+  { title: 'Delivery', text: 'Once approved, we prepare your order and deliver it to your chosen address in India.' },
 ]
 
-export default function B2BPage() {
+export default async function B2BPage({ searchParams }: { searchParams: Promise<{ product?: string }> }) {
+  const { product: productSlug } = await searchParams
+  let productName: string | undefined
+  if (productSlug) {
+    try {
+      const product = await prisma.product.findUnique({ where: { slug: productSlug, status: 'ACTIVE' }, select: { name: true } })
+      productName = product?.name
+    } catch {
+      // form works without a product
+    }
+  }
+
   return (
     <ContentPage
-      eyebrow="Voor clubs, scholen & organisaties"
-      title="B2B-Partnerschappen"
-      intro="Mantra Sports is dé partner voor clubs, scholen, academies en bonden die hun spelers willen uitrusten met premium cricketuitrusting en teamkleding."
-      breadcrumb={[{ label: 'Groothandel', href: '/wholesale' }, { label: 'B2B-Partnerschappen' }]}
+      eyebrow="For clubs, schools & organisations"
+      title="B2B Partnerships"
+      intro="Mantra Sports is the partner for clubs, schools, academies and associations that want to equip their players with premium cricket gear and teamwear."
+      breadcrumb={[{ label: 'Wholesale', href: '/wholesale' }, { label: 'B2B Partnerships' }]}
       prose={false}
     >
-      <div className="grid gap-16" style={{ gridTemplateColumns: '1fr 1.2fr', alignItems: 'start' }}>
-        <div>
-          <p className="mb-2 font-display text-[11px] font-semibold uppercase tracking-[0.22em]" style={{ color: '#e85d1a' }}>Wat we bieden</p>
-          <h2 className="mb-8 font-display text-[32px] font-bold uppercase leading-tight tracking-[0.02em]" style={{ color: '#111111' }}>
-            Samen jouw team uitrusten
+      <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+        <div className="order-2 lg:order-1">
+          <p className="mb-2 font-display text-[11px] font-semibold uppercase tracking-[0.22em]" style={{ color: '#e85d1a' }}>What we offer</p>
+          <h2 className="mb-8 font-display text-[28px] font-bold uppercase leading-tight tracking-[0.02em] sm:text-[32px]" style={{ color: '#111111' }}>
+            Equip Your Team With Us
           </h2>
 
           <div className="mb-10" style={{ border: '1px solid #E0DFDB' }}>
@@ -70,7 +82,7 @@ export default function B2BPage() {
           </div>
 
           <div style={{ border: '1px solid #E0DFDB', padding: '24px', background: '#F8F7F4' }}>
-            <p className="mb-4 font-display text-[12px] font-semibold uppercase tracking-[0.14em]" style={{ color: '#6B6B6B' }}>Zo werkt het</p>
+            <p className="mb-4 font-display text-[12px] font-semibold uppercase tracking-[0.14em]" style={{ color: '#6B6B6B' }}>How it works</p>
             <ol className="space-y-4">
               {STEPS.map((step, i) => (
                 <li key={step.title} className="flex gap-3 text-[14px]" style={{ color: '#333333' }}>
@@ -84,12 +96,13 @@ export default function B2BPage() {
           </div>
 
           <p className="mt-6 text-[14px] leading-relaxed" style={{ color: '#6B6B6B' }}>
-            Ben je een sportwinkel of wederverkoper? Bekijk dan ons <Link href="/become-a-dealer" className="underline hover:text-[#e85d1a]">dealerprogramma</Link>.
+            Run a sports shop or resell cricket gear? See our <Link href="/become-a-dealer" className="underline hover:text-[#e85d1a]">dealer programme</Link>.
+            Buying for yourself? <Link href="/shop" className="underline hover:text-[#e85d1a]">Shop online</Link> with free delivery.
           </p>
         </div>
 
-        <div>
-          <WholesaleForm />
+        <div className="order-1 lg:order-2">
+          <WholesaleForm productName={productName} />
         </div>
       </div>
     </ContentPage>

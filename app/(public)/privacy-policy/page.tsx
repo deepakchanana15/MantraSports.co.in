@@ -2,190 +2,185 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ContentPage } from '@/components/layout/ContentPage'
 import { SITE_CONFIG } from '@/lib/config/site'
+import { getSiteSettings } from '@/lib/utils/settings'
 
 export const metadata: Metadata = {
-  title: 'Privacybeleid',
+  title: 'Privacy Policy',
   description:
-    'Hoe Mantra Sports Nederland (Mantra Corporation Pty Ltd) omgaat met je persoonsgegevens, conform de Algemene Verordening Gegevensbescherming (AVG).',
+    'How Mantra Sports International (Mantra Sports India) collects, uses and protects your personal data, in line with the Digital Personal Data Protection Act, 2023.',
 }
 
-export default function PrivacyPolicyPage() {
-  const { company, contact } = SITE_CONFIG
-  const email = contact.email
+export default async function PrivacyPolicyPage() {
+  const { company, grievanceOfficer } = SITE_CONFIG
+  const { contact_email, contact_phone } = await getSiteSettings(['contact_email', 'contact_phone'])
+  const email = contact_email
 
   return (
     <ContentPage
-      eyebrow="Juridisch"
-      title="Privacybeleid"
-      intro="In dit privacybeleid lees je welke persoonsgegevens we verzamelen wanneer je mantrasports.nl bezoekt of bij ons bestelt, waarom we dat doen en welke rechten je hebt."
-      breadcrumb={[{ label: 'Privacybeleid' }]}
-      meta="Laatst bijgewerkt: 31 oktober 2026"
+      eyebrow="Legal"
+      title="Privacy Policy"
+      intro="This policy explains what personal data we collect when you visit mantrasports.co.in, buy from us or contact us, why we collect it, and the rights you have."
+      breadcrumb={[{ label: 'Privacy Policy' }]}
+      meta="Last updated: 31 October 2026"
     >
-      <h2>Wie is verantwoordelijk?</h2>
+      <h2>Who We Are</h2>
       <p>
-        De verwerkingsverantwoordelijke voor de persoonsgegevens die via mantrasports.nl (&lsquo;de website&rsquo;) worden
-        verzameld, is:
+        The Data Fiduciary responsible for personal data collected through mantrasports.co.in (&lsquo;the website&rsquo;) is:
       </p>
       <p>
-        <strong>{company.legalName}</strong> (handelend als Mantra Sports Nederland)<br />
-        ABN {company.abn}<br />
-        {company.street}, {company.city} {company.postalCode}, {company.region}, {company.country}<br />
-        E-mail: <a href={`mailto:${email}`}>{email}</a><br />
-        Telefoon: {contact.phone}
+        <strong>{company.legalName}</strong> ({company.entityType}), trading as Mantra Sports India<br />
+        {SITE_CONFIG.contact.address}<br />
+        GSTIN {company.gstin}<br />
+        Email: <a href={`mailto:${email}`}>{email}</a> · Phone: {contact_phone}
       </p>
       <p>
-        Omdat we producten aanbieden aan klanten in de Europese Unie, verwerken we je gegevens in overeenstemming met de
-        Algemene Verordening Gegevensbescherming (AVG / GDPR).
+        We process personal data in accordance with the Digital Personal Data Protection Act, 2023 (&lsquo;DPDP Act&rsquo;), the
+        Information Technology Act, 2000 and the rules made under them.
       </p>
 
-      <h2>Welke gegevens verzamelen we?</h2>
-      <h3>Gegevens die je zelf aan ons geeft</h3>
+      <h2>What Data We Collect</h2>
+      <h3>Data you give us</h3>
       <ul>
         <li>
-          <strong>Contact-, offerte- en groothandelsaanvragen:</strong> naam, e-mailadres, telefoonnummer, organisatie of club,
-          land, gewenste aantallen, producten waarin je geïnteresseerd bent en de inhoud van je bericht.
+          <strong>Orders:</strong> name, email address, mobile number, delivery address, and — if you choose — business name and
+          GSTIN. Order contents and order history.
         </li>
-        <li><strong>Nieuwsbrief:</strong> je e-mailadres, als je je aanmeldt.</li>
         <li>
-          <strong>Bestellingen (&lsquo;ordergegevens&rsquo;):</strong> naam, factuur- en bezorgadres, e-mailadres, telefoonnummer
-          en betaalgegevens die nodig zijn om je bestelling af te handelen.
+          <strong>Payments:</strong> payments are processed by Razorpay. We do not see or store your full card number, UPI PIN or
+          netbanking password. We receive a payment reference and payment status from Razorpay.
         </li>
+        <li>
+          <strong>Enquiries</strong> (contact, B2B, wholesale and dealer forms): name, email, phone, organisation, city/state,
+          quantities, products of interest and your message.
+        </li>
+        <li><strong>Newsletter:</strong> your email address, if you subscribe.</li>
+        <li><strong>WhatsApp and email:</strong> the messages and contact details you send us.</li>
       </ul>
-      <h3>Gegevens die automatisch worden verzameld (&lsquo;apparaatgegevens&rsquo;)</h3>
+      <h3>Data collected automatically</h3>
       <ul>
         <li>
-          <strong>Logbestanden:</strong> bij elk bezoek registreert onze hostingprovider technische gegevens zoals je IP-adres,
-          browsertype, bezochte pagina&apos;s, verwijzende pagina en datum/tijd. Deze gegevens zijn nodig om de website veilig en
-          goed te laten werken.
+          <strong>IP address:</strong> stored with enquiries and orders to prevent spam, abuse and payment fraud.
         </li>
         <li>
-          <strong>IP-adres bij formulieren:</strong> wanneer je een formulier verstuurt, slaan we je IP-adres op om misbruik en
-          spam te voorkomen.
+          <strong>Server logs:</strong> our hosting provider records technical data such as IP address, browser type, pages
+          visited and date/time to keep the website secure and working.
         </li>
-      </ul>
-
-      <h2>Cookies en lokale opslag</h2>
-      <p>
-        De website gebruikt op dit moment <strong>geen</strong> analytische, advertentie- of trackingcookies. We slaan alleen je
-        cookievoorkeur op in de lokale opslag van je browser, zodat we je niet bij elk bezoek opnieuw dezelfde melding tonen.
-        Voor beheerders van de website worden functionele inlogcookies gebruikt. Mochten we in de toekomst analytische of
-        marketingcookies inzetten, dan vragen we daarvoor vooraf je toestemming en passen we dit beleid aan. Meer informatie over
-        cookies en hoe je ze uitschakelt, vind je op <a href="https://www.allaboutcookies.org" target="_blank" rel="noopener noreferrer">allaboutcookies.org</a>.
-      </p>
-
-      <h2>Waarvoor gebruiken we je gegevens?</h2>
-      <div className="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Doel</th><th>Rechtsgrond (AVG)</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Je vraag of offerteaanvraag beantwoorden en opvolgen</td>
-              <td>Uitvoering van (de voorbereiding van) een overeenkomst, of ons gerechtvaardigd belang om op vragen te reageren</td>
-            </tr>
-            <tr>
-              <td>Je bestelling verwerken: betaling, verzending, facturen en orderbevestigingen</td>
-              <td>Uitvoering van de overeenkomst</td>
-            </tr>
-            <tr>
-              <td>Met je communiceren over je bestelling, retour of garantieclaim</td>
-              <td>Uitvoering van de overeenkomst</td>
-            </tr>
-            <tr>
-              <td>Nieuwsbrieven en informatie over producten en acties sturen</td>
-              <td>Je toestemming (die je altijd kunt intrekken via de afmeldlink of per e-mail)</td>
-            </tr>
-            <tr>
-              <td>Fraude, spam en misbruik voorkomen en de website beveiligen en verbeteren</td>
-              <td>Ons gerechtvaardigd belang</td>
-            </tr>
-            <tr>
-              <td>Voldoen aan wettelijke verplichtingen, zoals de administratie- en belastingplicht</td>
-              <td>Wettelijke verplichting</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h2>Met wie delen we je gegevens?</h2>
-      <p>We verkopen je gegevens nooit. We delen ze alleen met partijen die ons helpen de website en onze dienstverlening te leveren:</p>
-      <ul>
-        <li><strong>Hosting en infrastructuur</strong> — Vercel (hosting van de website) en Neon (database).</li>
-        <li><strong>Afbeeldingen</strong> — Cloudinary (opslag en weergave van productafbeeldingen).</li>
-        <li><strong>E-mail</strong> — onze e-maildienstverlener, om je aanvraag en onze antwoorden te versturen.</li>
         <li>
-          <strong>Mantra Sports-groep</strong> — aanvragen worden ook vastgelegd in het interne klantsysteem van Mantra Sports,
-          zodat ons hoofdkantoor je aanvraag kan opvolgen.
+          <strong>Browser storage:</strong> your cart, your cookie choice and display preference are saved in your own browser
+          (local storage). See <a href="#cookies">Cookies</a> below.
         </li>
-        <li><strong>Vervoerders en betaaldienstverleners</strong> — voor het bezorgen en afrekenen van bestellingen.</li>
+      </ul>
+
+      <h2>Why We Use Your Data</h2>
+      <ul>
+        <li>To process, deliver and support your order, issue GST invoices and handle returns, refunds and warranty claims.</li>
+        <li>To respond to your enquiries and prepare quotes.</li>
+        <li>To send order updates (confirmation, dispatch, tracking) by email, SMS or WhatsApp.</li>
+        <li>To send our newsletter and offers — only if you have subscribed. You can unsubscribe at any time.</li>
+        <li>To prevent fraud, spam and misuse, and keep the website secure.</li>
+        <li>To comply with legal obligations, including tax (GST) and accounting record-keeping.</li>
       </ul>
       <p>
-        Daarnaast kunnen we gegevens verstrekken als dat wettelijk verplicht is, bijvoorbeeld op verzoek van een bevoegde
-        instantie, of om onze rechten te beschermen.
+        We process your data on the basis of your consent (for example, when you submit a form, place an order or subscribe),
+        or for legitimate uses permitted under the DPDP Act, such as fulfilling a purchase you have requested or complying with
+        the law.
       </p>
 
-      <h2>Doorgifte buiten de Europese Economische Ruimte</h2>
-      <p>
-        Omdat {company.legalName} in Australië is gevestigd en sommige dienstverleners in de Verenigde Staten zitten, worden je
-        gegevens doorgegeven aan landen buiten de Europese Economische Ruimte (EER). We zorgen in dat geval voor passende
-        waarborgen, zoals de standaardcontractbepalingen van de Europese Commissie of, voor Amerikaanse partijen, het EU-US
-        Data Privacy Framework waar van toepassing. Je kunt via <a href={`mailto:${email}`}>{email}</a> meer informatie over deze
-        waarborgen opvragen.
-      </p>
-
-      <h2>Hoe lang bewaren we je gegevens?</h2>
+      <h2>Who We Share Data With</h2>
+      <p>We never sell your personal data. We share it only with service providers who help us run the business:</p>
       <ul>
+        <li><strong>Razorpay</strong> (India) — payment processing.</li>
+        <li><strong>Courier and logistics partners</strong> — to deliver your order (name, address, phone).</li>
         <li>
-          Aanvragen die niet tot een bestelling leiden, bewaren we zolang dat nodig is voor de opvolging en uiterlijk 2 jaar na
-          het laatste contact.
+          <strong>Mantra Corporation Pty Ltd</strong> (Australia), the Mantra Sports head office — enquiries are recorded in the
+          group&apos;s customer management system (MantraOS) so our team can follow up.
         </li>
-        <li>Ordergegevens en facturen bewaren we zolang de wettelijke bewaarplicht voor onze administratie dat vereist.</li>
-        <li>Je nieuwsbriefaanmelding bewaren we tot je je afmeldt.</li>
-        <li>Logbestanden worden na korte tijd automatisch verwijderd door onze hostingprovider.</li>
+        <li><strong>Vercel</strong> (website hosting) and <strong>Neon</strong> (database hosting).</li>
+        <li><strong>Cloudinary</strong> — product image hosting.</li>
+        <li><strong>Our email provider</strong> — to send order and enquiry emails.</li>
+        <li>
+          <strong>Google</strong> — if Google reviews are shown on our homepage, reviewer profile photos load from Google&apos;s
+          servers, which receive your IP address.
+        </li>
+        <li>Government authorities, where required by law (for example tax or customs authorities).</li>
       </ul>
 
-      <h2>Je rechten</h2>
-      <p>Op grond van de AVG heb je het recht om:</p>
+      <h2>Transfers Outside India</h2>
+      <p>
+        Some of our service providers store or process data outside India — including in Australia (Mantra Sports head office)
+        and the United States (hosting and image services). We transfer data only as permitted under the DPDP Act and take
+        reasonable steps to ensure it is protected.
+      </p>
+
+      <h2>How Long We Keep Data</h2>
       <ul>
-        <li>inzage te vragen in de persoonsgegevens die we van je hebben;</li>
-        <li>onjuiste gegevens te laten corrigeren of aanvullen;</li>
-        <li>je gegevens te laten verwijderen;</li>
-        <li>de verwerking te laten beperken;</li>
-        <li>bezwaar te maken tegen verwerking op basis van ons gerechtvaardigd belang, waaronder direct marketing;</li>
-        <li>je gegevens in een gangbaar formaat te ontvangen (dataportabiliteit);</li>
-        <li>je toestemming op elk moment in te trekken.</li>
+        <li>Order and invoice records: as long as required by GST and tax law (generally at least 8 years).</li>
+        <li>Enquiries: up to 3 years after our last contact, unless you become a customer.</li>
+        <li>Newsletter: until you unsubscribe.</li>
+        <li>Server logs: for a limited period for security purposes.</li>
+      </ul>
+
+      <h2>Your Rights</h2>
+      <p>Under the DPDP Act, you have the right to:</p>
+      <ul>
+        <li><strong>Access</strong> a summary of the personal data we hold about you and how we process it;</li>
+        <li><strong>Correct</strong> inaccurate or incomplete data, and <strong>update</strong> it;</li>
+        <li><strong>Erase</strong> your data where it is no longer needed (subject to legal retention requirements);</li>
+        <li><strong>Withdraw consent</strong> at any time — this does not affect processing done before withdrawal;</li>
+        <li><strong>Nominate</strong> another person to exercise your rights in the event of death or incapacity;</li>
+        <li><strong>Grievance redressal</strong> — raise a complaint with us about how your data is handled.</li>
       </ul>
       <p>
-        Stuur je verzoek naar <a href={`mailto:${email}`}>{email}</a>. We reageren binnen een maand. Ben je niet tevreden over
-        hoe we met je gegevens omgaan, dan kun je een klacht indienen bij de{' '}
-        <a href="https://autoriteitpersoonsgegevens.nl" target="_blank" rel="noopener noreferrer">Autoriteit Persoonsgegevens</a>{' '}
-        of bij de privacytoezichthouder in je eigen land.
+        To exercise any of these rights, email <a href={`mailto:${email}`}>{email}</a> or contact our Grievance Officer below.
+        We may need to verify your identity before acting on a request.
       </p>
 
-      <h2>Beveiliging</h2>
+      <h2>Grievance Officer</h2>
       <p>
-        We nemen passende technische en organisatorische maatregelen om je gegevens te beschermen. De website gebruikt een
-        versleutelde verbinding (HTTPS) en de toegang tot klantgegevens is beperkt tot medewerkers die deze nodig hebben.
+        {grievanceOfficer.name}, {grievanceOfficer.designation}<br />
+        {company.legalName}, {SITE_CONFIG.contact.address}<br />
+        Email: <a href={`mailto:${grievanceOfficer.email}`}>{grievanceOfficer.email}</a> · Phone: {grievanceOfficer.phone}
+      </p>
+      <p>
+        We acknowledge complaints within 48 hours and aim to resolve them within one month. If you are not satisfied with our
+        response, you may complain to the <strong>Data Protection Board of India</strong>.
       </p>
 
-      <h2>Do Not Track</h2>
+      <h2 id="cookies">Cookies &amp; Browser Storage</h2>
       <p>
-        We passen onze gegevensverzameling niet aan op basis van een &lsquo;Do Not Track&rsquo;-signaal van je browser. Omdat
-        we geen trackingcookies gebruiken, heeft dit in de praktijk weinig gevolgen.
+        We do not use advertising or analytics cookies. We use only what the website needs to work: your shopping cart, your
+        cookie-banner choice and your display preference are stored in your browser&apos;s local storage, and a secure session
+        cookie is used for staff logging in to the admin area. If we add analytics in future, we will ask for your consent first
+        and update this policy.
+      </p>
+      <p>
+        When you pay, Razorpay&apos;s checkout window may set its own cookies needed for payment security; see Razorpay&apos;s
+        privacy policy.
       </p>
 
-      <h2>Wijzigingen</h2>
+      <h2>Security</h2>
       <p>
-        We kunnen dit privacybeleid van tijd tot tijd aanpassen, bijvoorbeeld door veranderingen in onze werkwijze of om
-        operationele, juridische of wettelijke redenen. De meest recente versie staat altijd op deze pagina.
+        The website uses HTTPS encryption. Access to customer data is limited to staff who need it, and admin accounts are
+        password-protected. No method of transmission or storage is completely secure, but we take reasonable measures to
+        protect your data.
       </p>
 
-      <h2>Contact</h2>
+      <h2>Children</h2>
       <p>
-        Heb je vragen over onze privacypraktijken of wil je een klacht indienen? Mail ons via{' '}
-        <a href={`mailto:${email}`}>{email}</a> of schrijf naar {company.legalName}, {company.street}, {company.city}{' '}
-        {company.postalCode}, {company.region}, {company.country}. Zie ook onze <Link href="/terms-and-conditions">algemene voorwaarden</Link>.
+        Our products are often bought for junior cricketers, but purchases must be made by an adult. We do not knowingly collect
+        personal data from children under 18 without verifiable consent from a parent or guardian.
+      </p>
+
+      <h2>Changes to This Policy</h2>
+      <p>
+        We may update this policy from time to time. The latest version is always on this page, with the date it was last
+        updated.
+      </p>
+
+      <h2>Questions?</h2>
+      <p>
+        Email <a href={`mailto:${email}`}>{email}</a> or use our <Link href="/contact">contact form</Link>. See also our{' '}
+        <Link href="/terms-and-conditions">terms &amp; conditions</Link>.
       </p>
     </ContentPage>
   )

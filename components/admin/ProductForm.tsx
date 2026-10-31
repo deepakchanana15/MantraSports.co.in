@@ -108,8 +108,8 @@ function ProductFormContent({ product, categories }: ProductFormProps) {
   const uploadFile = useCallback(async (file: File) => {
     setUploading(true)
     try {
-      const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME ?? 'dgeaaga0s'
-      const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET ?? 'mantrasports_nl'
+      const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+      const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET
       if (!cloudName || !uploadPreset) throw new Error('Cloudinary is not configured.')
       const fd = new FormData()
       fd.append('file', file)
@@ -439,13 +439,13 @@ function ProductFormContent({ product, categories }: ProductFormProps) {
           {/* Pricing */}
           <div className={sectionCls}>
             <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-neutral-500">
-              Pricing (EUR)
+              Pricing (INR, incl. GST)
             </h2>
             <div className="space-y-3">
               <Field label="Regular Price" htmlFor="price">
                 <div className="flex">
                   <span className="flex items-center rounded-l border border-r-0 border-neutral-300 bg-neutral-50 px-3 text-sm text-neutral-500 select-none">
-                    €
+                    ₹
                   </span>
                   <input
                     id="price"
@@ -455,14 +455,14 @@ function ProductFormContent({ product, categories }: ProductFormProps) {
                     min="0"
                     defaultValue={product?.price ? Number(product.price) : ''}
                     className="w-full rounded-r border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500"
-                    placeholder="0.00"
+                    placeholder="e.g. 24999"
                   />
                 </div>
               </Field>
               <Field label="Sale Price" htmlFor="salePrice" hint="Leave blank if not on sale.">
                 <div className="flex">
                   <span className="flex items-center rounded-l border border-r-0 border-neutral-300 bg-neutral-50 px-3 text-sm text-neutral-500 select-none">
-                    €
+                    ₹
                   </span>
                   <input
                     id="salePrice"
@@ -475,6 +475,40 @@ function ProductFormContent({ product, categories }: ProductFormProps) {
                     placeholder="0.00"
                   />
                 </div>
+              </Field>
+              <p className="text-xs text-neutral-400">Enter the final price the customer pays, including GST. Leave blank to show &quot;Price on request&quot; (no online purchase).</p>
+            </div>
+          </div>
+
+          {/* GST & legal */}
+          <div className={sectionCls}>
+            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-neutral-500">
+              GST &amp; Product Details
+            </h2>
+            <div className="space-y-3">
+              <Field label="Country of Origin" htmlFor="countryOfOrigin" hint="Where the product is made. Shown on the product page (required by Indian e-commerce rules).">
+                <input id="countryOfOrigin" name="countryOfOrigin" defaultValue={product?.countryOfOrigin ?? ''} className={inputCls} placeholder="e.g. India" />
+              </Field>
+              <Field label="HSN Code" htmlFor="hsnCode" hint="Printed on the GST invoice. Leave blank to use the default from Settings.">
+                <input id="hsnCode" name="hsnCode" defaultValue={product?.hsnCode ?? ''} className={inputCls} placeholder="e.g. 9506" />
+              </Field>
+              <Field label="GST Rate (%)" htmlFor="gstRate" hint="Leave blank to use the default from Settings.">
+                <input id="gstRate" name="gstRate" type="number" step="0.01" min="0" max="28" defaultValue={product?.gstRate != null ? Number(product.gstRate) : ''} className={inputCls} />
+              </Field>
+            </div>
+          </div>
+
+          {/* Customer option */}
+          <div className={sectionCls}>
+            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-neutral-500">
+              Size / Option
+            </h2>
+            <div className="space-y-3">
+              <Field label="Option Name" htmlFor="optionName" hint="e.g. Size, Handle, Hand">
+                <input id="optionName" name="optionName" defaultValue={product?.optionName ?? ''} className={inputCls} placeholder="Size" />
+              </Field>
+              <Field label="Choices" htmlFor="optionValues" hint="Comma-separated. Customers must pick one before adding to cart. Leave blank for none.">
+                <input id="optionValues" name="optionValues" defaultValue={product?.optionValues?.join(', ') ?? ''} className={inputCls} placeholder="Short Handle, Long Handle" />
               </Field>
             </div>
           </div>
@@ -508,6 +542,7 @@ function ProductFormContent({ product, categories }: ProductFormProps) {
                   placeholder="e.g. 25"
                 />
               </Field>
+              <p className="text-xs text-neutral-400">Leave quantity blank to not track stock. If set, it goes down with each paid order and the product shows Out of Stock at 0.</p>
             </div>
           </div>
 

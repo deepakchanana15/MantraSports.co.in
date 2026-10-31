@@ -2,11 +2,13 @@ import type { Metadata } from 'next'
 import { prisma } from '@/lib/db/prisma'
 import { HomePageClient } from '@/components/home/HomePageClient'
 import type { CategoryDisplay, ProductDisplay, HeroProduct } from '@/components/home/HomePageClient'
+import { getSiteSettings } from '@/lib/utils/settings'
+import { getGoogleReviews } from '@/lib/google-reviews'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Mantra Sports NL — Premium Cricket Uitrusting' },
+  title: { absolute: 'Mantra Sports India — Premium English Willow Cricket Bats & Gear' },
   description:
-    'Premium cricketbats, beschermende uitrusting, teamkleding en accessoires bij Mantra Sports Nederland. Groothandel & B2B-aanvragen welkom.',
+    'Shop premium English willow cricket bats, protective gear, leather balls, teamwear and accessories from Mantra Sports India. Free delivery across India. B2B & wholesale enquiries welcome.',
 }
 
 function toDisplay(p: {
@@ -50,7 +52,7 @@ export default async function HomePage() {
   let willowImageUrl: string | null = null
   let categories: CategoryDisplay[] = []
   let tabProducts = {
-    neue: [] as ProductDisplay[],
+    new: [] as ProductDisplay[],
     bestseller: [] as ProductDisplay[],
     willow: [] as ProductDisplay[],
     sale: [] as ProductDisplay[],
@@ -122,9 +124,10 @@ export default async function HomePage() {
           },
         }),
 
-        // Magnitude Legend image for the English Willow dark section
+        // Featured cricket bat image for the English Willow dark section
         prisma.product.findFirst({
-          where: { slug: 'legenda-voor-magnitude' },
+          where: { status: 'ACTIVE', category: { slug: 'cricket-bats' } },
+          orderBy: [{ isFeatured: 'desc' }, { createdAt: 'desc' }],
           select: { images: { where: { isPrimary: true }, take: 1, select: { url: true } } },
         }),
       ])
@@ -140,7 +143,7 @@ export default async function HomePage() {
     }))
 
     tabProducts = {
-      neue: newArrivals.map(toDisplay),
+      new: newArrivals.map(toDisplay),
       bestseller: bestsellers.map(toDisplay),
       willow: batProds.map(toDisplay),
       sale: saleProds.map(toDisplay),
@@ -160,6 +163,11 @@ export default async function HomePage() {
     // DB unavailable — render with placeholder / static data
   }
 
+  const [{ return_window_days }, reviews] = await Promise.all([
+    getSiteSettings(['return_window_days']),
+    getGoogleReviews(),
+  ])
+
   return (
     <HomePageClient
       heroImageUrl={heroImageUrl}
@@ -167,6 +175,8 @@ export default async function HomePage() {
       willowImageUrl={willowImageUrl}
       categories={categories}
       tabProducts={tabProducts}
+      returnWindowDays={return_window_days}
+      reviews={reviews}
     />
   )
 }

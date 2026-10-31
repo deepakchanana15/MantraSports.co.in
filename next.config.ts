@@ -38,6 +38,14 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        // Customer order pages contain personal data — never cache or index
+        source: '/(order-confirmation|invoice)/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'private, no-store' },
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
+        ],
+      },
+      {
         // API routes should not be cached
         source: '/api/:path*',
         headers: [

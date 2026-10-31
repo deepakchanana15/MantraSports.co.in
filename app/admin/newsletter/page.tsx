@@ -52,7 +52,7 @@ export default async function NewsletterAdminPage() {
                   <td className="px-4 py-3 text-neutral-400">{i + 1}</td>
                   <td className="px-4 py-3 font-medium text-neutral-900">{sub.email}</td>
                   <td className="px-4 py-3 text-neutral-500">
-                    {sub.subscribedAt.toLocaleDateString('nl-NL', {
+                    {sub.subscribedAt.toLocaleDateString('en-IN', {
                       day: '2-digit', month: '2-digit', year: 'numeric',
                       hour: '2-digit', minute: '2-digit',
                     })}

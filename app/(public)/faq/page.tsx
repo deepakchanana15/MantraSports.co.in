@@ -2,121 +2,131 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ContentPage } from '@/components/layout/ContentPage'
 import { FAQSchema } from '@/components/seo/JsonLd'
+import { getSiteSettings } from '@/lib/utils/settings'
 
 export const metadata: Metadata = {
-  title: 'Veelgestelde Vragen (FAQ)',
+  title: 'Frequently Asked Questions (FAQ)',
   description:
-    'Antwoorden op veelgestelde vragen over bestellen, verzending, levertijden, retourneren, betalen en groothandel bij Mantra Sports Nederland.',
+    'Answers to common questions about ordering, delivery, returns, payment, warranty and wholesale at Mantra Sports India.',
 }
 
 type FaqItem = { question: string; answer: string; link?: { href: string; label: string } }
 
-const FAQ_GROUPS: { title: string; items: FaqItem[] }[] = [
-  {
-    title: 'Bestellen',
-    items: [
-      {
-        question: 'Hoe bestel ik bij Mantra Sports Nederland?',
-        answer:
-          'Je bestelt via een offerteaanvraag. Klik op een productpagina op ‘Offerte aanvragen’, gebruik het contactformulier of stuur ons een bericht via WhatsApp of e-mail. Je ontvangt een offerte met de prijs, de verzendkosten en de verwachte levertijd. Na akkoord en betaling verzenden we je bestelling.',
-        link: { href: '/contact', label: 'Naar het contactformulier' },
-      },
-      {
-        question: 'Welke maat cricketbat heb ik nodig?',
-        answer:
-          'De juiste batmaat hangt vooral af van je lengte. In onze maatgids vind je een maattabel van maat 0 voor de jongste spelers tot Short Handle en Long Handle voor volwassenen. Twijfel je? Ons team helpt je graag.',
-        link: { href: '/blog/cricketbat-maattabel-welke-maat', label: 'Bekijk de maattabel voor cricketbats' },
-      },
-      {
-        question: 'Bestellen clubs en scholen ook bij jullie?',
-        answer:
-          'Ja. Voor clubs, scholen, academies en dealers bieden we groothandelsprijzen en maatwerk, zoals teamkleding en kitbags in clubkleuren. Vraag vrijblijvend een groothandelsofferte aan.',
-        link: { href: '/wholesale', label: 'Groothandel & B2B' },
-      },
-    ],
-  },
-  {
-    title: 'Levering & verzending',
-    items: [
-      {
-        question: 'Hoe lang duurt het voordat ik mijn bestelling ontvang?',
-        answer:
-          'We verzenden bestellingen vanuit Australië, doorgaans binnen 1 tot 4 werkdagen na ontvangst van de betaling. Daarna duurt de bezorging naar Nederland en de rest van Europa gemiddeld 5 tot 14 werkdagen. De levertijd kan variëren per product en door douaneafhandeling.',
-        link: { href: '/shipping-policy', label: 'Lees ons verzendbeleid' },
-      },
-      {
-        question: 'Wat zijn de verzendkosten?',
-        answer:
-          'De verzendkosten hangen af van het gewicht, de afmetingen en de bestemming van je bestelling. Je ziet de exacte verzendkosten altijd vooraf in je offerte.',
-      },
-      {
-        question: 'Moet ik invoerrechten of btw betalen?',
-        answer:
-          'Omdat we vanuit Australië verzenden, kunnen bij invoer in de EU invoerbtw, invoerrechten en inklaringskosten worden berekend. Tenzij in je offerte anders is vermeld, zijn deze kosten voor rekening van de ontvanger.',
-      },
-      {
-        question: 'Kan ik mijn zending volgen?',
-        answer:
-          'Ja. Zodra je bestelling is verzonden, ontvang je per e-mail een trackingnummer waarmee je je zending online kunt volgen.',
-      },
-      {
-        question: 'Wat als ik niet thuis ben bij de bezorging?',
-        answer:
-          'De vervoerder doet doorgaans een nieuwe bezorgpoging of laat het pakket achter bij een afhaalpunt. Je kunt ook zelf contact opnemen met de vervoerder om een ander bezorgmoment af te spreken.',
-      },
-    ],
-  },
-  {
-    title: 'Retourneren & terugbetaling',
-    items: [
-      {
-        question: 'Wat is jullie retourbeleid?',
-        answer:
-          'Als consument heb je 14 dagen wettelijke bedenktijd. Voor ongebruikte artikelen in de originele verpakking verlengen we dat tot 30 dagen na ontvangst. Neem contact met ons op om een retour aan te melden; we sturen je dan de retourinstructies.',
-        link: { href: '/returns-policy', label: 'Lees ons retour- en garantiebeleid' },
-      },
-      {
-        question: 'Hoe snel krijg ik mijn geld terug?',
-        answer:
-          'We betalen je uiterlijk binnen 14 dagen nadat je de herroeping hebt gemeld terug. We mogen wachten tot we het product hebben ontvangen of tot je hebt aangetoond dat je het hebt teruggestuurd. Je ontvangt een e-mail zodra de terugbetaling is verwerkt.',
-      },
-      {
-        question: 'Kan ik een product op maat retourneren?',
-        answer:
-          'Producten die op maat zijn gemaakt of gepersonaliseerd, zoals teamkleding op maat, kunnen niet worden geretourneerd, tenzij er sprake is van een productiefout. Controleer je maatwerkgegevens daarom goed voordat je je bestelling bevestigt.',
-      },
-      {
-        question: 'Welke garantie krijg ik op mijn bat?',
-        answer:
-          'Op cricketbats geven we 12 maanden garantie, op beschermende uitrusting en helmen 6 maanden en op kitbags 12 maanden, naast je wettelijke garantie. In ons retour- en garantiebeleid lees je precies wat wel en niet onder de garantie valt.',
-      },
-    ],
-  },
-  {
-    title: 'Betalen',
-    items: [
-      {
-        question: 'Welke betaalmethoden accepteren jullie?',
-        answer:
-          'We accepteren onder meer creditcard en PayPal. De beschikbare betaalmethoden en betaalinstructies staan in je offerte.',
-      },
-      {
-        question: 'Is mijn betaling veilig?',
-        answer:
-          'Ja. Betalingen worden versleuteld en via beveiligde betaalomgevingen verwerkt. Je veiligheid en privacy staan bij elke transactie voorop.',
-      },
-    ],
-  },
-]
+export default async function FaqPage() {
+  const { shipping_processing_time, shipping_delivery_time, return_window_days, response_time_hours } = await getSiteSettings([
+    'shipping_processing_time',
+    'shipping_delivery_time',
+    'return_window_days',
+    'response_time_hours',
+  ])
 
-export default function FaqPage() {
+  const FAQ_GROUPS: { title: string; items: FaqItem[] }[] = [
+    {
+      title: 'Ordering',
+      items: [
+        {
+          question: 'How do I order from Mantra Sports India?',
+          answer:
+            'Add products to your cart, go to checkout, enter your delivery address and pay securely online with UPI, card, netbanking or a wallet. You receive an order confirmation by email straight away.',
+          link: { href: '/shop', label: 'Start shopping' },
+        },
+        {
+          question: 'What size cricket bat do I need?',
+          answer:
+            'The right bat size depends mainly on your height. Our size guide has a chart from junior sizes up to Short Handle and Long Handle for adults. Not sure? Message us and we will help.',
+          link: { href: '/blog/cricket-bat-size-guide', label: 'See the cricket bat size guide' },
+        },
+        {
+          question: 'Do you supply clubs, schools and academies?',
+          answer:
+            'Yes. For clubs, schools, academies and dealers we offer volume pricing and custom kit such as teamwear and kit bags in club colours. Request a no-obligation B2B quote.',
+          link: { href: '/b2b', label: 'Request a B2B quote' },
+        },
+        {
+          question: 'Can I get a GST invoice?',
+          answer:
+            'Yes. Every order comes with a GST invoice that you can view and print from your order page. If you are buying for a business, tick the GST option at checkout and enter your GSTIN and business name.',
+        },
+      ],
+    },
+    {
+      title: 'Delivery',
+      items: [
+        {
+          question: 'How much does delivery cost?',
+          answer: 'Nothing — delivery is free on every order to an address in India. The price at checkout is the total you pay.',
+        },
+        {
+          question: 'How long will my order take?',
+          answer: `We usually dispatch within ${shipping_processing_time} of payment. Estimated delivery after dispatch: ${shipping_delivery_time}.`,
+          link: { href: '/shipping-policy', label: 'Read our shipping policy' },
+        },
+        {
+          question: 'Will I have to pay customs duty?',
+          answer:
+            'No. Some products ship from our Australian warehouse; any import duty and IGST on those are paid by us. The courier may ask for KYC details (such as PAN or Aadhaar) to clear the parcel through customs.',
+        },
+        {
+          question: 'Can I track my order?',
+          answer:
+            'Yes. When your order ships, we email you the courier name and tracking number. You can also check your order status online with your order number and email address.',
+          link: { href: '/order-status', label: 'Track your order' },
+        },
+      ],
+    },
+    {
+      title: 'Returns & Refunds',
+      items: [
+        {
+          question: 'What is your returns policy?',
+          answer: `Unused items in their original packaging can be returned within ${return_window_days} days of delivery. Damaged, defective or wrong items are always replaced or refunded — just contact us within 48 hours of delivery with photos.`,
+          link: { href: '/returns-policy', label: 'Read our returns & warranty policy' },
+        },
+        {
+          question: 'How quickly will I get my refund?',
+          answer:
+            'Approved refunds are issued to your original payment method within 7 working days of approval. Your bank may take a further 5–7 working days to show the amount.',
+        },
+        {
+          question: 'Can I return a custom-made product?',
+          answer:
+            'Custom or personalised products, such as custom teamwear, cannot be returned for change of mind unless they are defective or not made to the agreed specification. Please check your custom order details carefully.',
+        },
+        {
+          question: 'What warranty do I get on my bat?',
+          answer:
+            'Cricket bats have a 12-month warranty, protective gear and helmets 6 months, and kit bags 12 months, in addition to your statutory rights. Our returns & warranty policy explains exactly what is covered.',
+        },
+      ],
+    },
+    {
+      title: 'Payment',
+      items: [
+        {
+          question: 'Which payment methods do you accept?',
+          answer:
+            'Payments are processed by Razorpay. You can pay with UPI (Google Pay, PhonePe, Paytm and others), debit and credit cards including RuPay, netbanking and popular wallets.',
+        },
+        {
+          question: 'Is my payment secure?',
+          answer:
+            'Yes. Payments are handled by Razorpay over an encrypted connection. We never see or store your card details, UPI PIN or banking password.',
+        },
+        {
+          question: 'Do you offer cash on delivery?',
+          answer: 'At the moment all online orders are prepaid. If you need another option, message us on WhatsApp.',
+        },
+      ],
+    },
+  ]
+
   const allItems = FAQ_GROUPS.flatMap((g) => g.items)
 
   return (
     <ContentPage
-      eyebrow="Hulp & ondersteuning"
-      title="Veelgestelde Vragen"
-      intro="Antwoorden op de meest gestelde vragen over bestellen, verzending, retourneren en betalen. Staat je vraag er niet tussen? Neem gerust contact met ons op."
+      eyebrow="Help & Support"
+      title="Frequently Asked Questions"
+      intro="Answers to the most common questions about ordering, delivery, returns and payment. Can't find your question? Get in touch."
       breadcrumb={[{ label: 'FAQ' }]}
     >
       <FAQSchema items={allItems.map(({ question, answer }) => ({ question, answer }))} />
@@ -141,10 +151,10 @@ export default function FaqPage() {
         </section>
       ))}
 
-      <h2>Nog een vraag?</h2>
+      <h2>Still Have a Question?</h2>
       <p>
-        Ons team helpt je graag verder. Gebruik het <Link href="/contact">contactformulier</Link> — we reageren doorgaans binnen
-        24 uur op werkdagen.
+        Our team is happy to help. Use the <Link href="/contact">contact form</Link> or WhatsApp us — we usually reply within{' '}
+        {response_time_hours} hours on working days.
       </p>
     </ContentPage>
   )

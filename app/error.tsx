@@ -20,11 +20,11 @@ export default function Error({ error, reset }: ErrorProps) {
       </p>
 
       <h1 className="mt-4 font-display text-5xl font-bold uppercase text-neutral-950 dark:text-white">
-        Er is iets misgegaan
+        Something Went Wrong
       </h1>
 
       <p className="mt-6 max-w-md text-neutral-500 dark:text-neutral-400">
-        Er is een onverwachte fout opgetreden. Probeer het opnieuw of neem contact op als het probleem aanhoudt.
+        An unexpected error occurred. Please try again or contact us if the problem persists.
       </p>
 
       {process.env.NODE_ENV === 'development' && (
@@ -38,13 +38,13 @@ export default function Error({ error, reset }: ErrorProps) {
           onClick={reset}
           className="inline-flex items-center gap-2 bg-brand-500 px-8 py-4 font-display text-sm font-bold uppercase tracking-widest text-white transition-colors hover:bg-brand-600"
         >
-          Opnieuw proberen
+          Try Again
         </button>
         <a
           href="/"
           className="inline-flex items-center gap-2 border border-neutral-300 px-8 py-4 font-display text-sm font-bold uppercase tracking-widest text-neutral-700 transition-colors hover:border-neutral-400 dark:border-neutral-700 dark:text-neutral-300"
         >
-          Naar huis
+          Go Home
         </a>
       </div>
     </div>

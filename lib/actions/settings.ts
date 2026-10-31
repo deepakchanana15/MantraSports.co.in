@@ -25,8 +25,8 @@ export async function saveSettings(formData: FormData): Promise<void> {
     )
   )
 
-  revalidatePath('/admin/settings')
-  revalidatePath('/')
+  // Settings feed pre-rendered pages (policies, FAQ, footer, homepage) — refresh the whole site
+  revalidatePath('/', 'layout')
 }
 
 export async function getSettings(): Promise<Record<string, string>> {

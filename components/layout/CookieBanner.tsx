@@ -33,7 +33,7 @@ export function CookieBanner() {
     <div
       role="dialog"
       aria-modal="false"
-      aria-label="Cookie-instellingen"
+      aria-label="Cookie settings"
       style={{
         position: 'fixed',
         bottom: 0,
@@ -60,13 +60,13 @@ export function CookieBanner() {
         <div style={{ flex: 1, minWidth: '260px' }}>
           <p style={{ margin: 0, fontSize: '13px', lineHeight: 1.6, color: '#cccccc' }}>
             🍪{' '}
-            <strong style={{ color: '#ffffff' }}>Wij gebruiken cookies</strong>, om je ervaring op onze website te verbeteren.
-            Sommige zijn technisch noodzakelijk, andere helpen ons het gebruik te begrijpen.{' '}
+            <strong style={{ color: '#ffffff' }}>We use only essential storage</strong> — for example to remember your cart.
+            We do not use advertising or analytics cookies.{' '}
             <Link
               href="/privacy-policy"
               style={{ color: '#e85d1a', textDecoration: 'underline', whiteSpace: 'nowrap' }}
             >
-              Privacybeleid
+              Privacy Policy
             </Link>
           </p>
         </div>
@@ -100,7 +100,7 @@ export function CookieBanner() {
               e.currentTarget.style.color = '#cccccc'
             }}
           >
-            Weigeren
+            Decline
           </button>
 
           {/* Accept — filled orange */}
@@ -130,13 +130,13 @@ export function CookieBanner() {
               e.currentTarget.style.borderColor = '#e85d1a'
             }}
           >
-            Alles accepteren
+            Accept All
           </button>
 
           {/* Dismiss X */}
           <button
             type="button"
-            aria-label="Sluiten"
+            aria-label="Close"
             onClick={() => save('denied')}
             style={{
               background: 'none',

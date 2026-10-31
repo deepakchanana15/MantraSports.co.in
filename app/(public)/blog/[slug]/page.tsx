@@ -47,7 +47,7 @@ export default async function BlogPostPage({ params }: Props) {
       title={post.title}
       intro={post.excerpt ?? undefined}
       breadcrumb={[{ label: 'Blog', href: '/blog' }, { label: post.title }]}
-      meta={post.publishedAt ? `Gepubliceerd op ${formatDate(post.publishedAt)}` : undefined}
+      meta={post.publishedAt ? `Published ${formatDate(post.publishedAt)}` : undefined}
     >
       <ArticleSchema
         title={post.title}
@@ -66,7 +66,7 @@ export default async function BlogPostPage({ params }: Props) {
       <div dangerouslySetInnerHTML={{ __html: post.content ?? '' }} />
 
       <p style={{ marginTop: 48 }}>
-        <Link href="/blog">← Alle artikelen</Link>
+        <Link href="/blog">← All articles</Link>
       </p>
     </ContentPage>
   )

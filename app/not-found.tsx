@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: { absolute: '404 — Pagina niet gevonden | Mantra Sports NL' },
+  title: { absolute: '404 — Page Not Found | Mantra Sports India' },
   robots: { index: false },
   alternates: { canonical: null },
 }
@@ -15,11 +15,11 @@ export default function NotFound() {
       </p>
 
       <h1 className="mt-4 font-display text-5xl font-bold uppercase text-neutral-950 dark:text-white sm:text-7xl">
-        Pagina niet gevonden
+        Page Not Found
       </h1>
 
       <p className="mt-6 max-w-md text-neutral-500 dark:text-neutral-400">
-        De pagina die je zoekt bestaat niet of is verplaatst.
+        The page you&apos;re looking for doesn&apos;t exist or has been moved.
       </p>
 
       <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -27,13 +27,13 @@ export default function NotFound() {
           href="/"
           className="inline-flex items-center gap-2 bg-brand-500 px-8 py-4 font-display text-sm font-bold uppercase tracking-widest text-white transition-colors hover:bg-brand-600"
         >
-          Naar huis
+          Go Home
         </Link>
         <Link
           href="/shop"
           className="inline-flex items-center gap-2 border border-neutral-300 px-8 py-4 font-display text-sm font-bold uppercase tracking-widest text-neutral-700 transition-colors hover:border-neutral-400 dark:border-neutral-700 dark:text-neutral-300 dark:hover:border-neutral-500"
         >
-          Bekijk de shop
+          Visit the Shop
         </Link>
       </div>
 

@@ -24,7 +24,7 @@ export function ContactForm({ defaultMessage }: { defaultMessage?: string }) {
     if (result.ok) {
       setSuccess(true)
     } else {
-      setError(result.error ?? 'Fout bij verzenden.')
+      setError(result.error ?? 'Could not send your message.')
     }
     setSubmitting(false)
   }
@@ -40,13 +40,13 @@ export function ContactForm({ defaultMessage }: { defaultMessage?: string }) {
           className="mb-2 font-display text-[22px] font-bold uppercase tracking-[0.03em]"
           style={{ color: '#111111' }}
         >
-          Bericht ontvangen!
+          Message Received!
         </h3>
         <p className="max-w-[360px] text-[15px] leading-relaxed" style={{ color: '#6B6B6B' }}>
-          Bedankt voor je aanvraag. We nemen zo snel mogelijk contact op — doorgaans binnen 24 uur.
+          Thanks for getting in touch. We&apos;ll get back to you as soon as possible.
         </p>
         <p className="mt-4 font-display text-[13px] font-semibold uppercase tracking-wider" style={{ color: '#e85d1a' }}>
-          Mantra Sports NL Team
+          Team Mantra Sports India
         </p>
       </div>
     )
@@ -55,14 +55,14 @@ export function ContactForm({ defaultMessage }: { defaultMessage?: string }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4"
-      style={{ border: '1px solid #E0DFDB', background: '#ffffff', padding: '36px' }}
+      className="space-y-4 p-5 sm:p-9"
+      style={{ border: '1px solid #E0DFDB', background: '#ffffff' }}
     >
       <h3
         className="mb-6 font-display text-[20px] font-bold uppercase tracking-[0.04em]"
         style={{ color: '#111111' }}
       >
-        Schrijf ons
+        Send Us a Message
       </h3>
 
       {error && (
@@ -71,45 +71,45 @@ export function ContactForm({ defaultMessage }: { defaultMessage?: string }) {
         </div>
       )}
 
-      <div className="grid gap-4" style={{ gridTemplateColumns: '1fr 1fr' }}>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <label
             className="mb-1.5 block font-display text-[11px] font-semibold uppercase tracking-[0.12em]"
             style={{ color: '#6B6B6B' }}
           >
-            Naam <span style={{ color: '#e85d1a' }}>*</span>
+            Name <span style={{ color: '#e85d1a' }}>*</span>
           </label>
-          <input type="text" name="name" required placeholder="Voor- en achternaam" className={inputCls} />
+          <input type="text" name="name" required placeholder="Your full name" className={inputCls} />
         </div>
         <div>
           <label
             className="mb-1.5 block font-display text-[11px] font-semibold uppercase tracking-[0.12em]"
             style={{ color: '#6B6B6B' }}
           >
-            E-mail <span style={{ color: '#e85d1a' }}>*</span>
+            Email <span style={{ color: '#e85d1a' }}>*</span>
           </label>
-          <input type="email" name="email" required placeholder="jouw@email.nl" className={inputCls} />
+          <input type="email" name="email" required placeholder="you@example.com" className={inputCls} />
         </div>
       </div>
 
-      <div className="grid gap-4" style={{ gridTemplateColumns: '1fr 1fr' }}>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <label
             className="mb-1.5 block font-display text-[11px] font-semibold uppercase tracking-[0.12em]"
             style={{ color: '#6B6B6B' }}
           >
-            Telefoon / WhatsApp
+            Phone / WhatsApp
           </label>
-          <input type="tel" name="phone" placeholder="+31 ..." className={inputCls} />
+          <input type="tel" name="phone" placeholder="+91 ..." className={inputCls} />
         </div>
         <div>
           <label
             className="mb-1.5 block font-display text-[11px] font-semibold uppercase tracking-[0.12em]"
             style={{ color: '#6B6B6B' }}
           >
-            Organisatie / Club (optioneel)
+            Organisation / Club (optional)
           </label>
-          <input type="text" name="company" placeholder="Jouw organisatie" className={inputCls} />
+          <input type="text" name="company" placeholder="Your organisation" className={inputCls} />
         </div>
       </div>
 
@@ -118,14 +118,14 @@ export function ContactForm({ defaultMessage }: { defaultMessage?: string }) {
           className="mb-1.5 block font-display text-[11px] font-semibold uppercase tracking-[0.12em]"
           style={{ color: '#6B6B6B' }}
         >
-          Bericht <span style={{ color: '#e85d1a' }}>*</span>
+          Message <span style={{ color: '#e85d1a' }}>*</span>
         </label>
         <textarea
           name="message"
           required
           rows={5}
           defaultValue={defaultMessage}
-          placeholder="Hoe kunnen we je helpen? Beschrijf je aanvraag zo gedetailleerd mogelijk."
+          placeholder="How can we help? Include product names, sizes or order numbers if relevant."
           className={inputCls}
         />
       </div>
@@ -143,11 +143,11 @@ export function ContactForm({ defaultMessage }: { defaultMessage?: string }) {
         onMouseEnter={(e) => { if (!submitting) e.currentTarget.style.background = '#c44b0f' }}
         onMouseLeave={(e) => { e.currentTarget.style.background = '#e85d1a' }}
       >
-        {submitting ? 'Wordt verzonden…' : <>Bericht verzenden <ArrowRight className="h-4 w-4" /></>}
+        {submitting ? 'Sending…' : <>Send Message <ArrowRight className="h-4 w-4" /></>}
       </button>
 
       <p className="text-center text-[11px]" style={{ color: '#A0A0A0' }}>
-        Jouw gegevens worden vertrouwelijk behandeld en niet aan derden doorgegeven.
+        We use your details only to respond to your enquiry. See our <a href="/privacy-policy" className="underline">Privacy Policy</a>.
       </p>
     </form>
   )

@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { prisma } from '@/lib/db/prisma'
 
 export const metadata: Metadata = {
-  title: 'Collecties',
-  description: 'Ontdek onze samengestelde cricket-collecties bij Mantra Sports Nederland.',
+  title: 'Collections',
+  description: 'Discover curated cricket collections from Mantra Sports India.',
 }
 
 export default async function CollectionsPage() {
@@ -24,11 +24,11 @@ export default async function CollectionsPage() {
     <>
       {/* Header */}
       <section style={{ borderBottom: '1px solid #E0DFDB' }}>
-        <div style={{ padding: '48px 60px 32px', maxWidth: 1440, margin: '0 auto' }}>
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-8 lg:px-[60px]" style={{ paddingTop: 48, paddingBottom: 32 }}>
           <nav className="mb-4 flex items-center gap-1.5 text-xs text-[#999]">
-            <Link href="/" className="hover:text-[#E85D1A] transition-colors">Startpagina</Link>
+            <Link href="/" className="hover:text-[#E85D1A] transition-colors">Home</Link>
             <span>/</span>
-            <span className="text-[#111]">Collecties</span>
+            <span className="text-[#111]">Collections</span>
           </nav>
           <h1
             style={{
@@ -42,38 +42,38 @@ export default async function CollectionsPage() {
               marginBottom: 8,
             }}
           >
-            Collecties
+            Collections
           </h1>
           <p className="text-sm text-[#666]">
-            Zorgvuldig samengestelde selecties voor elk speelniveau en elke stijl.
+            Curated selections for every playing level and style.
           </p>
         </div>
       </section>
 
       {/* Grid */}
-      <section style={{ padding: '48px 60px 80px', maxWidth: 1440, margin: '0 auto' }}>
+      <section className="mx-auto max-w-[1440px] px-4 sm:px-8 lg:px-[60px]" style={{ paddingTop: 48, paddingBottom: 80 }}>
         {dbError && (
           <div className="mb-8 rounded border border-amber-200 bg-amber-50 p-4 text-sm text-amber-700">
-            Collecties kunnen momenteel niet worden geladen. Probeer het later opnieuw.
+            Collections could not be loaded right now. Please try again later.
           </div>
         )}
 
         {collections.length === 0 && !dbError ? (
           <div className="py-24 text-center">
-            <p className="font-display text-xl font-bold uppercase text-[#111]">Nog geen collecties</p>
+            <p className="font-display text-xl font-bold uppercase text-[#111]">No Collections Yet</p>
             <p className="mt-2 text-sm text-[#999]">Binnenkort beschikbaar — kom snel terug.</p>
             <Link
               href="/shop"
               className="mt-6 inline-block border border-[#111] px-6 py-2.5 font-display text-xs font-bold uppercase tracking-widest text-[#111] hover:bg-[#111] hover:text-white transition-colors"
             >
-              Zum Shop
+              Go to Shop
             </Link>
           </div>
         ) : (
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(min(340px, 100%), 1fr))',
               gap: 32,
             }}
           >
@@ -132,7 +132,7 @@ function CollectionCard({ collection }: { collection: any }) {
         {/* Hover CTA */}
         <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
           <span className="border border-white px-6 py-2.5 font-display text-xs font-bold uppercase tracking-widest text-white backdrop-blur-sm" style={{ background: 'rgba(0,0,0,0.3)' }}>
-            Collectie bekijken
+            View Collection
           </span>
         </div>
       </div>
@@ -157,7 +157,7 @@ function CollectionCard({ collection }: { collection: any }) {
         {collection.description && (
           <p className="text-sm leading-relaxed text-[#666] line-clamp-2">{collection.description}</p>
         )}
-        <p className="mt-2 text-xs text-[#999]">{count} {count === 1 ? 'product' : 'producten'}</p>
+        <p className="mt-2 text-xs text-[#999]">{count} {count === 1 ? 'product' : 'products'}</p>
       </div>
     </Link>
   )

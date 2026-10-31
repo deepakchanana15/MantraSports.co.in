@@ -56,7 +56,7 @@ function LoginForm() {
         {/* Brand */}
         <div className="mb-10 text-center">
           <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-brand-500">
-            Mantra Sports NL
+            Mantra Sports India
           </p>
           <h1 className="mt-2 font-display text-3xl font-bold uppercase tracking-tight text-neutral-950 dark:text-white">
             Admin Login
@@ -95,7 +95,7 @@ function LoginForm() {
               aria-invalid={!!errors.email}
               {...register('email')}
               className="block w-full border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-900 placeholder-neutral-400 transition-colors focus:border-brand-500 focus:outline-none dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:placeholder-neutral-600 dark:focus:border-brand-500"
-              placeholder="admin@mantrasports.nl"
+              placeholder="admin@mantrasports.co.in"
             />
             {errors.email && (
               <p id="email-error" role="alert" className="mt-1.5 text-xs text-red-600 dark:text-red-400">
@@ -163,7 +163,7 @@ function LoginForm() {
         </form>
 
         <p className="mt-8 text-center text-xs text-neutral-400">
-          Mantra Sports NL — Admin Panel
+          Mantra Sports India — Admin Panel
         </p>
       </div>
     </div>

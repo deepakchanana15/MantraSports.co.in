@@ -5,7 +5,7 @@ export function slugify(text: string): string {
     lower: true,
     strict: true,
     trim: true,
-    locale: 'de', // German locale handles umlauts correctly
+    locale: 'en',
   })
 }
 

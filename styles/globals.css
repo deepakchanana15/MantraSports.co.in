@@ -78,12 +78,16 @@
 }
 
 /* ── Base Reset ──────────────────────────────────────────────── */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* Must live in the base layer: unlayered rules beat Tailwind v4 utilities,
+   which would silently disable every p-*, px-*, m-*, mb-* class. */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 html {
@@ -102,10 +106,12 @@ body {
   overflow-x: hidden;
 }
 
-img, video {
-  max-width: 100%;
-  height: auto;
-  display: block;
+@layer base {
+  img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
 }
 
 /* ── Accessibility: Focus Indicators ─────────────────────────── */
