@@ -1,0 +1,79 @@
+# Firebase App Hosting configuration for Mantra Sports DE
+# Docs: https://firebase.google.com/docs/app-hosting/configure
+
+runConfig:
+  concurrency: 80
+  cpu: 1
+  memoryMiB: 512
+  minInstances: 0
+  maxInstances: 10
+
+env:
+  - variable: NEXT_PUBLIC_SITE_NAME
+    value: "Mantra Sports DE"
+    availability:
+      - BUILD
+      - RUNTIME
+
+  - variable: NEXT_PUBLIC_REGION
+    value: de
+    availability:
+      - BUILD
+      - RUNTIME
+
+  # ── Replace these two values after your first deploy ──────────
+  # Your Firebase App Hosting URL (e.g. https://mantra-sports-de.web.app)
+  - variable: NEXTAUTH_URL
+    value: https://YOUR_APP.web.app
+    availability:
+      - RUNTIME
+
+  - variable: NEXT_PUBLIC_SITE_URL
+    value: https://YOUR_APP.web.app
+    availability:
+      - BUILD
+      - RUNTIME
+
+  # ── Your Firebase Storage bucket ──────────────────────────────
+  - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+    value: YOUR_PROJECT_ID.firebasestorage.app
+    availability:
+      - BUILD
+      - RUNTIME
+
+  # ── Secrets — set via: firebase apphosting:secrets:set NAME ───
+  - variable: DATABASE_URL
+    secret: DATABASE_URL
+
+  - variable: NEXTAUTH_SECRET
+    secret: NEXTAUTH_SECRET
+
+  - variable: FIREBASE_PROJECT_ID
+    secret: FIREBASE_PROJECT_ID
+
+  - variable: FIREBASE_CLIENT_EMAIL
+    secret: FIREBASE_CLIENT_EMAIL
+
+  - variable: FIREBASE_PRIVATE_KEY
+    secret: FIREBASE_PRIVATE_KEY
+
+  - variable: SMTP_HOST
+    secret: SMTP_HOST
+
+  - variable: SMTP_PORT
+    secret: SMTP_PORT
+
+  - variable: SMTP_USER
+    secret: SMTP_USER
+
+  - variable: SMTP_PASS
+    secret: SMTP_PASS
+
+  - variable: SMTP_FROM
+    secret: SMTP_FROM
+
+  - variable: EMAIL_TO
+    secret: EMAIL_TO
+
+  - variable: NEXT_PUBLIC_WHATSAPP_NUMBER
+    secret: NEXT_PUBLIC_WHATSAPP_NUMBER

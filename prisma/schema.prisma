@@ -1,0 +1,324 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-1.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Enums ───────────────────────────────────────────────────────────────────
+
+enum ProductStatus {
+  ACTIVE
+  HIDDEN
+  ARCHIVED
+  DRAFT
+}
+
+enum StockStatus {
+  IN_STOCK
+  OUT_OF_STOCK
+  ON_REQUEST
+}
+
+enum EnquiryType {
+  QUOTE
+  WHOLESALE
+  GENERAL
+}
+
+enum EnquiryStatus {
+  NEW
+  READ
+  REPLIED
+  CLOSED
+}
+
+enum AdminRole {
+  SUPER_ADMIN
+  ADMIN
+  EDITOR
+}
+
+enum BlogStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum SettingType {
+  STRING
+  JSON
+  BOOLEAN
+  NUMBER
+}
+
+// ─── Products ────────────────────────────────────────────────────────────────
+
+model Product {
+  id               String        @id @default(uuid())
+  name             String        @db.VarChar(255)
+  slug             String        @unique @db.VarChar(255)
+  sku              String?       @unique @db.VarChar(100)
+  description      String?       @db.Text
+  features         String?       @db.Text
+  specifications   Json?
+  status           ProductStatus @default(DRAFT)
+  isFeatured       Boolean       @default(false)
+  isNewArrival     Boolean       @default(false)
+  isBestSeller     Boolean       @default(false)
+  price            Decimal?      @db.Decimal(10, 2)
+  salePrice        Decimal?      @db.Decimal(10, 2)
+  currency         String        @default("EUR") @db.VarChar(3)
+  stockStatus      StockStatus   @default(IN_STOCK)
+  stockQty         Int?
+  tags             String[]
+  metaTitle        String?       @db.VarChar(70)
+  metaDescription  String?       @db.VarChar(160)
+  metaKeywords     String[]
+  // Multi-region support: ["de", "au", "uk", "us"] — future expansion
+  regions          String[]      @default(["de"])
+  categoryId       String?
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  category           Category?           @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  images             ProductImage[]
+  variants           ProductVariant[]
+  collectionProducts CollectionProduct[]
+  enquiries          Enquiry[]
+
+  @@index([slug])
+  @@index([status])
+  @@index([categoryId])
+  @@index([isFeatured])
+  @@index([isNewArrival])
+  @@index([isBestSeller])
+  @@index([createdAt])
+}
+
+model ProductVariant {
+  id        String   @id @default(uuid())
+  productId String
+  name      String   @db.VarChar(100)
+  value     String   @db.VarChar(100)
+  sku       String?  @db.VarChar(100)
+  price     Decimal? @db.Decimal(10, 2)
+  stockQty  Int?
+  sortOrder Int      @default(0)
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId])
+}
+
+model ProductImage {
+  id        String  @id @default(uuid())
+  productId String
+  url       String  @db.VarChar(500)
+  altText   String? @db.VarChar(255)
+  isPrimary Boolean @default(false)
+  sortOrder Int     @default(0)
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId])
+}
+
+// ─── Categories ──────────────────────────────────────────────────────────────
+
+model Category {
+  id              String  @id @default(uuid())
+  name            String  @db.VarChar(100)
+  slug            String  @unique @db.VarChar(100)
+  description     String? @db.Text
+  imageUrl        String? @db.VarChar(500)
+  parentId        String?
+  metaTitle       String? @db.VarChar(70)
+  metaDescription String? @db.VarChar(160)
+  sortOrder       Int     @default(0)
+
+  parent   Category?  @relation("CategoryTree", fields: [parentId], references: [id], onDelete: SetNull)
+  children Category[] @relation("CategoryTree")
+  products Product[]
+
+  @@index([slug])
+  @@index([parentId])
+}
+
+// ─── Collections ─────────────────────────────────────────────────────────────
+
+model Collection {
+  id              String  @id @default(uuid())
+  name            String  @db.VarChar(100)
+  slug            String  @unique @db.VarChar(100)
+  description     String? @db.Text
+  bannerUrl       String? @db.VarChar(500)
+  isFeatured      Boolean @default(false)
+  metaTitle       String? @db.VarChar(70)
+  metaDescription String? @db.VarChar(160)
+  sortOrder       Int     @default(0)
+
+  collectionProducts CollectionProduct[]
+
+  @@index([slug])
+  @@index([isFeatured])
+}
+
+model CollectionProduct {
+  collectionId String
+  productId    String
+  sortOrder    Int    @default(0)
+
+  collection Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  product    Product    @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@id([collectionId, productId])
+  @@index([collectionId])
+  @@index([productId])
+}
+
+// ─── Enquiries ────────────────────────────────────────────────────────────────
+
+model Enquiry {
+  id          String        @id @default(uuid())
+  type        EnquiryType   @default(GENERAL)
+  name        String        @db.VarChar(100)
+  company     String?       @db.VarChar(100)
+  country     String?       @db.VarChar(100)
+  email       String        @db.VarChar(255)
+  phone       String?       @db.VarChar(50)
+  whatsapp    String?       @db.VarChar(50)
+  productId   String?
+  productName String?       @db.VarChar(255)
+  quantity    Int?
+  message     String?       @db.Text
+  status      EnquiryStatus @default(NEW)
+  // Stored for rate-limiting purposes — not exposed publicly
+  ipAddress   String?       @db.VarChar(45)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  product Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([productId])
+  @@index([email])
+}
+
+// ─── Blog ────────────────────────────────────────────────────────────────────
+
+model BlogPost {
+  id               String     @id @default(uuid())
+  title            String     @db.VarChar(255)
+  slug             String     @unique @db.VarChar(255)
+  excerpt          String?    @db.Text
+  content          String?    @db.Text
+  featuredImageUrl String?    @db.VarChar(500)
+  authorId         String?
+  status           BlogStatus @default(DRAFT)
+  publishedAt      DateTime?
+  metaTitle        String?    @db.VarChar(70)
+  metaDescription  String?    @db.VarChar(160)
+  metaKeywords     String[]
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+
+  author     AdminUser?        @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  categories BlogPostCategory[]
+  tags       BlogPostTag[]
+
+  @@index([slug])
+  @@index([status])
+  @@index([publishedAt])
+}
+
+model BlogCategory {
+  id   String @id @default(uuid())
+  name String @db.VarChar(100)
+  slug String @unique @db.VarChar(100)
+
+  posts BlogPostCategory[]
+}
+
+model BlogPostCategory {
+  postId     String
+  categoryId String
+
+  post     BlogPost     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  category BlogCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@id([postId, categoryId])
+}
+
+model BlogTag {
+  id   String @id @default(uuid())
+  name String @unique @db.VarChar(100)
+
+  posts BlogPostTag[]
+}
+
+model BlogPostTag {
+  postId String
+  tagId  String
+
+  post BlogPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  tag  BlogTag  @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([postId, tagId])
+}
+
+// ─── CMS / Settings ──────────────────────────────────────────────────────────
+
+model SiteSetting {
+  key       String      @id @db.VarChar(100)
+  value     String?     @db.Text
+  type      SettingType @default(STRING)
+  updatedAt DateTime    @updatedAt
+}
+
+// ─── Newsletter ──────────────────────────────────────────────────────────────
+
+model NewsletterSubscriber {
+  id          String   @id @default(uuid())
+  email       String   @unique @db.VarChar(255)
+  subscribedAt DateTime @default(now())
+
+  @@index([subscribedAt])
+}
+
+// ─── Media Library ───────────────────────────────────────────────────────────
+
+model Media {
+  id         String   @id @default(uuid())
+  filename   String   @db.VarChar(255)
+  url        String   @db.VarChar(500)
+  mimeType   String   @db.VarChar(100)
+  size       Int
+  altText    String?  @db.VarChar(255)
+  uploadedBy String?
+  createdAt  DateTime @default(now())
+
+  uploader AdminUser? @relation(fields: [uploadedBy], references: [id], onDelete: SetNull)
+
+  @@index([mimeType])
+  @@index([createdAt])
+}
+
+// ─── Admin Users ─────────────────────────────────────────────────────────────
+
+model AdminUser {
+  id           String    @id @default(uuid())
+  name         String    @db.VarChar(100)
+  email        String    @unique @db.VarChar(255)
+  passwordHash String    @db.VarChar(255)
+  role         AdminRole @default(ADMIN)
+  lastLoginAt  DateTime?
+  createdAt    DateTime  @default(now())
+
+  blogPosts BlogPost[]
+  media     Media[]
+}

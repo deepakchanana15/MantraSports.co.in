@@ -1,0 +1,235 @@
+@import "tailwindcss";
+
+/* ── Dark mode: applied when <html class="dark"> ─────────────── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Brand & Font Theme Tokens ───────────────────────────────── */
+@theme {
+  /* Mantra Orange palette — #E85D1A matches AU brand */
+  --color-brand-50:  #fff5ed;
+  --color-brand-100: #ffe5cc;
+  --color-brand-200: #ffca99;
+  --color-brand-300: #ffa35c;
+  --color-brand-400: #ff7b3a;
+  --color-brand-500: #e85d1a;
+  --color-brand-600: #c44b0f;
+  --color-brand-700: #9e3b0c;
+  --color-brand-800: #7d2f0d;
+  --color-brand-900: #65270e;
+  --color-brand-950: #361007;
+
+  /* Site-specific colour tokens (from AU HTML design) */
+  --color-off-white:  #F8F7F4;
+  --color-grey-light: #F2F1EE;
+  --color-grey-mid:   #E0DFDB;
+  --color-grey-text:  #6B6B6B;
+  --color-grey-dark:  #333333;
+
+  /* Neutral palette */
+  --color-neutral-50:  #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-150: #efefef;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-850: #1c1c1c;
+  --color-neutral-900: #141414;
+  --color-neutral-950: #0a0a0a;
+
+  /* Typography — CSS variables set by next/font */
+  --font-sans:    var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-oswald), "Oswald", ui-sans-serif, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* ── Semantic color CSS custom properties ─────────────────────── */
+:root {
+  color-scheme: light;
+
+  --bg:          255 255 255;
+  --bg-2:        248 247 244;
+  --bg-3:        242 241 238;
+  --border:      224 223 219;
+  --border-2:    210 209 205;
+  --text-1:       17  17  17;
+  --text-2:       51  51  51;
+  --text-3:      107 107 107;
+  --text-inv:    255 255 255;
+  --overlay:       0   0   0;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --bg:           17  17  17;
+  --bg-2:         26  26  26;
+  --bg-3:         34  34  34;
+  --border:       42  42  42;
+  --border-2:     60  60  60;
+  --text-1:      250 250 250;
+  --text-2:      212 212 212;
+  --text-3:      115 115 115;
+  --text-inv:     17  17  17;
+  --overlay:     255 255 255;
+}
+
+/* ── Base Reset ──────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: #ffffff;
+  color: #111111;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Accessibility: Focus Indicators ─────────────────────────── */
+:focus-visible {
+  outline: 2px solid #e85d1a;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Skip-to-content */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: #e85d1a;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 0 0 4px 4px;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ── Text Selection ───────────────────────────────────────────── */
+::selection {
+  background-color: #e85d1a;
+  color: #ffffff;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #F2F1EE; }
+::-webkit-scrollbar-thumb { background: #E0DFDB; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #e85d1a; }
+
+/* ── Animations ───────────────────────────────────────────────── */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position: 200% 0; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in    { animation: fade-in 0.3s ease-out both; }
+.animate-slide-up   { animation: slide-up 0.4s ease-out both; }
+.animate-slide-down { animation: slide-down 0.25s ease-out both; }
+.animate-scale-in   { animation: scale-in 0.2s ease-out both; }
+.animate-fade-up    { animation: fadeUp 0.8s ease both; }
+
+.skeleton {
+  background: linear-gradient(90deg, #F2F1EE 25%, #E0DFDB 50%, #F2F1EE 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ── Reduced Motion ───────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Prose (blog/CMS) ─────────────────────────────────────────── */
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #111111;
+}
+.prose p {
+  color: #333333;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+.prose a { color: #e85d1a; text-decoration: underline; text-underline-offset: 3px; }
+.prose a:hover { color: #c44b0f; }
+.prose ul, .prose ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+.prose li { color: #333333; margin-bottom: 0.5rem; }
+.prose blockquote { border-left: 3px solid #e85d1a; padding-left: 1rem; color: #6B6B6B; font-style: italic; }
+.prose h2 { font-size: 1.5rem; line-height: 1.2; margin: 2.5rem 0 1rem; }
+.prose h3 { font-size: 1.125rem; line-height: 1.3; margin: 1.75rem 0 0.75rem; }
+.prose > :first-child { margin-top: 0; }
+.prose ul { list-style: disc; }
+.prose ol { list-style: decimal; }
+.prose strong { color: #111111; }
+.prose table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 14px; }
+.prose th, .prose td { border: 1px solid #E0DFDB; padding: 8px 12px; text-align: left; color: #333333; }
+.prose th { background: #F8F7F4; font-weight: 600; color: #111111; }
+.prose .table-wrap { overflow-x: auto; }
+
+/* ── Admin Tiptap ─────────────────────────────────────────────── */
+.tiptap-editor .ProseMirror { outline: none; min-height: 300px; padding: 1rem; }
+.tiptap-editor .ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: #6B6B6B;
+  pointer-events: none;
+  float: left;
+  height: 0;
+}
