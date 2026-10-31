@@ -1,0 +1,1193 @@
+{
+  "_readme": "Product catalogue exported from the live Mantra Sports NL database (www.mantrasports.nl) on 2026-10-31. Structure, SKUs, categories, flags, specifications and image URLs are reusable as-is. Text fields (nl_slug, nl_name, nl_description, nl_features, tags) are DUTCH and must be replaced with English copy for India (source: mantrasports.com.au). Prices are EUR reference prices only — India prices in INR must come from the business owner.",
+  "categories": [
+    {
+      "slug": "cricket-bats",
+      "name": "Cricket Bats",
+      "sortOrder": 1,
+      "imageUrl": null
+    },
+    {
+      "slug": "protective-gear",
+      "name": "Protective Gear",
+      "sortOrder": 2,
+      "imageUrl": null
+    },
+    {
+      "slug": "balls",
+      "name": "Balls",
+      "sortOrder": 3,
+      "imageUrl": null
+    },
+    {
+      "slug": "accessories",
+      "name": "Accessories",
+      "sortOrder": 4,
+      "imageUrl": null
+    },
+    {
+      "slug": "teamwear",
+      "name": "Teamwear",
+      "sortOrder": 5,
+      "imageUrl": null
+    },
+    {
+      "slug": "custom-apparel",
+      "name": "Custom Apparel",
+      "sortOrder": 6,
+      "imageUrl": null
+    }
+  ],
+  "products": [
+    {
+      "sku": "AC-001",
+      "category": "accessories",
+      "nl_slug": "cricketknuppelhamer",
+      "nl_name": "Cricketknuppelhamer",
+      "nl_description": "Optimaliseer je cricketbat. Til je spel naar een hoger niveau.\r\n\r\nEen cricketbat-hamer is een onmisbaar hulpmiddel voor elke serieuze cricketer; hij is ontworpen om je bat goed 'in te slaan' en voor te bereiden op topprestaties. De hamer is zo gemaakt dat hij de impact van een cricketbal nabootst, waardoor de wilgenvezels worden samengedrukt en verhard. Dit verhoogt de duurzaamheid aanzienlijk en vermindert de kans op scheuren.",
+      "nl_features": "Hoogwaardige houten kop – Ontworpen voor een gecontroleerde, gelijkmatige impact over het gehele slagvlak\r\nErgonomische handgreep – Biedt een stevige, comfortabele grip voor langdurig inkloppen\r\nGeoptimaliseerde gewichtsbalans – Zorgt voor effectief inkloppen zonder de vleermuis te beschadigen\r\nVeelzijdig in gebruik – Ideaal voor het voorbewerken van het slagvlak, de randen en de onderkant van de vleermuis\r\nVerhoogde duurzaamheid – Verlengt de levensduur van de vleermuis en verbetert de prestatieconsistentie",
+      "specifications": null,
+      "reference_price_eur": "9.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Cricket Bat Mallet",
+        "Bat Klopper",
+        "Cricket Bat Inkloppen",
+        "Bat Knocking Mallet",
+        "Engelse Wilg Bat Mallet",
+        "Cricket Bat Accessoires",
+        "Cricket Uitrusting",
+        "Cricketmateriaal",
+        "Mantra Sports NL",
+        "Cricketwinkel Nederland"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783711553/mantrasports/products/n9zd8tbmqwg5f3fozpwy.png",
+          "altText": "Cricketknuppelhamer",
+          "isPrimary": true,
+          "sortOrder": 0
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783711554/mantrasports/products/hiyt7pcsiksfji9ixlai.png",
+          "altText": "Cricketknuppelhamer",
+          "isPrimary": false,
+          "sortOrder": 1
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783711555/mantrasports/products/horceqbq8dcavih0hpx8.png",
+          "altText": "Cricketknuppelhamer",
+          "isPrimary": false,
+          "sortOrder": 2
+        }
+      ]
+    },
+    {
+      "sku": "AC-002",
+      "category": "accessories",
+      "nl_slug": "cricketbat-gripaanbrenger",
+      "nl_name": "Cricketbat-gripaanbrenger",
+      "nl_description": "Moeiteloos een nieuwe grip aanbrengen. Een professioneel resultaat.\r\n\r\nEen cricketbat-gripaanbrenger (ook wel bekend als een 'grip cone') is een onmisbaar hulpmiddel om de grip van je bat snel en eenvoudig te vervangen. Hij is ontworpen om het aanbrengen te vereenvoudigen, zodat je grips soepel op de steel kunt schuiven en er weer af kunt halen – zonder beschadigingen of gedoe.",
+      "nl_features": "Hoogwaardig, duurzaam materiaal – Bestand tegen veelvuldig gebruik zonder te buigen of te barsten\r\nGlad, taps toelopend ontwerp – Zorgt ervoor dat de grips eenvoudig op de steel van de cricketbat schuiven\r\nTijdbesparend hulpmiddel – Vervang grips in enkele seconden met minimale inspanning\r\nUniversele compatibiliteit – Geschikt voor alle standaard cricketbatstelen en -grips\r\nLichtgewicht en draagbaar – Makkelijk mee te nemen in je sporttas",
+      "specifications": null,
+      "reference_price_eur": "8.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Cricket Bat Gripper",
+        "Grip Verwijderaar",
+        "Cricket Bat Grip Tool",
+        "Cricket Grip Vervangen",
+        "Cricket Bat Accessoires",
+        "Cricket Uitrusting",
+        "Cricketmateriaal",
+        "Mantra Sports NL",
+        "Cricketwinkel Nederland",
+        "Bat Grip Tool"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783711679/mantrasports/products/ekk3wudpv7psgokbhqtt.png",
+          "altText": "Cricketbat-gripaanbrenger",
+          "isPrimary": true,
+          "sortOrder": 0
+        }
+      ]
+    },
+    {
+      "sku": "AC-003",
+      "category": "accessories",
+      "nl_slug": "schuurvel",
+      "nl_name": "Schuurvel",
+      "nl_description": "Bescherm je cricketbat. Speel met vertrouwen.\r\n\r\nEen beschermfolie voor cricketbats is een onmisbare beschermlaag die het slagvlak van je bat beschermt tegen barsten, vocht en beschadigingen aan het oppervlak. De folie is gemaakt van hoogwaardig, transparant vezelmateriaal; hierdoor blijft de natuurlijke uitstraling van je bat behouden, terwijl de duurzaamheid aanzienlijk wordt vergroot.\r\n\r\nLet op: dit product bevat slechts één beschermfolie. De getoonde afbeeldingen dienen ter illustratie.",
+      "nl_features": "Losse beschermfolie (1 stuk) – Ideaal voor het beschermen van de voorzijde van de vleermuis\r\nSterke vezelbescherming – Versterkt de voorzijde van de vleermuis tegen impact en slijtage\r\nHoogwaardige 3M-lijmlaag – Zorgt voor een sterke, duurzame hechting en is eenvoudig en zonder luchtbellen aan te brengen\r\nTransparante afwerking – Behoudt de natuurlijke houtnerf en de hoogwaardige uitstraling van het wilgenhout\r\nVochtbestendig – Beschermt tegen vochtige omstandigheden en vermindert het risico op uitzetten\r\nVerbeterde duurzaamheid – Minimaliseert haarscheurtjes en verlengt de levensduur van de vleermuis",
+      "specifications": null,
+      "reference_price_eur": "4.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": false,
+      "isNewArrival": false,
+      "isBestSeller": true,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Cricket Bat Scuff Sheet",
+        "Cricket Bat Beschermfolie",
+        "Scuff Sheet",
+        "Cricket Bat Protection Sheet",
+        "Engelse Wilg Bescherming",
+        "Cricket Bat Accessoires",
+        "Cricket Uitrusting",
+        "Cricketmateriaal",
+        "Mantra Sports NL",
+        "Cricketwinkel Nederland"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783711835/mantrasports/products/cldrtmcvmhoxikcrgr0d.png",
+          "altText": "Schuurvel",
+          "isPrimary": true,
+          "sortOrder": 0
+        }
+      ]
+    },
+    {
+      "sku": "AC-004",
+      "category": "accessories",
+      "nl_slug": "cricketbat-grip",
+      "nl_name": "Cricketbat-grip",
+      "nl_description": "Hoogwaardige rubberen grip voor cricketbats – Superieure controle en comfort\r\n\r\nTil je spel naar een hoger niveau met onze hoogwaardige rubberen grip voor cricketbats, ontworpen voor maximale controle, comfort en prestaties tijdens het batten. Deze grip is gemaakt van duurzaam, hoogwaardig rubber en zorgt voor een stevige houvast, zodat je elke slag met vertrouwen en precisie kunt uitvoeren.\r\n\r\nOf je nu een beginner bent of een ervaren cricketer: de verbeterde grip en schokabsorberende eigenschappen verminderen trillingen en verbeteren de hanteerbaarheid, waardoor je meer controle hebt over je slagen.",
+      "nl_features": "Hoogwaardig rubbermateriaal – Duurzaam, flexibel en slijtvast\r\nUitstekende grip en controle – Antislipstructuur voor een stevige houvast onder alle omstandigheden\r\nSchokabsorptie – Vermindert trillingen voor meer comfort tijdens het spelen\r\nUniversele pasvorm – Geschikt voor alle standaard cricketbats\r\nEenvoudig te monteren – Compatibel met standaard montagekegels\r\nDeze batgrip is perfect voor trainingen in de kooi, wedstrijden of oefensessies; een essentiële upgrade voor elke cricketer die zijn prestaties en comfort wil verbeteren.\r\n\r\n⚠️ Belangrijke opmerking:\r\n\r\nDe vermelde prijs geldt voor slechts één (1) grip\r\nAfbeeldingen waarop twee grips te zien zijn, dienen uitsluitend ter illustratie\r\nSpeel met vertrouwen. Houd grip met controle.",
+      "specifications": null,
+      "reference_price_eur": "4.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Cricket Bat Grip",
+        "Cricket Grip",
+        "Cricket Bat Handvat",
+        "Cricket Bat Grip Vervangen",
+        "Premium Cricket Grip",
+        "Cricket Bat Accessoires",
+        "Cricket Uitrusting",
+        "Cricketmateriaal",
+        "Mantra Sports NL",
+        "Cricketwinkel Nederland"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783711951/mantrasports/products/q6r40a9vz8hdlmwdhxem.png",
+          "altText": "Cricketbat-grip",
+          "isPrimary": true,
+          "sortOrder": 0
+        }
+      ]
+    },
+    {
+      "sku": "BG-001",
+      "category": "protective-gear",
+      "nl_slug": "cobra-slaghandschoenen",
+      "nl_name": "Cobra-slaghandschoenen",
+      "nl_description": "Cobra-slaghandschoenen\r\n\r\nDe Cobra-slaghandschoenen zijn ontwikkeld voor cricketers die uitstekend comfort, geavanceerde bescherming en grote duurzaamheid eisen tijdens het slaan. Dankzij het gebruik van hoogwaardige materialen en een traditionele constructie bieden deze handschoenen een verfijnde balans tussen gevoel, flexibiliteit en bescherming voor competitief spel.\r\n\r\nDe handpalm is vervaardigd uit hoogwaardig Engels leer, dat algemeen wordt beschouwd als het beste in zijn soort. Dit zorgt voor uitzonderlijke grip, soepelheid en duurzaamheid, wat resulteert in superieure controle over de bat en behoud van natuurlijke handbewegingen.\r\n\r\nMet hun traditionele 'sausage finger'-ontwerp bieden de Cobra-slaghandschoenen een stevige grip en soepele vingerbewegingen, zodat je vol vertrouwen kunt slaan. Beschermende inzetstukken van Fiber-Tech in de vingers zorgen voor een betere schokbestendigheid en beschermen de vingers tegen snelle ballen (fast bowling).\r\n\r\nDe handrug is verstevigd met schuim met hoge dichtheid en een meerdelig paneelsysteem; dit zorgt voor uitstekende schokabsorptie zonder de flexibiliteit te beperken. Strategisch geplaatste, ademende mesh-delen verbeteren de ventilatie, waardoor de handen koel en comfortabel blijven tijdens lange innings.\r\n\r\nVoor langdurige betrouwbaarheid zijn de handschoenen voorzien van hoogwaardig klittenband dat getest is op meer dan een miljoen sluitcycli, wat zorgt voor een veilige en consistente pasvorm, wedstrijd na wedstrijd. Een dubbelzijdige badstof polsband absorbeert zweet, terwijl gelstrips aan de zijkanten extra bescherming bieden op kwetsbare plekken.\r\n\r\nDe Cobra-slaghandschoenen zijn ontworpen met het oog op prestaties, comfort en duurzaamheid, en ondersteunen zelfverzekerd slagwerk op elk niveau.",
+      "nl_features": "Handpalm van hoogwaardig Engels leer voor superieure grip en duurzaamheid\r\n\r\nTraditioneel 'sausage finger'-ontwerp voor natuurlijke bewegingsvrijheid en controle\r\n\r\nFiber-Tech-inzetstukken bij de vingers voor extra bescherming\r\n\r\nHandrug van schuim met hoge dichtheid en flexibele meerdelige constructie\r\n\r\nAdemend mesh-materiaal voor ventilatie\r\n\r\nHoogwaardige klittenbandsluiting, getest op meer dan 1.000.000 openings- en sluitcycli\r\n\r\nGelstrips aan de zijkanten voor extra bescherming tegen impact\r\n\r\nDubbelzijdige badstof polsband voor zweetabsorptie",
+      "specifications": null,
+      "reference_price_eur": "58.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Cobra Batting Handschoenen",
+        "Cobra Cricket Handschoenen",
+        "Cricket Batting Handschoenen",
+        "Cricket Handschoenen Nederland",
+        "Professionele Cricket Handschoenen",
+        "Premium Batting Handschoenen",
+        "Cricket Uitrusting",
+        "Cricketmateriaal",
+        "Mantra Sports NL",
+        "Cricketwinkel Nederland"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783711067/mantrasports/products/skzpatrjhgzzxeuv5xcq.png",
+          "altText": "Cobra-slaghandschoenen",
+          "isPrimary": true,
+          "sortOrder": 0
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783711069/mantrasports/products/t5qcislpwvkdtt0zym2f.png",
+          "altText": "Cobra-slaghandschoenen",
+          "isPrimary": false,
+          "sortOrder": 1
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783711070/mantrasports/products/jc8eapyg5vjrpk8dsrjg.png",
+          "altText": "Cobra-slaghandschoenen",
+          "isPrimary": false,
+          "sortOrder": 2
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783711072/mantrasports/products/zehhgxqgj2tnpwwk6por.png",
+          "altText": "Cobra-slaghandschoenen",
+          "isPrimary": false,
+          "sortOrder": 3
+        }
+      ]
+    },
+    {
+      "sku": "BG-002",
+      "category": "protective-gear",
+      "nl_slug": "raptor-honkbalhandschoenen",
+      "nl_name": "Raptor-Honkbalhandschoenen",
+      "nl_description": "Raptor-slaghandschoenen\r\n\r\nDe Raptor-slaghandschoenen zijn ontworpen voor slagmensen die precisie, comfort en superieure handbescherming eisen tijdens intensieve wedstrijden. Dankzij het gebruik van hoogwaardige materialen en een op prestaties gerichte constructie bieden deze handschoenen uitstekende controle en flexibiliteit voor competitief cricket.\r\n\r\nDe handpalm is vervaardigd uit hoogwaardig, geperforeerd Pittard-leer, dat bekendstaat om zijn uitzonderlijke gevoel, superieure grip en uitstekende vochtopname. Dit kwaliteitsleer zorgt voor een zelfverzekerde controle over de bat, terwijl de soepelheid en duurzaamheid behouden blijven, zelfs tijdens lange innings.\r\n\r\nDe handrug is voorzien van schuim met hoge dichtheid, gecombineerd met een meerdelig paneelsysteem en een 'Multi V-Split'-vingerconstructie; dit zorgt voor effectieve schokabsorptie en biedt tegelijkertijd volledige bewegingsvrijheid. Strategisch geplaatste, ademende mesh-panelen bevorderen de ventilatie en houden de handen koel en comfortabel tijdens langdurige periodes aan de crease.\r\n\r\nVoor extra comfort en stabiliteit zijn de handschoenen voorzien van een dubbelzijdige badstof polsband die zweet absorbeert en zorgt voor een stevige pasvorm. Gelstrips aan de zijkanten bieden extra bescherming op kwetsbare plekken, wat de veiligheid vergroot zonder de bewegingsvrijheid te beperken.\r\n\r\nDe Raptor-slaghandschoenen zijn ontworpen met het oog op prestaties en betrouwbaarheid; ze ondersteunen een zelfverzekerde slagtechniek en zorgen voor constante controle in alle spelvormen.",
+      "nl_features": "Handpalm van hoogwaardig geperforeerd Pittard-leer voor superieure grip en vochtregulatie\r\n\r\nHandrug van schuim met hoge dichtheid en flexibel meerdelig ontwerp\r\n\r\nAdemend mesh voor verbeterde ventilatie\r\n\r\nGelstrips aan de zijkanten voor extra bescherming van de hand\r\n\r\nDubbelzijdige badstof polsband voor comfort en zweetabsorptie",
+      "specifications": null,
+      "reference_price_eur": "98.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Raptor Batting Handschoenen",
+        "Raptor Cricket Handschoenen",
+        "Cricket Batting Handschoenen",
+        "Cricket Handschoenen Nederland",
+        "Professionele Cricket Handschoenen",
+        "Premium Batting Handschoenen",
+        "Cricket Uitrusting",
+        "Cricketmateriaal",
+        "Mantra Sports NL",
+        "Cricketwinkel Nederland"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783711213/mantrasports/products/mxorwypwfbeffhguknaf.png",
+          "altText": "Raptor-Honkbalhandschoenen",
+          "isPrimary": true,
+          "sortOrder": 0
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783711214/mantrasports/products/ia4mg7y90d3f8j39juer.png",
+          "altText": "Raptor-Honkbalhandschoenen",
+          "isPrimary": false,
+          "sortOrder": 1
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783711216/mantrasports/products/id7w3cjz8sdmqwv34t8b.png",
+          "altText": "Raptor-Honkbalhandschoenen",
+          "isPrimary": false,
+          "sortOrder": 2
+        }
+      ]
+    },
+    {
+      "sku": "CA-001",
+      "category": "custom-apparel",
+      "nl_slug": "teamkleding-op-maat",
+      "nl_name": "Teamkleding op maat",
+      "nl_description": "🏏 Mantra Sports – Premium Cricketkleding\r\n\r\nOntworpen voor prestaties en met respect voor traditie, biedt het Mantra Sports Test- of T20-cricketshirt de perfecte balans tussen comfort, duurzaamheid en professionele uitstraling.\r\n\r\n🧵 Ontwerp & Kwaliteit\r\nKlassiek Test-match-ontwerp met kraag\r\nLange mouwen voor een traditionele uitstraling en bescherming tegen de zon\r\nZachte stof voor de hele dag comfort\r\nVersterkte stiksels voor extra duurzaamheid\r\nStrakke, minimalistische en hoogwaardige afwerking\r\n🎨 Volledig naar wens aanpasbaar\r\nCreëer je eigen teamidentiteit met volledige vrijheid:\r\n\r\n✅ Team-/clublogo\r\n✅ Spelersnamen\r\n✅ Rugnummers\r\n✅ Sponsorlogo's\r\n✅ Eigen kleuren & ontwerpen\r\n✅ Replicatie van elk internationaal of competitietenue (inclusief IPL)\r\nWe kunnen een ontwerp vanaf nul maken of bestaande teamtenues van over de hele wereld namaken.\r\nDit shirt, uitgevoerd in klassiek wit, is gemaakt voor lange innings, intense sessies en prestaties op topniveau.\r\n\r\n🔥 Stof & Prestaties\r\nPremium stofgewicht (180–190 g/m²)\r\nOntworpen met een gemiddeld tot hoog g/m² gewicht, voor de ideale balans tussen duurzaamheid, structuur en comfort – perfect voor competitief cricket.\r\n\r\n(De meeste professionele shirts hebben een g/m² gewicht tussen 150 en 180 g/m² voor een goede balans tussen prestaties, terwijl een hoger g/m² gewicht zorgt voor extra duurzaamheid en een premium gevoel.)\r\nVochtregulerende technologie\r\nGeavanceerde stof voert zweet af van het lichaam, waardoor je droog en comfortabel blijft tijdens lange wedstrijden.\r\n\r\nAdemend en sneldrogend materiaal\r\nBevordert de luchtcirculatie en snelle verdamping om de lichaamstemperatuur te reguleren in warme omstandigheden.\r\n\r\nLichtgewicht maar duurzame constructie\r\nGemaakt om glijden, duiken en herhaaldelijk wassen te weerstaan ​​zonder zijn vorm te verliezen.\r\n\r\nRekbare pasvorm voor optimale bewegingsvrijheid\r\nOntworpen voor onbelemmerde beweging tijdens het slaan, gooien en veldspelen.",
+      "nl_features": "🛒 Stapsgewijs proces\r\nBestelling plaatsen / Betaling voldoen\r\nVia de website OF via ons verkoopteam (offline)\r\nWij nemen contact met u op\r\nVia de door u opgegeven gegevens (WhatsApp / e-mail)\r\nVerzamelen van vereisten\r\nMaten\r\nNamen van spelers\r\nRugnummers\r\nLogo's / Sponsors\r\nAanleveren van gegevens\r\nAanleveren in een gestructureerd Excel-bestand\r\nDefinitieve bevestiging\r\nU controleert en keurt alle gegevens goed\r\nStart van de productie\r\nNa bevestiging zijn wijzigingen niet meer mogelijk\r\n\r\nBestellingen op maat: 3–4 weken\r\nMet precisie ontworpen, geproduceerd en geleverd",
+      "specifications": null,
+      "reference_price_eur": "58.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": true,
+      "isNewArrival": false,
+      "isBestSeller": true,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Custom Cricket Kleding",
+        "Gepersonaliseerde Cricketkleding",
+        "Cricket Shirts",
+        "Cricket Broeken",
+        "Cricket Teamkleding",
+        "Cricket Jerseys",
+        "Cricket Kleding Nederland",
+        "Cricket Uitrusting",
+        "Mantra Sports NL",
+        "Cricketwinkel Nederland"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783713258/mantrasports/products/th1vfyll5q7opagxubff.png",
+          "altText": "Teamkleding op maat",
+          "isPrimary": true,
+          "sortOrder": 0
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783713259/mantrasports/products/tgrvwblfrs7dbybfpfvl.png",
+          "altText": "Teamkleding op maat",
+          "isPrimary": false,
+          "sortOrder": 1
+        }
+      ]
+    },
+    {
+      "sku": "CB-001",
+      "category": "balls",
+      "nl_slug": "witte-leren-bal",
+      "nl_name": "Witte leren bal",
+      "nl_description": "Witte leren cricketbal\r\n\r\nErvaar superieure prestaties met de witte leren cricketbal, zorgvuldig met de hand vervaardigd voor spelers die precisie, duurzaamheid en consistentie eisen. Deze bal is ontworpen voor competitief cricket en professioneel niveau; hij behoudt uitstekend zijn vorm en biedt optimale 'swing' en zichtbaarheid bij kunstlicht.\r\n\r\nDe bal is gemaakt van hoogwaardig, met aluin gelooid wit leer en beschikt over een perfect uitgebalanceerde kern en een geprononceerde, met de hand gestikte naad. Dit zorgt voor een betrouwbare grip voor bowlers en een consistente stuit tijdens de wedstrijd. Dankzij de helderwitte afwerking is de bal ideaal voor 'limited-overs'-wedstrijden – en dan vooral voor dag-avondwedstrijden – omdat hij uitstekend zichtbaar is voor zowel spelers als toeschouwers.\r\n\r\nOf je nu competitie speelt of op hoog niveau traint, deze bal is bestand tegen intensief gebruik en behoudt daarbij zijn hoogwaardige speeleigenschappen.",
+      "nl_features": "Hoogwaardige constructie van met de hand gestikt wit leer\r\nDuurzame kern die langdurig zijn vorm behoudt\r\nUitgesproken naad voor betere swing en controle\r\nIdeaal voor ODI's, T20's en dag-nachtwedstrijden\r\nConsistente stuit en prestaties onder uiteenlopende omstandigheden\r\nVervaardigd door Mantra Sports om te voldoen aan hoge prestatienormen",
+      "specifications": null,
+      "reference_price_eur": "17.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": false,
+      "isNewArrival": false,
+      "isBestSeller": true,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Witte Leren Cricketbal",
+        "White Leather Cricket Ball",
+        "4 Piece White Leather Cricket Ball",
+        "4-Delige Cricketbal",
+        "Professionele Cricketbal",
+        "Wedstrijd Cricketbal",
+        "Cricket Uitrusting",
+        "Cricketmateriaal",
+        "Mantra Sports NL",
+        "Cricketwinkel Nederland"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783712074/mantrasports/products/j0ixtruwcjifiydnuh5y.png",
+          "altText": "Witte leren bal",
+          "isPrimary": true,
+          "sortOrder": 0
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783712075/mantrasports/products/tlvzuig6160tbi1exkcn.png",
+          "altText": "Witte leren bal",
+          "isPrimary": false,
+          "sortOrder": 1
+        }
+      ]
+    },
+    {
+      "sku": "CB-002",
+      "category": "balls",
+      "nl_slug": "rode-leren-bal",
+      "nl_name": "Rode leren bal",
+      "nl_description": "Rode leren cricketbal – Traditionele wedstrijdstandaard van Mantra Sports\r\nDeze rode leren cricketbal is vervaardigd voor de puurste vorm van het spel en biedt de authenticiteit, duurzaamheid en prestaties die vereist zijn voor langere wedstrijdformats. De bal is ontworpen voor testwedstrijden en meerdaagse cricket en staat garant voor het traditionele gevoel en de betrouwbaarheid die serieuze cricketers verwachten.\r\n\r\nElke bal is gemaakt van hoogwaardig, met aluin gelooid rood leer en zorgvuldig met de hand gestikt voor een sterke, goed gedefinieerde naad. De massieve kern zorgt voor een uitstekend vormbehoud, waardoor de bal zijn kwaliteit behoudt, zelfs na vele overs. De natuurlijke lakafwerking ondersteunt conventionele 'swing' in de beginfase en zorgt voor een geleidelijke slijtage die 'reverse swing' mogelijk maakt naarmate de wedstrijd vordert.\r\n\r\nDe rode bal is perfect te gebruiken in combinatie met witte cricketkleding en presteert constant onder uiteenlopende omstandigheden op de pitch; hij biedt een betrouwbare stuit, gecontroleerde beweging via de naad en een lange levensduur.",
+      "nl_features": "Hoogwaardige, handgemaakte constructie van rood leer\r\nOntworpen voor testwedstrijden en langere spelvormen\r\nSterke, met de hand gestikte naad voor controle over swing en 'seam'\r\nDuurzame kern voor langdurig gebruik en behoud van vorm\r\nGeschikt voor zowel conventionele als 'reverse' swing\r\nIdeaal voor club-, competitie- en professioneel cricket\r\nSpeel het spel zoals het bedoeld is: met de rode leren cricketbal, gemaakt voor uithoudingsvermogen, vaardigheid en traditie.",
+      "specifications": null,
+      "reference_price_eur": "17.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": false,
+      "isNewArrival": false,
+      "isBestSeller": true,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Rode Leren Cricketbal",
+        "Red Leather Cricket Ball",
+        "4 Piece Red Leather Cricket Ball",
+        "4-Delige Cricketbal",
+        "Professionele Cricketbal",
+        "Wedstrijd Cricketbal",
+        "Cricket Uitrusting",
+        "Cricketmateriaal",
+        "Mantra Sports NL",
+        "Cricketwinkel Nederland"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783712167/mantrasports/products/edyd61y55agccdgebguu.png",
+          "altText": "Rode leren bal",
+          "isPrimary": true,
+          "sortOrder": 0
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783712169/mantrasports/products/jt7gbpl8mly30sabegtk.png",
+          "altText": "Rode leren bal",
+          "isPrimary": false,
+          "sortOrder": 1
+        }
+      ]
+    },
+    {
+      "sku": "CB-003",
+      "category": "balls",
+      "nl_slug": "roze-leren-bal",
+      "nl_name": "Roze leren bal",
+      "nl_description": "Roze leren cricketbal – Precisie voor dag-nachtwedstrijden van Mantra Sports \r\n\r\nDeze roze leren cricketbal is ontwikkeld voor de meest veeleisende spelvorm van het moderne cricket en specifiek ontworpen voor dag-nachtwedstrijden. Hij biedt uitstekende zichtbaarheid onder kunstlicht, zonder in te leveren op de traditionele speeleigenschappen.\r\n\r\nDe bal is vervaardigd uit hoogwaardig, met aluin gelooid roze leer en beschikt over een duurzame, uitgebalanceerde kern en een prominente, met de hand gestikte naad voor superieure grip en controle. De verbeterde laklaag zorgt ervoor dat de bal langer glanst, wat bijdraagt ​​aan aanhoudende 'swing' en consistent gedrag tijdens langdurig spel onder schijnwerpers.\r\n\r\nDe roze bal is ontworpen om de kloof tussen de rode en witte bal te overbruggen; hij biedt de duurzaamheid die nodig is voor langere wedstrijdvormen en garandeert tegelijkertijd een goede zichtbaarheid tijdens de schemering en avondsessies. Dit maakt hem de ideale keuze voor dag-nacht-testwedstrijden en wedstrijden die over meerdere dagen worden gespeeld.",
+      "nl_features": "Hoogwaardige, handgemaakte constructie van roze leer\r\nOntworpen voor wedstrijden die zowel overdag als 's avonds (of over meerdere dagen) worden gespeeld\r\nVerbeterde zichtbaarheid bij kunstlicht en in de schemering\r\nDuurzame kern die langdurig zijn vorm en prestaties behoudt\r\nSterke, met de hand gestikte naad voor optimale 'swing' en beweging van de naad\r\nBehoudt langer zijn glans voor consistente 'swing'-eigenschappen\r\nIdeaal voor professioneel cricket, competitie- en wedstrijdverband\r\nGa vol vertrouwen mee met het moderne spel: de Challenger Pink Leather-cricketbal biedt zichtbaarheid, controle en duurzaamheid op de momenten dat het er echt toe doet.",
+      "specifications": null,
+      "reference_price_eur": "17.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": false,
+      "isNewArrival": false,
+      "isBestSeller": true,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Roze Leren Cricketbal",
+        "Pink Leather Cricket Ball",
+        "4 Piece Pink Leather Cricket Ball",
+        "4-Delige Cricketbal",
+        "Professionele Cricketbal",
+        "Wedstrijd Cricketbal",
+        "Cricket Uitrusting",
+        "Cricketmateriaal",
+        "Mantra Sports NL",
+        "Cricketwinkel Nederland"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783712288/mantrasports/products/cz6k8cmwxyakdavuhr6g.png",
+          "altText": "Roze leren bal",
+          "isPrimary": true,
+          "sortOrder": 0
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783712289/mantrasports/products/ywz7wdaijbwb2tnxftm4.png",
+          "altText": "Roze leren bal",
+          "isPrimary": false,
+          "sortOrder": 1
+        }
+      ]
+    },
+    {
+      "sku": "CB-004",
+      "category": "balls",
+      "nl_slug": "gele-leren-bal",
+      "nl_name": "Gele leren bal",
+      "nl_description": "Gele leren cricketbal – Uitstekende zichtbaarheid en prestaties van Mantra Sports. \r\n\r\nDeze gele leren cricketbal is speciaal ontworpen voor snel zaalcricket en wedstrijden bij weinig licht; hij biedt een uitzonderlijke zichtbaarheid zonder in te leveren op prestaties. De bal is ideaal voor gebruik in sporthallen, tijdens trainingen en bij recreatieve spelvormen, en zorgt ervoor dat spelers elke beweging moeiteloos kunnen volgen.\r\n\r\nDe bal is vervaardigd uit hoogwaardig, met aluin gelooid geel leer en beschikt over een duurzame, uitgebalanceerde kern en een nauwkeurig met de hand gestikte naad. Deze constructie zorgt voor een consistente stuit, een betrouwbare grip voor bowlers en een uitstekend vormbehoud, zelfs bij intensief gebruik in de zaal.\r\n\r\nDe felgele kleur zorgt voor een betere zichtbaarheid tegen donkere achtergronden. Hierdoor is de bal de ideale keuze voor overdekte locaties en situaties met kunstlicht, waar traditionele rode of witte ballen vaak lastiger te volgen zijn.",
+      "nl_features": "Hoogwaardige, handgemaakte constructie van geel leer\r\nIdeaal voor zaalcricket en omstandigheden met weinig licht\r\nGoed zichtbare afwerking voor betere zichtbaarheid en snellere reactietijden\r\nSterke, met de hand gestikte naad voor grip en controle\r\nDuurzame kern die zijn vorm behoudt en lang meegaat\r\nGeschikt voor trainingen, zaalcompetities en recreatief spel\r\nBlijf alert, reageer sneller en speel met vertrouwen: de Challenger Yellow Leather-cricketbal is ontworpen voor zichtbaarheid en controle tijdens elke wedstrijd in de zaal.",
+      "specifications": null,
+      "reference_price_eur": "17.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": false,
+      "isNewArrival": false,
+      "isBestSeller": true,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Gele Leren Cricketbal",
+        "Yellow Leather Cricket Ball",
+        "4 Piece Yellow Leather Cricket Ball",
+        "4-Delige Cricketbal",
+        "Professionele Cricketbal",
+        "Wedstrijd Cricketbal",
+        "Cricket Uitrusting",
+        "Cricketmateriaal",
+        "Mantra Sports NL",
+        "Cricketwinkel Nederland"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783712619/mantrasports/products/kaho0aw8iburut80cxq8.png",
+          "altText": "Gele leren bal",
+          "isPrimary": true,
+          "sortOrder": 0
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783712623/mantrasports/products/ippixryjqelp8otmttuw.png",
+          "altText": "Gele leren bal",
+          "isPrimary": false,
+          "sortOrder": 1
+        }
+      ]
+    },
+    {
+      "sku": "EW-001",
+      "category": "cricket-bats",
+      "nl_slug": "legenda-voor-magnitude",
+      "nl_name": "Legenda voor Magnitude",
+      "nl_description": "Magnitude Legend-cricketbat van Engels wilgenhout\r\nDe Magnitude Legend-cricketbat is vervaardigd uit de beste 1% 'Players Grade'-Engels wilgenhout, met de hand geselecteerd op prestaties, balans en responsiviteit. Deze bat is ontworpen voor de moderne cricketer en biedt een krachtige maar gecontroleerde speelervaring in alle spelvormen.\r\n\r\nDankzij het 'mid-to-low'-profiel (waarbij het dikste deel van de bat zich in het midden tot onderaan bevindt) is de Magnitude Legend bij uitstek geschikt voor spelers die de voorkeur geven aan sterk spel op de voorste voet en zelfverzekerde slagen. De bat beschikt over een grote, vergevingsgezinde 'sweet spot' en een uitgebalanceerd gewicht, waardoor slagen nauwkeurig kunnen worden uitgevoerd zonder in te leveren op controle.\r\n\r\nHet volle profiel van het slagvlak, met nauwelijks tot geen holling ('concaving'), zorgt voor maximaal hout achter de bal, terwijl het dynamisch gebogen slagvlak bijdraagt ​​aan een zuiver balcontact en een consistente terugslag. Zorgvuldig gevormde randen en een semi-ovale greep zorgen voor een comfortabele grip en meer stabiliteit bij agressieve slagen.\r\n\r\nOf je nu een innings opbouwt of het scoortempo verhoogt: de Magnitude Legend is gemaakt om te presteren onder druk.",
+      "nl_features": "Wilgenhout\tTop 1% van de fijnste Engelse wilg van 'Players Grade'-kwaliteit\r\nGewichtsbereik\t2,7 – 2,9 lbs\r\nProfiel\tVol, met nauwelijks tot geen holling; 'duckbill'-stijl onderkant (toe)\r\nSweet spot\tMidden\r\nBalansgevoel\tGebalanceerd\r\nType handvat\tSemi-ovaal\r\nGrip\tWitte grip\r\nSlagvlak\tDynamicCurve, vlak\r\nLengte blad\t555 mm\r\nDikte rug (spine)\tTot 65 mm\r\nDikte rand (edge)\tTot 40 mm\r\nVorm onderkant (toe)\tVlak\r\nVoorbereiding\tGratis inkloppen (knocking-in) met FaceTech-hoes – proces van 7 dagen",
+      "specifications": null,
+      "reference_price_eur": "898.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": true,
+      "isNewArrival": false,
+      "isBestSeller": false,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Cricketknuppel van Engels wilgenhout"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783622606/mantrasports/products/exq807zmpmfpcv72weld.png",
+          "altText": "Legenda voor magnitude",
+          "isPrimary": true,
+          "sortOrder": 0
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783622608/mantrasports/products/ftcsjlacs0qon6fqynhl.png",
+          "altText": "Legenda voor magnitude",
+          "isPrimary": false,
+          "sortOrder": 1
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783622611/mantrasports/products/ney7pxgxsabqamfxqet6.png",
+          "altText": "Legenda voor magnitude",
+          "isPrimary": false,
+          "sortOrder": 2
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783622613/mantrasports/products/qoanpgasypdw4fxaoeqr.png",
+          "altText": "Legenda voor magnitude",
+          "isPrimary": false,
+          "sortOrder": 3
+        }
+      ]
+    },
+    {
+      "sku": "EW-002",
+      "category": "cricket-bats",
+      "nl_slug": "raptor-legende",
+      "nl_name": "Raptor Legende",
+      "nl_description": "Raptor Legend Cricketbat van Engels Wilgenhout | Prestaties van 'Players Grade'-niveau\r\n\r\nDe Raptor Legend-cricketbat van Engels wilgenhout is een topproduct, vervaardigd uit de beste 1% handgeselecteerd Engels wilgenhout van 'Players Grade'-kwaliteit. Deze bat is ontworpen voor serieuze en competitieve cricketers en biedt een verfijnde combinatie van kracht, precisie en consistentie, waardoor het de ideale keuze is voor wedstrijden in diverse spelvormen.\r\n\r\nDankzij het 'mid-profile' slagvlak is de Raptor Legend uitermate geschikt voor batsmen die de voorkeur geven aan een aanvallende speelstijl, zonder daarbij in te leveren op controle en balans. De constructie van de bat zorgt voor een zuiver balcontact en een betrouwbare uitvoering van slagen, waardoor spelers ook onder druk vol vertrouwen kunnen presteren.\r\n\r\nDe Raptor Legend is goed in balans en voelt licht aan bij het oppakken, wat zorgt voor uitstekende wendbaarheid en een hoge batsnelheid. Of er nu wordt gespeeld op snelle wickets of op ondergronden met een lagere balstuit, de bat past zich moeiteloos aan en levert betrouwbare prestaties en veelzijdigheid bij het slaan.\r\n\r\nHet volle profiel van het slagvlak – met nauwelijks tot geen holling ('concaving') – in combinatie met een platte onderkant ('toe') in 'duckbill'-stijl, zorgt voor stabiliteit tijdens de slagbeweging en maximaliseert de controle en responsiviteit bij impact.",
+      "nl_features": "Wilgenhout\tTop 1% van de fijnste Engelse wilg van 'Players Grade'-kwaliteit\r\nGewichtsbereik\t2,7 – 2,9 lbs\r\nProfiel\tVol, met weinig tot geen holling (concaving); 'duckbill'-stijl onderkant (toe)\r\nSweet spot\tMidden\r\nBalansgevoel\tGebalanceerd\r\nType handvat\tSemi-ovaal, rond\r\nGrip\tWitte grip\r\nSlagvlak\tDynamicCurve, vlak\r\nLengte blad\t555 mm\r\nDikte rug (spine)\tTot 65 mm\r\nDikte rand (edge)\tTot 40 mm\r\nVorm onderkant (toe)\tVlak\r\nVoorbereiding\tGratis 'knocking-in' (inslaan) met FaceTech-beschermhoes – proces van 7 dagen",
+      "specifications": null,
+      "reference_price_eur": "898.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": true,
+      "isNewArrival": false,
+      "isBestSeller": false,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Cricketbat van Engelse wilg"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783623159/mantrasports/products/hcbzprcgca5snkz27efa.png",
+          "altText": "Raptor-legende",
+          "isPrimary": true,
+          "sortOrder": 0
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783623162/mantrasports/products/b2gk53zlvnjmo6fcyn4u.png",
+          "altText": "Raptor-legende",
+          "isPrimary": false,
+          "sortOrder": 1
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783623164/mantrasports/products/jlaqyj2578yyufpy1w4v.png",
+          "altText": "Raptor-legende",
+          "isPrimary": false,
+          "sortOrder": 2
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783623167/mantrasports/products/ymwsqrci3l61ffh0dzav.png",
+          "altText": "Raptor-legende",
+          "isPrimary": false,
+          "sortOrder": 3
+        }
+      ]
+    },
+    {
+      "sku": "EW-003",
+      "category": "cricket-bats",
+      "nl_slug": "roofvogel",
+      "nl_name": "Roofvogel",
+      "nl_description": "Raptor English Willow-cricketbat | Prestaties van professioneel niveau\r\n\r\nDe Raptor English Willow-cricketbat is vervaardigd uit eersteklas Engels wilgenhout (Grade 1). Deze bat is ontworpen voor serieuze en competitieve cricketers en biedt een verfijnde combinatie van kracht, precisie en consistentie, waardoor het de ideale keuze is voor wedstrijden in diverse spelvormen.\r\n\r\nDankzij het 'mid-profile' slagvlak is de Raptor Legend uitermate geschikt voor batsmen die de voorkeur geven aan een aanvallende speelstijl, zonder daarbij in te leveren op controle en balans. De constructie van de bat zorgt voor een zuiver balcontact en een betrouwbare uitvoering van slagen, zodat spelers ook onder druk vol vertrouwen kunnen presteren.\r\n\r\nDe Raptor Legend voelt licht en uitgebalanceerd aan, wat zorgt voor uitstekende wendbaarheid en een hoge slagsnelheid. Of er nu wordt gespeeld op snelle wickets of op ondergronden met een lagere balstuit, de bat past zich moeiteloos aan en levert betrouwbare prestaties en veelzijdigheid bij het slaan.\r\n\r\nHet volle slagvlak – met nauwelijks tot geen holling (concaving) – en de platte onderkant in 'duckbill'-stijl zorgen voor stabiliteit tijdens de slagbeweging, terwijl controle en reactievermogen bij impact worden gemaximaliseerd.",
+      "nl_features": "Wilgenhout\tGrade 1 Engels wilgenhout\r\nGewichtsbereik\t2,7 – 2,9 lbs\r\nProfiel\tVol, met weinig tot geen holling; 'duckbill'-stijl onderkant (toe)\r\nSweet spot\tMidden\r\nBalans\tGebalanceerd\r\nType handvat\tSemi-ovaal\r\nGrip\tWitte grip\r\nType blad\tDynamische kromming\r\nSlagvlak\tVlak\r\nLengte blad\t555 mm\r\nDikte rug (spine)\tTot 65 mm\r\nDikte rand (edge)\tTot 40 mm\r\nVorm onderkant (toe)\tVlak\r\nVoorbereiding\tGratis 'knock-in' (inslaan) met FaceTech-beschermhoes – proces van 7 dagen",
+      "specifications": null,
+      "reference_price_eur": "698.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Handgemaakte Cricket Bat",
+        "Professionele Cricket Bat"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783623317/mantrasports/products/etvzcnyzbgbxxcanudg1.png",
+          "altText": "Roofvogel",
+          "isPrimary": true,
+          "sortOrder": 0
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783623319/mantrasports/products/jyuuesnyhklh6yrzq7nw.png",
+          "altText": "Roofvogel",
+          "isPrimary": false,
+          "sortOrder": 1
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783623322/mantrasports/products/dz5lpaarc2g6ucqh6cdx.png",
+          "altText": "Roofvogel",
+          "isPrimary": false,
+          "sortOrder": 2
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783623325/mantrasports/products/qrvuvoy4lnbo5jf4anjh.png",
+          "altText": "Roofvogel",
+          "isPrimary": false,
+          "sortOrder": 3
+        }
+      ]
+    },
+    {
+      "sku": "EW-004",
+      "category": "cricket-bats",
+      "nl_slug": "magnitude-maxx",
+      "nl_name": "Magnitude Maxx",
+      "nl_description": "Magnitude Maxx Cricketbat van Engels wilgenhout\r\n\r\nDe Magnitude Maxx-cricketbat van Engels wilgenhout is ontworpen voor moderne cricketers die spelen met intentie, kracht en zelfvertrouwen. Dankzij het bladprofiel dat zich van het midden naar de onderkant uitstrekt, is deze bat bij uitstek geschikt voor spelers die de voorkeur geven aan agressief spel op de voorste voet en krachtige, dominante slagen.\r\n\r\nDe Magnitude Maxx is vakkundig gevormd en uitgebalanceerd en beschikt over een grote, vergevingsgezinde 'sweet spot' die consistente prestaties levert over het gehele slagvlak. De gecontroleerde gewichtsverdeling zorgt ervoor dat de slagman een hoge batsnelheid kan genereren zonder aan balans in te boeten; hierdoor is de bat effectief voor zowel het gecontroleerd opbouwen van een innings als voor spel dat gericht is op het slaan van boundaries.\r\n\r\nDe bat is voorzien van geprofileerde randen en een ergonomisch ontworpen handgreep, wat zorgt voor een comfortabele grip en meer stabiliteit tijdens de zwaai. Deze combinatie verbetert de nauwkeurigheid, controle en het zelfvertrouwen bij het raken van de bal – vooral tijdens aanvallend spel.\r\n\r\nOf je nu een 'drive' door de covers speelt, de bal recht vooruit slaat of het scoortempo opvoert: de Magnitude Maxx is ontworpen om betrouwbare prestaties te leveren op de momenten dat het er echt toe doet.",
+      "nl_features": "Wilgenhout\tEngels wilgenhout van de hoogste 'Grade 2'-kwaliteit\r\nGewichtsbereik\t2,7 – 2,10 lbs\r\nProfiel\tVol, met nauwelijks tot geen holling (concaving)\r\nSweet spot\tMidden-laag\r\nBalansgevoel\tGebalanceerd\r\nType handvat\tSemi-ovaal\r\nGrip\tWitte grip\r\nType blad\tDynamic Curve\r\nSlagvlak\tDynamicCurve, vlak\r\nLengte blad\t555 mm\r\nDikte rug (spine)\tTot 65 mm\r\nDikte rand (edge)\tTot 40 mm\r\nVorm onderkant (toe)\tVlak\r\nVoorbereiding\tGratis 'inkloppen' (knocking-in) inclusief FaceTech-beschermhoes – proces van 7 dagen",
+      "specifications": null,
+      "reference_price_eur": "618.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Magnitude Maxx",
+        "Magnitude Maxx Cricket Bat",
+        "Engelse Wilg",
+        "Engelse Wilg Cricket Bat",
+        "Cricket Bat",
+        "Premium Cricket Bat",
+        "Handgemaakte Cricket Bat",
+        "Professionele Cricket Bat",
+        "Cricket Uitrusting",
+        "Cricketmateriaal",
+        "Cricketwinkel Nederland",
+        "Cricket Nederland",
+        "Mantra Sports",
+        "Mantra Sports NL",
+        "Houten Cricket Bat",
+        "Senior Cricket Bat"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783623674/mantrasports/products/pjjgr4qbxlcrhs8hol6t.png",
+          "altText": "Magnitude Maxx",
+          "isPrimary": true,
+          "sortOrder": 0
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783623676/mantrasports/products/f3twy92w1mdkbweyetz6.png",
+          "altText": "Magnitude Maxx",
+          "isPrimary": false,
+          "sortOrder": 1
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783623679/mantrasports/products/louctp3wq2r4emrwhs1x.png",
+          "altText": "Magnitude Maxx",
+          "isPrimary": false,
+          "sortOrder": 2
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783623681/mantrasports/products/oia73a6mgvvuvzwqtd74.png",
+          "altText": "Magnitude Maxx",
+          "isPrimary": false,
+          "sortOrder": 3
+        }
+      ]
+    },
+    {
+      "sku": "EW-005",
+      "category": "cricket-bats",
+      "nl_slug": "cobra",
+      "nl_name": "Cobra",
+      "nl_description": "Cobra Cricketbat van Engels Wilgenhout\r\n\r\nDe Cobra cricketbat van Engels wilgenhout is ontwikkeld voor cricketers die waarde hechten aan balans, timing en constante prestaties in alle spelvormen. De bat is vervaardigd uit zorgvuldig geselecteerd Engels wilgenhout van 'Grade 4'-kwaliteit (afkomstig uit het Verenigd Koninkrijk) en ontworpen voor een betrouwbare respons en gecontroleerd slagwerk.\r\n\r\nDe Cobra Maxx onderscheidt zich door een soepele, gebalanceerde 'pickup' en een vergevingsgezinde 'sweet spot', waardoor een zuivere techniek en nauwkeurige uitvoering van slagen worden beloond. Het zorgvuldig gevormde profiel van het slagvlak zorgt voor stabiliteit tijdens de zwaai; hierdoor kunnen batsmen zich concentreren op plaatsing, timing en slagkeuze, in plaats van te proberen kracht te forceren.\r\n\r\nElke bat wordt individueel geperst en met de hand afgewerkt door vakmensen, om ervoor te zorgen dat het wilgenhout optimaal presteert. Het resultaat is een bat die natuurlijk aanvoelt, vertrouwen geeft en zich goed aanpast aan uiteenlopende speelomstandigheden.\r\n\r\nDe Cobra Maxx is de ideale keuze voor spelers die werken aan meer consistentie in hun spel en op zoek zijn naar betrouwbare prestaties en verfijnde controle aan de crease.",
+      "nl_features": "Wilgenhout\tEngels wilgenhout (klasse 4)\r\nGewichtsbereik\t2,7 – 2,10 lbs\r\nProfiel\tVol, met nauwelijks tot geen holling (concaving)\r\nSweet spot\tMidden-laag\r\nBalansgevoel\tGebalanceerd\r\nType handvat\tSemi-ovaal\r\nGrip\tWitte grip\r\nType blad\tDynamische kromming\r\nSlagvlak\tVlak\r\nLengte blad\t555 mm\r\nDikte rug\tTot 65 mm\r\nDikte rand\tTot 40 mm\r\nVorm onderkant\tVlak\r\nVoorbereiding\tGratis 'inkloppen' (knocking-in) inclusief FaceTech-beschermhoes – proces van 7 dagen",
+      "specifications": null,
+      "reference_price_eur": "208.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Cobra Cricket Bat",
+        "Cobra Engelse Wilg Cricket Bat",
+        "Engelse Wilg Cricket Bat",
+        "Cricket Bat Nederland",
+        "Premium Cricket Bat",
+        "Professionele Cricket Bat",
+        "Handgemaakte Cricket Bat",
+        "Cricket Uitrusting",
+        "Cricketmateriaal",
+        "Mantra Sports NL",
+        "Cricketwinkel Nederland"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783623804/mantrasports/products/ef8g4ltcgdjpzsuvkyit.png",
+          "altText": "Cobra",
+          "isPrimary": true,
+          "sortOrder": 0
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783623806/mantrasports/products/nicn16vdsmbney8v4efd.png",
+          "altText": "Cobra",
+          "isPrimary": false,
+          "sortOrder": 1
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783623809/mantrasports/products/a6knjxg3wv0w0ulfwxzm.png",
+          "altText": "Cobra",
+          "isPrimary": false,
+          "sortOrder": 2
+        }
+      ]
+    },
+    {
+      "sku": "EW-006",
+      "category": "cricket-bats",
+      "nl_slug": "cobra-ultieme",
+      "nl_name": "Cobra Ultieme",
+      "nl_description": "Cobra Ultimate English Willow-cricketbat\r\n\r\nDe Cobra Ultimate English Willow-cricketbat is ontwikkeld voor cricketers die klaar zijn voor de volgende stap in hun prestaties. Deze bat is vervaardigd uit 'Grade 3' Engels wilgenhout (English Willow) uit het Verenigd Koninkrijk en biedt verfijnde kracht, een verbeterde veerkracht en een betrouwbare balans voor competitief spel.\r\n\r\nDankzij een geoptimaliseerd persproces en een nauwkeurige vormgeving haalt de Cobra Ultimate meer prestatiepotentieel uit het materiaal, terwijl de bat toch licht en gecontroleerd aanvoelt bij het oppakken. De bat beschikt over een bredere, responsievere 'sweet spot', waardoor batsmen met gezag en vertrouwen diverse soorten slagen kunnen uitvoeren.\r\n\r\nDe Cobra Ultimate is ontworpen voor spelers die zowel kracht als precisie eisen; hij biedt een zuiver balcontact en een consistente respons zonder zwaar aan te voelen. Het uitgebalanceerde profiel zorgt voor een soepele batsnelheid, wat de bat ideaal maakt voor agressief slagwerk met behoud van controle en timing.\r\n\r\nElke bat wordt met de hand afgewerkt door vakmensen, wat garant staat voor duurzaamheid, consistentie en een hoogwaardige speelervaring die betrouwbaar presteert tijdens wedstrijden.",
+      "nl_features": "Wilgenhout\tEngels wilgenhout (klasse 3)\r\nGewichtsbereik\t2,7 – 2,10 lbs\r\nProfiel\tVol, met weinig tot geen holling; 'duckbill'-vormige onderkant (toe)\r\nSweet spot\tMidden-laag\r\nBalans\tGebalanceerd\r\nType handvat\tSemi-ovaal / rond\r\nGrip\tWitte grip\r\nType blad\tDynamische kromming\r\nSlagvlak\tVlak\r\nLengte blad\t555 mm\r\nDikte rug (spine)\tTot 65 mm\r\nDikte rand\tTot 40 mm\r\nVorm onderkant (toe)\tVlak\r\nVoorbereiding\tGratis 'knocking-in' (inslaan) inclusief FaceTech-beschermhoes – proces van 7 dagen",
+      "specifications": null,
+      "reference_price_eur": "318.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Cobra Ultimate Cricket Bat",
+        "Cobra Ultimate Engelse Wilg Cricket Bat",
+        "Engelse Wilg Cricket Bat",
+        "Cricket Bat Nederland",
+        "Premium Cricket Bat",
+        "Professionele Cricket Bat",
+        "Handgemaakte Cricket Bat",
+        "Cricket Uitrusting",
+        "Cricketmateriaal",
+        "Mantra Sports NL",
+        "Cricketwinkel Nederland"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783624094/mantrasports/products/sxyat8hfhab0sf2kvwwc.png",
+          "altText": "Cobra Ultieme",
+          "isPrimary": true,
+          "sortOrder": 0
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783624097/mantrasports/products/ujig4bb1hzdt4ufcnlco.png",
+          "altText": "Cobra Ultieme",
+          "isPrimary": false,
+          "sortOrder": 1
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783624099/mantrasports/products/rlorbvndkhyj2vtot4mm.png",
+          "altText": "Cobra Ultieme",
+          "isPrimary": false,
+          "sortOrder": 2
+        }
+      ]
+    },
+    {
+      "sku": "HL-001",
+      "category": "protective-gear",
+      "nl_slug": "helm",
+      "nl_name": "Helm",
+      "nl_description": "Crickethelmen van Mantra Sports zijn ontwikkeld om geavanceerde hoofdbescherming te bieden zonder in te leveren op comfort, zicht of balans. Elke helm is ontworpen voor de moderne cricketer en combineert veiligheidsgerichte techniek met verfijnd vakmanschap.\r\n\r\nDankzij een slagvaste buitenschaal en een energieabsorberende binnenkern is de helm ontworpen om de kracht van snelle worpen en onverwachte klappen effectief op te vangen en te verspreiden. De constructie biedt betrouwbare bescherming en voelt tegelijkertijd licht aan, waardoor de helm ook tijdens langdurig gebruik comfortabel blijft.\r\n\r\nDe helm is voorzien van een nauwkeurig vervaardigd stalen rooster, dat zorgvuldig is gevormd voor maximale gezichtsbescherming zonder het zicht te belemmeren; zo blijf je volledig gefocust op de bowler en de bal.",
+      "nl_features": "Zachte, ademende binnenvoering voor comfort de hele dag door\r\n\r\nVerstelbaar pasvormsysteem voor een veilige, persoonlijke pasvorm\r\n\r\nEvenwichtige gewichtsverdeling om nekbelasting te verminderen",
+      "specifications": null,
+      "reference_price_eur": "48.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Cricket Helm",
+        "Cricket Helmet",
+        "Cricket Hoofdbescherming",
+        "Cricket Veiligheidshelm",
+        "Professionele Cricket Helm",
+        "Cricket Uitrusting",
+        "Cricketmateriaal",
+        "Mantra Sports NL",
+        "Cricketwinkel Nederland",
+        "Batting Helmet"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783712758/mantrasports/products/fy0cqe0x65oujzwow0ef.png",
+          "altText": "helm",
+          "isPrimary": true,
+          "sortOrder": 0
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783712761/mantrasports/products/swn1wikvlp3daexzybvl.png",
+          "altText": "helm",
+          "isPrimary": false,
+          "sortOrder": 1
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783712764/mantrasports/products/mztoyuanghcjr8054ksq.png",
+          "altText": "helm",
+          "isPrimary": false,
+          "sortOrder": 2
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783712766/mantrasports/products/iv6roussqgiolfkjsygp.png",
+          "altText": "helm",
+          "isPrimary": false,
+          "sortOrder": 3
+        }
+      ]
+    },
+    {
+      "sku": "KB-001",
+      "category": "accessories",
+      "nl_slug": "plunjezak",
+      "nl_name": "Plunjezak",
+      "nl_description": "Mantra Sports – Limited Edition Cricket-tas\r\n\r\nDe Mantra Sports Limited Edition Cricket-tas is ontworpen voor cricketers die een complete professionele uitrusting bij zich hebben en combineert duurzaamheid, slimme opbergmogelijkheden en optimaal gebruiksgemak. De tas is vervaardigd uit robuust 1680-denier materiaal en bestand tegen intensief gebruik, terwijl uw uitrusting veilig en overzichtelijk blijft.\r\n\r\nDe binnenzijde is voorzien van twee afgeschermde vakken voor het veilig opbergen van bats, evenals een apart helmcompartiment ter voorkoming van stootschade. Een speciaal geventileerd schoenenvak houdt uw schoenen gescheiden van de rest van uw uitrusting, terwijl twee grote zijvakken volop ruimte bieden voor beschermers of extra materiaal.\r\n\r\nVoor eenvoudig transport is de tas uitgerust met twee robuuste wielen die soepel over ruwe ondergronden rollen. Daarnaast zorgen twee gevoerde schouderbanden ervoor dat de tas ook als rugzak gedragen kan worden, wat u flexibiliteit biedt afhankelijk van uw vervoersbehoeften. De versterkte constructie en hoogwaardige ritsen garanderen een lange levensduur en betrouwbaarheid.\r\n\r\nDeze tas is voorzien van opvallende Mantra Sports Limited Edition-branding en ontworpen voor spelers die in elk detail streven naar professionele kwaliteit.",
+      "nl_features": "Gemaakt van uiterst duurzaam 1680-denier materiaal\r\n\r\nTwee interne, afgeschermde houders voor het veilig opbergen van bats\r\n\r\nApart helmcompartiment voor extra bescherming\r\n\r\nApart, geventileerd schoenenvak voor optimale hygiëne\r\n\r\nTwee grote zijvakken, ideaal voor beschermers of extra uitrusting\r\n\r\nTwee robuuste wielen voor eenvoudig verplaatsen\r\n\r\nTwee gevoerde rugzakbanden om de tas handsfree te dragen\r\n\r\nVerstevigde bodem voor stabiliteit en duurzaamheid\r\n\r\nSoepele, robuuste ritsen voor dagelijkse betrouwbaarheid\r\n\r\nExclusieve Limited Edition-branding van Mantra Sports",
+      "specifications": null,
+      "reference_price_eur": "78.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": false,
+      "isNewArrival": false,
+      "isBestSeller": false,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Cricket Kit Bag",
+        "Cricket Tas",
+        "Cricket Sporttas",
+        "Cricket Kit Tas",
+        "Cricket Bag Nederland",
+        "Cricket Uitrusting Tas",
+        "Professionele Cricket Tas",
+        "Cricket Accessoires",
+        "Mantra Sports NL",
+        "Cricketwinkel Nederland"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783712977/mantrasports/products/tnd6vhimcxv6lpvtyzbo.png",
+          "altText": "Plunjezak",
+          "isPrimary": true,
+          "sortOrder": 0
+        }
+      ]
+    },
+    {
+      "sku": "KG-001",
+      "category": "protective-gear",
+      "nl_slug": "wicketkeeperhandschoenen-in-beperkte-oplage",
+      "nl_name": "Wicketkeeperhandschoenen in beperkte oplage",
+      "nl_description": "Ontworpen voor keepers die exclusiviteit en topprestaties eisen. Deze Limited Edition-handschoenen zijn vervaardigd uit hoogwaardig, soepel leer dat in beperkte oplage is geproduceerd en gecombineerd met een duurzame 'octo'-handpalm voor uitzonderlijke grip en controle achter de wickets. Ze zijn afgewerkt met versterkte vingertoppen, bieden superieur comfort en zijn voorzien van kenmerkende details waarmee ze op het veld opvallen.",
+      "nl_features": null,
+      "specifications": null,
+      "reference_price_eur": "98.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Limited Edition Wicket Keeping Handschoenen",
+        "Wicket Keeping Handschoenen",
+        "Cricket Wicketkeeper Handschoenen",
+        "Wicketkeeper Handschoenen Nederland",
+        "Professionele Wicket Keeping Handschoenen",
+        "Premium Cricket Handschoenen",
+        "Cricket Uitrusting",
+        "Cricketmateriaal",
+        "Mantra Sports NL",
+        "Cricketwinkel Nederland"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783711313/mantrasports/products/pwnbcdoj8ptvqmky2egx.png",
+          "altText": "Wicketkeeperhandschoenen in beperkte oplage",
+          "isPrimary": true,
+          "sortOrder": 0
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783711315/mantrasports/products/id1dqbsqsfif1xxdou5y.png",
+          "altText": "Wicketkeeperhandschoenen in beperkte oplage",
+          "isPrimary": false,
+          "sortOrder": 1
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783711316/mantrasports/products/igprb0eymabprnkzinji.png",
+          "altText": "Wicketkeeperhandschoenen in beperkte oplage",
+          "isPrimary": false,
+          "sortOrder": 2
+        }
+      ]
+    },
+    {
+      "sku": "KG-002",
+      "category": "protective-gear",
+      "nl_slug": "cobra-wicketkeeperhandschoenen",
+      "nl_name": "Cobra-wicketkeeperhandschoenen",
+      "nl_description": "De Cobra-handschoenen zijn ontworpen voor de moderne elite-wicketkeeper en combineren hoogwaardig, soepel leer met een duurzame 'octo'-handpalm voor ongeëvenaarde grip en zelfvertrouwen. Versterkte knokkels en vingertoppen bieden extra bescherming, terwijl het volledig nieuwe ontwerp met gouden accenten en de ronde manchet zorgen voor maximale flexibiliteit, comfort en stijl tijdens elke innings.",
+      "nl_features": null,
+      "specifications": null,
+      "reference_price_eur": "88.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Cobra Wicket Keeping Handschoenen",
+        "Cobra Wicketkeeper Handschoenen",
+        "Cricket Wicket Keeping Handschoenen",
+        "Wicketkeeper Handschoenen Nederland",
+        "Professionele Wicket Keeping Handschoenen",
+        "Premium Cricket Handschoenen",
+        "Cricket Uitrusting",
+        "Cricketmateriaal",
+        "Mantra Sports NL",
+        "Cricketwinkel Nederland"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783711425/mantrasports/products/iaajccrbdq6dywyrjel3.png",
+          "altText": "Cobra-wicketkeeperhandschoenen",
+          "isPrimary": true,
+          "sortOrder": 0
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783711427/mantrasports/products/wp52nrzpxww6ufttvjaz.png",
+          "altText": "Cobra-wicketkeeperhandschoenen",
+          "isPrimary": false,
+          "sortOrder": 1
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783711428/mantrasports/products/csnye5pfnot9o78f36h4.png",
+          "altText": "Cobra-wicketkeeperhandschoenen",
+          "isPrimary": false,
+          "sortOrder": 2
+        }
+      ]
+    },
+    {
+      "sku": "LG-001",
+      "category": "protective-gear",
+      "nl_slug": "challenger-scheenbeschermer",
+      "nl_name": "Challenger-scheenbeschermer",
+      "nl_description": "Challenger Cricket-beenbeschermers – Gebouwd voor snelheid, ontworpen voor controle\r\nBetreed het veld met vertrouwen en bewegingsvrijheid. De Challenger-beenbeschermers zijn ontwikkeld voor de moderne cricketer die waarde hecht aan wendbaarheid, comfort en allround prestaties, zonder concessies te doen.\r\n\r\nDankzij het lichtgewicht ontwerp met grote flexibiliteit beweeg je moeiteloos bij de crease – of je nu een 'drive' speelt op de voorste voet of snel reageert op korte ballen. De gestroomlijnde constructie zorgt ervoor dat je snel blijft bewegen, terwijl je toch kunt rekenen op betrouwbare bescherming waar dat het belangrijkst is.\r\n\r\nDe ergonomische vorm sluit naadloos aan op je benen, wat zorgt voor een stevige pasvorm en extra comfort tijdens lange innings. Dankzij geavanceerde schokabsorberende materialen en een ademende binnenvoering blijf je koel en gefocust, en ben je klaar voor elke bal.",
+      "nl_features": "Ultralicht ontwerp voor superieure bewegingsvrijheid\r\nFlexibele constructie voor ongehinderde beweging\r\nErgonomische pasvorm voor maximaal comfort en stabiliteit\r\nBeschermingszones tegen zware impact voor zorgeloos spelen\r\nAdemende binnenvoering die je koel houdt onder druk",
+      "specifications": null,
+      "reference_price_eur": "58.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": false,
+      "isNewArrival": false,
+      "isBestSeller": false,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Challenger Beenbeschermers",
+        "Challenger Cricket Pads",
+        "Cricket Beenbeschermers",
+        "Batting Pads",
+        "Cricket Pads Nederland",
+        "Professionele Cricket Beenbeschermers",
+        "Cricket Uitrusting",
+        "Cricketmateriaal",
+        "Mantra Sports NL",
+        "Cricketwinkel Nederland"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783624572/mantrasports/products/o4xif1mzn5v5ttwugjms.png",
+          "altText": "Challenger-scheenbeschermer",
+          "isPrimary": true,
+          "sortOrder": 0
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783624586/mantrasports/products/ztxyshjgqzq4bhhou9vr.png",
+          "altText": "Challenger-scheenbeschermer",
+          "isPrimary": false,
+          "sortOrder": 1
+        }
+      ]
+    },
+    {
+      "sku": "LG-002",
+      "category": "protective-gear",
+      "nl_slug": "cobra-beenbeschermer",
+      "nl_name": "Cobra-beenbeschermer",
+      "nl_description": "Cobra Cricket-beenbeschermers – Kracht ontmoet precisie\r\n\r\nDe Cobra-beenbeschermers zijn ontwikkeld voor cricketers die de perfecte balans tussen bescherming en wendbaarheid eisen; ze presteren optimaal onder druk en zorgen ervoor dat je lichtvoetig blijft.\r\n\r\nDankzij een strategisch verstevigingssysteem is de Cobra voorzien van drie zeer sterke rieten inzetstukken op de belangrijkste impactzones. Dit biedt superieure bescherming aan de voorzijde en het scheenbeen – precies daar waar dat het hardst nodig is. Deze slimme constructie absorbeert schokken effectief, terwijl het comfort en de beweeglijkheid voor de speler behouden blijven.\r\n\r\nOndanks de robuuste constructie doet de Cobra geen afbreuk aan de bewegingsvrijheid. De overige delen zijn zo ontworpen dat ze flexibiliteit bevorderen, zodat je vrij kunt bewegen, snel kunt reageren en de controle behoudt bij de crease.\r\n\r\nMet een ergonomische pasvorm die de contouren van het been volgt en hoogwaardige binnenvoering, bieden deze beschermers langdurig comfort, zelfs tijdens intensieve trainingen en wedstrijden.",
+      "nl_features": "Driedubbel versterkte impactzones voor betere bescherming van de voorzijde en schenen\r\nEvenwichtige constructie die stevigheid combineert met flexibiliteit\r\nLichtgewicht gevoel voor snel voetenwerk en soepele bewegingen\r\nErgonomisch ontwerp voor een stevige, natuurlijke pasvorm\r\nAdemende binnenvoering voor comfort de hele dag door",
+      "specifications": null,
+      "reference_price_eur": "88.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": false,
+      "isNewArrival": false,
+      "isBestSeller": true,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Cobra Beenbeschermers",
+        "Cobra Cricket Pads",
+        "Cricket Beenbeschermers",
+        "Batting Pads",
+        "Cricket Pads Nederland",
+        "Professionele Cricket Beenbeschermers",
+        "Cricket Uitrusting",
+        "Cricketmateriaal",
+        "Mantra Sports NL",
+        "Cricketwinkel Nederland"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783624661/mantrasports/products/uxjenjhmhmegckj7g5mu.png",
+          "altText": "Cobra-beenbeschermer",
+          "isPrimary": true,
+          "sortOrder": 0
+        }
+      ]
+    },
+    {
+      "sku": "LG-003",
+      "category": "protective-gear",
+      "nl_slug": "magnitude-scheenbeschermers",
+      "nl_name": "Magnitude-scheenbeschermers",
+      "nl_description": "Magnitude Cricket-beenbeschermers – Ultieme bescherming, ongekend zelfvertrouwen\r\n\r\nVoor cricketers die niets minder eisen dan het allerhoogste beschermingsniveau: de Magnitude-beenbeschermers zijn gemaakt om te domineren. Dankzij de volledig versterkte constructie op alle cruciale plekken bieden deze beschermers compromisloze veiligheid en een professionele uitstraling en beleving.\r\n\r\nDoor de volledige integratie van rietstructuren in alle zeven verticale panelen garandeert de Magnitude maximale schokabsorptie over de gehele voorzijde van het been. Van het scheenbeen tot aan de buitenranden is elke zone versterkt; dit geeft je het vertrouwen om zonder aarzeling de snelste bowlers het hoofd te bieden.\r\n\r\nOndanks de robuuste, versterkte constructie is de Magnitude zo ontworpen dat je balans en controle behoudt bij de crease. Het gestructureerde ontwerp beweegt naadloos met je mee en biedt een stabiel, maar responsief gevoel, zowel bij verdedigend als aanvallend spel.\r\n\r\nMet een voorgevormde pasvorm, hoogwaardige demping en ademende materialen aan de binnenzijde zijn deze beschermers gemaakt voor lange innings, intense wedstrijden en spelers die geen enkel compromis sluiten.",
+      "nl_features": "Volledige versteviging met riet over alle 7 panelen voor maximale bescherming\r\nVolledige dekking aan de voorzijde voor superieure schokabsorptie\r\nConstructie van professionele kwaliteit, ontworpen voor cricket op hoog niveau\r\nErgonomische pasvorm voor stabiliteit en comfort\r\nAdemende binnenvoering om je koel en gefocust te houden",
+      "specifications": null,
+      "reference_price_eur": "98.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": true,
+      "isNewArrival": false,
+      "isBestSeller": false,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Magnitude Beenbeschermers",
+        "Magnitude Cricket Pads",
+        "Cricket Beenbeschermers",
+        "Batting Pads",
+        "Cricket Pads Nederland",
+        "Professionele Cricket Beenbeschermers",
+        "Cricket Uitrusting",
+        "Cricketmateriaal",
+        "Mantra Sports NL",
+        "Cricketwinkel Nederland"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783625195/mantrasports/products/c7sjqxtb2d2vptlxiiaj.png",
+          "altText": "Magnitude-scheenbeschermers",
+          "isPrimary": true,
+          "sortOrder": 0
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783710931/mantrasports/products/kurwwbpjs7ke7gp1sb8e.png",
+          "altText": "Magnitude-scheenbeschermers",
+          "isPrimary": false,
+          "sortOrder": 1
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783710933/mantrasports/products/padhqnpe8eylbk1srgc2.png",
+          "altText": "Magnitude-scheenbeschermers",
+          "isPrimary": false,
+          "sortOrder": 2
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783710935/mantrasports/products/aquib5btiayqmkzhjjpv.png",
+          "altText": "Magnitude-scheenbeschermers",
+          "isPrimary": false,
+          "sortOrder": 3
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783710936/mantrasports/products/s0bnmngmcfgrclqsct26.png",
+          "altText": "Magnitude-scheenbeschermers",
+          "isPrimary": false,
+          "sortOrder": 4
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783710938/mantrasports/products/fmv8yeclerowxsxjoatd.png",
+          "altText": "Magnitude-scheenbeschermers",
+          "isPrimary": false,
+          "sortOrder": 5
+        }
+      ]
+    },
+    {
+      "sku": "LG-004",
+      "category": "protective-gear",
+      "nl_slug": "raptor-scheenbeschermers",
+      "nl_name": "Raptor - Scheenbeschermers",
+      "nl_description": "Raptor Cricket-beenbeschermers – Topprestaties, opnieuw gedefinieerd\r\n\r\nDe Raptor-beenbeschermers zijn ontwikkeld voor spelers die het allerbeste eisen en vormen het toppunt van moderne cricketuitrusting: een combinatie van innovatie en topprestaties.\r\n\r\nDankzij de geavanceerde versteviging met PU-staven in alle zeven verticale panelen bieden de Raptor-beschermers de perfecte balans tussen een ultralicht gevoel, flexibiliteit en betrouwbare bescherming tegen impact. Deze geavanceerde constructie zorgt ervoor dat de beschermers naadloos met je lichaam meebewegen, wat je ongekende wendbaarheid geeft zonder dat dit ten koste gaat van je zelfvertrouwen aan de crease.\r\n\r\nDe Raptor is ontworpen voor het hoogste niveau en biedt een responsief, dynamisch gevoel – ideaal voor spelers die vertrouwen op snel voetenwerk, nauwkeurige bewegingen en lange innings. Of je nu tegenover snelle bowlers staat of spin moet pareren, deze beschermers passen zich moeiteloos aan elke situatie aan.\r\n\r\nHet strakke, ergonomische profiel zorgt voor een nauwe, natuurlijke pasvorm, terwijl de hoogwaardige binnenvoering en ademende materialen je comfortabel en gefocust houden, klaar om topprestaties te leveren.",
+      "nl_features": "Over de gehele lengte doorlopende PU-staafversteviging (ontwerp met 7 panelen) voor gelijkmatige bescherming en flexibiliteit\r\nUltralichte constructie voor explosieve bewegingen en snelle reacties\r\nPrestaties van professioneel niveau, ontwikkeld voor serieuze cricketers\r\nErgonomisch ontwerp met nauwe pasvorm voor superieure controle en comfort\r\nAdemende binnenvoering voor langdurig spelen zonder ongemak",
+      "specifications": null,
+      "reference_price_eur": "108.98",
+      "reference_sale_price_eur": null,
+      "isFeatured": true,
+      "isNewArrival": false,
+      "isBestSeller": false,
+      "stockStatus": "IN_STOCK",
+      "tags": [
+        "Raptor",
+        "Raptor Leg Guards",
+        "Cricket Leg Guards",
+        "Cricket Batting Pads",
+        "Batting Pads",
+        "Leg Guards",
+        "Cricket Pads",
+        "Batting Protection",
+        "English Willow Accessories",
+        "Cricket Equipment",
+        "Cricket Gear",
+        "Senior Batting Pads",
+        "Adult Batting Pads",
+        "Lightweight Pads",
+        "Professional Cricket Pads",
+        "High Density Foam",
+        "PU Facing",
+        "Ambidextrous",
+        "Right Hand Batting",
+        "Left Hand Batting",
+        "Club Cricket",
+        "Match Cricket",
+        "Training Cricket",
+        "Mantra Sports",
+        "cricket pads",
+        "cricket leg guards",
+        "batting leg guards",
+        "cricket protection",
+        "cricket batting equipment",
+        "professional batting pads",
+        "lightweight cricket pads",
+        "senior cricket pads",
+        "adult cricket pads",
+        "cricket beenbeschermers",
+        "cricket uitrusting",
+        "cricket bescherming",
+        "cricket sport",
+        "cricket spullen",
+        "cricket accessoires"
+      ],
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783710856/mantrasports/products/p6wjj9chbhleqklyrbf0.png",
+          "altText": "Raptor - Scheenbeschermers",
+          "isPrimary": true,
+          "sortOrder": 0
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783710858/mantrasports/products/hnbnjggp0bxj9hunmbjl.png",
+          "altText": "Raptor - Scheenbeschermers",
+          "isPrimary": false,
+          "sortOrder": 1
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783710859/mantrasports/products/uhd1aavcdjbcp3k6gwsj.png",
+          "altText": "Raptor - Scheenbeschermers",
+          "isPrimary": false,
+          "sortOrder": 2
+        },
+        {
+          "url": "https://res.cloudinary.com/dgeaaga0s/image/upload/v1783710861/mantrasports/products/bnqlp0wgmgs9gmpese9i.png",
+          "altText": "Raptor - Scheenbeschermers",
+          "isPrimary": false,
+          "sortOrder": 3
+        }
+      ]
+    }
+  ]
+}
