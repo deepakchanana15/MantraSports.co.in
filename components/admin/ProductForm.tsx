@@ -2,10 +2,19 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
-import { Upload, X, GripVertical, Star, Plus } from 'lucide-react'
+import { Upload, X, GripVertical, Star, Plus, Image as ImageIcon } from 'lucide-react'
 import { createProduct, updateProduct } from '@/lib/actions/products'
+import { uploadToCloudinary } from '@/lib/cloudinary-upload'
+import CloudinaryPicker from '@/components/admin/CloudinaryPicker'
 import { slugify } from '@/lib/utils/slugify'
 import type { Product, ProductImage, Category } from '@prisma/client'
+
+// Small preview for Cloudinary images; other URLs are shown as-is
+function previewUrl(url: string) {
+  return url.includes('res.cloudinary.com/') && url.includes('/image/upload/')
+    ? url.replace('/image/upload/', '/image/upload/c_fit,w_300,h_300/f_auto,q_auto/')
+    : url
+}
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -93,6 +102,7 @@ function ProductFormContent({ product, categories }: ProductFormProps) {
       })) ?? []
   )
   const [uploading, setUploading] = useState(false)
+  const [pickerOpen, setPickerOpen] = useState(false)
   const fileRef = useRef<HTMLInputElement>(null)
 
   // Tags
@@ -108,23 +118,11 @@ function ProductFormContent({ product, categories }: ProductFormProps) {
   const uploadFile = useCallback(async (file: File) => {
     setUploading(true)
     try {
-      const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
-      const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET
-      if (!cloudName || !uploadPreset) throw new Error('Cloudinary is not configured.')
-      const fd = new FormData()
-      fd.append('file', file)
-      fd.append('upload_preset', uploadPreset)
-      fd.append('folder', 'mantrasports/products')
-      const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
-        method: 'POST',
-        body: fd,
-      })
-      const data = await res.json()
-      if (!res.ok) throw new Error(data.error?.message ?? 'Upload failed')
+      const url = await uploadToCloudinary(file, 'products')
       setImages((prev) => [
         ...prev,
         {
-          url: data.secure_url as string,
+          url,
           altText: name || '',
           isPrimary: prev.length === 0,
           sortOrder: prev.length,
@@ -141,6 +139,21 @@ function ProductFormContent({ product, categories }: ProductFormProps) {
     const files = Array.from(e.target.files ?? [])
     for (const file of files) await uploadFile(file)
     e.target.value = ''
+  }
+
+  const addPickedImages = (urls: string[]) => {
+    setImages((prev) => {
+      const fresh = urls.filter((url) => !prev.some((img) => img.url === url))
+      return [
+        ...prev,
+        ...fresh.map((url, i) => ({
+          url,
+          altText: name || '',
+          isPrimary: prev.length === 0 && i === 0,
+          sortOrder: prev.length + i,
+        })),
+      ]
+    })
   }
 
   const removeImage = (idx: number) => {
@@ -294,7 +307,15 @@ function ProductFormContent({ product, categories }: ProductFormProps) {
             </h2>
 
             {/* Upload button */}
-            <div className="mb-4">
+            <div className="mb-4 flex flex-wrap gap-3">
+              <button
+                type="button"
+                onClick={() => setPickerOpen(true)}
+                className="flex items-center gap-2 rounded border border-neutral-300 px-4 py-3 text-sm font-medium text-neutral-700 transition-colors hover:border-brand-400 hover:text-brand-600"
+              >
+                <ImageIcon className="h-4 w-4" />
+                Choose from Cloudinary
+              </button>
               <input
                 ref={fileRef}
                 type="file"
@@ -322,7 +343,7 @@ function ProductFormContent({ product, categories }: ProductFormProps) {
                     <div className={`relative overflow-hidden rounded border-2 ${img.isPrimary ? 'border-brand-500' : 'border-neutral-200'}`}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={img.url}
+                        src={previewUrl(img.url)}
                         alt={img.altText}
                         className="aspect-square w-full object-cover"
                         onError={(e) => { e.currentTarget.src = '/images/placeholder.png' }}
@@ -360,8 +381,15 @@ function ProductFormContent({ product, categories }: ProductFormProps) {
             )}
 
             {images.length === 0 && !uploading && (
-              <p className="text-sm text-neutral-400">No images yet. Upload at least one.</p>
+              <p className="text-sm text-neutral-400">No images yet. Choose from Cloudinary or upload at least one.</p>
             )}
+
+            <CloudinaryPicker
+              open={pickerOpen}
+              onClose={() => setPickerOpen(false)}
+              onSelect={addPickedImages}
+              existingUrls={images.map((img) => img.url)}
+            />
           </div>
 
           {/* SEO */}

@@ -2,32 +2,27 @@
 
 import { useState, useRef } from 'react'
 import { saveSettings } from '@/lib/actions/settings'
+import { uploadToCloudinary } from '@/lib/cloudinary-upload'
+import CloudinaryPicker from '@/components/admin/CloudinaryPicker'
 
 const inputCls = 'w-full rounded border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 disabled:bg-neutral-50 disabled:text-neutral-400'
 
 function HeroImageField({ currentUrl, disabled }: { currentUrl: string; disabled?: boolean }) {
   const [url, setUrl] = useState(currentUrl)
   const [uploading, setUploading] = useState(false)
+  const [pickerOpen, setPickerOpen] = useState(false)
+  const [error, setError] = useState('')
   const fileRef = useRef<HTMLInputElement>(null)
 
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (!file) return
     setUploading(true)
+    setError('')
     try {
-      const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
-      const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET
-      if (!cloudName || !uploadPreset) throw new Error('Cloudinary is not configured.')
-      const fd = new FormData()
-      fd.append('file', file)
-      fd.append('upload_preset', uploadPreset)
-      fd.append('folder', 'mantrasports/hero')
-      const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
-        method: 'POST',
-        body: fd,
-      })
-      const data = await res.json()
-      if (res.ok && data.secure_url) setUrl(data.secure_url)
+      setUrl(await uploadToCloudinary(file, 'hero'))
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Upload failed')
     } finally {
       setUploading(false)
       if (e.target) e.target.value = ''
@@ -62,7 +57,17 @@ function HeroImageField({ currentUrl, disabled }: { currentUrl: string; disabled
         >
           {uploading ? 'Uploading…' : 'Upload image'}
         </button>
+        <button
+          type="button"
+          onClick={() => setPickerOpen(true)}
+          disabled={disabled}
+          className="shrink-0 rounded border border-neutral-300 px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-50 disabled:opacity-50"
+        >
+          Choose from Cloudinary
+        </button>
       </div>
+      <CloudinaryPicker open={pickerOpen} onClose={() => setPickerOpen(false)} onSelect={([picked]) => picked && setUrl(picked)} multiple={false} />
+      {error && <p className="mt-1.5 text-xs text-red-600">{error}</p>}
       <p className="mt-1.5 text-xs text-neutral-400">
         Shown in the right panel of the homepage hero section. Best size: 800×800 px or larger. JPG, PNG, WebP.
       </p>

@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
         (resolve, reject) => {
           cloudinary.uploader
             .upload_stream(
-              { folder: 'mantrasports/products', resource_type: 'image' },
+              { asset_folder: 'mantrasports-in/products', resource_type: 'image' },
               (error, result) => {
                 if (error || !result) reject(error ?? new Error('Upload failed'))
                 else resolve(result as { secure_url: string; public_id: string })
