@@ -3,7 +3,7 @@ import type { NavItem } from '@/types'
 // ─── Core Site Configuration ─────────────────────────────────────────────────
 export const SITE_CONFIG = {
   name: 'Mantra Sports India',
-  tagline: 'Play without limits.',
+  tagline: 'Performance. Got. Simplified.',
   description:
     'Mantra Sports India — premium English willow cricket bats, protective gear, balls, teamwear and accessories. Built for performance. Trusted worldwide.',
   // Canonical production origin — the apex domain redirects here, so all
@@ -172,7 +172,7 @@ export const DEFAULT_CATEGORIES = [
 export const DEFAULT_SITE_SETTINGS = {
   hero_image_url: '',
   site_name: 'Mantra Sports India',
-  site_tagline: 'Play without limits.',
+  site_tagline: 'Performance. Got. Simplified.',
   site_description: SITE_CONFIG.description,
   contact_email: SITE_CONFIG.contact.email,
   contact_phone: SITE_CONFIG.contact.phone,

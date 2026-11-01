@@ -75,7 +75,7 @@ type FieldDef = { key: string; label: string; type: string; placeholder?: string
 const FIELDS: { section: string; items: FieldDef[] }[] = [
   { section: 'Branding', items: [
     { key: 'site_name',    label: 'Site Name',    type: 'text',     placeholder: 'Mantra Sports India' },
-    { key: 'site_tagline', label: 'Tagline',      type: 'text',     placeholder: 'Play without limits.' },
+    { key: 'site_tagline', label: 'Tagline',      type: 'text',     placeholder: 'Performance. Got. Simplified.' },
     { key: 'announcement_text', label: 'Announcement Bar Text', type: 'text', placeholder: 'Free delivery across India on all orders', hint: 'Shown in the black bar at the top of every page. Leave empty to hide it.' },
   ]},
   { section: 'Contact', items: [

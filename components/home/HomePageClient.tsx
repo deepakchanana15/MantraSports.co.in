@@ -239,7 +239,7 @@ export function HomePageClient({ heroImageUrl, heroProduct, willowImageUrl, cate
           </span>
 
           <h1 id="hero-heading" className="mb-6 font-display font-bold uppercase leading-[0.93] tracking-[-0.01em]" style={{ fontSize: 'clamp(44px, 7vw, 88px)', color: '#111111' }}>
-            PLAY WITHOUT <span style={{ color: '#e85d1a' }}>LIMITS</span>
+            PERFORMANCE.<br />GOT.<br /><span style={{ color: '#e85d1a' }}>SIMPLIFIED.</span>
           </h1>
 
           <p className="mb-10 max-w-[440px] text-[16px] font-light leading-[1.7]" style={{ color: '#6B6B6B' }}>
