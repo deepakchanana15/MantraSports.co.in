@@ -238,7 +238,7 @@ export function HomePageClient({ heroImageUrl, heroProduct, willowImageUrl, cate
             🏏 Now in India
           </span>
 
-          <h1 id="hero-heading" className="mb-6 font-display font-bold uppercase leading-[0.93] tracking-[-0.01em]" style={{ fontSize: 'clamp(44px, 7vw, 88px)', color: '#111111' }}>
+          <h1 id="hero-heading" className="mb-6 font-display font-bold uppercase leading-[0.93] tracking-[-0.01em] text-[clamp(32px,11vw,64px)] lg:text-[clamp(44px,calc(6.4vw-20px),80px)]" style={{ color: '#111111' }}>
             PERFORMANCE.<br />GOT.<br /><span style={{ color: '#e85d1a' }}>SIMPLIFIED.</span>
           </h1>
 
