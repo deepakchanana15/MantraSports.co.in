@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   name: 'Mantra Sports India',
   tagline: 'Performance. Got. Simplified.',
   description:
-    'Mantra Sports India — premium English willow cricket bats, protective gear, balls, teamwear and accessories. Built for performance. Trusted worldwide.',
+    'Mantra Sports India — premium English willow cricket bats, protective gear, balls, performance sportswear and accessories, shipped across India.',
   // Canonical production origin — the apex domain redirects here, so all
   // absolute URLs (metadataBase, canonicals, sitemap, robots, JSON-LD) use this host.
   url: 'https://www.mantrasports.co.in',
@@ -87,8 +87,7 @@ export const MAIN_NAV: NavItem[] = [
       { label: 'Protective Gear', href: '/categories/protective-gear' },
       { label: 'Balls', href: '/categories/balls' },
       { label: 'Accessories', href: '/categories/accessories' },
-      { label: 'Teamwear', href: '/categories/teamwear' },
-      { label: 'Custom Apparel', href: '/categories/custom-apparel' },
+      { label: 'Performance Sportswear', href: '/categories/custom-apparel' },
     ],
   },
   {
@@ -126,8 +125,7 @@ export const FOOTER_NAV = {
       { label: 'Protective Gear', href: '/categories/protective-gear' },
       { label: 'Balls', href: '/categories/balls' },
       { label: 'Accessories', href: '/categories/accessories' },
-      { label: 'Teamwear', href: '/categories/teamwear' },
-      { label: 'Custom Apparel', href: '/categories/custom-apparel' },
+      { label: 'Performance Sportswear', href: '/categories/custom-apparel' },
     ],
   },
   company: {

@@ -75,8 +75,7 @@ const CATEGORIES = [
   { name: 'Balls', slug: 'balls', emoji: '🔴', href: '/categories/balls' },
   { name: 'Protective Gear', slug: 'protective-gear', emoji: '🛡️', href: '/categories/protective-gear' },
   { name: 'Accessories', slug: 'accessories', emoji: '🎒', href: '/categories/accessories' },
-  { name: 'Teamwear', slug: 'teamwear', emoji: '🎽', href: '/categories/teamwear' },
-  { name: 'Custom Apparel', slug: 'custom-apparel', emoji: '👕', href: '/categories/custom-apparel' },
+  { name: 'Performance Sportswear', slug: 'custom-apparel', emoji: '👕', href: '/categories/custom-apparel' },
 ]
 
 const WHY_ITEMS = [

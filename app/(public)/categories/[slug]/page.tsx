@@ -47,7 +47,7 @@ const CATEGORY_SEO: Record<string, { title: string; description: string }> = {
     description: 'Cricket teamwear for clubs, schools and academies from Mantra Sports India. Request a team quote.',
   },
   'custom-apparel': {
-    title: 'Custom Cricket Teamwear & Apparel',
+    title: 'Performance Sportswear for Cricket Teams',
     description: 'Custom cricket jerseys, trousers and team kit made to order for clubs, schools and academies across India. Request a B2B quote from Mantra Sports.',
   },
 }

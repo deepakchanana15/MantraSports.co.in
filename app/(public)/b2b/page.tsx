@@ -15,7 +15,7 @@ const OFFERS = [
   {
     icon: Shirt,
     title: 'Custom Club Kit',
-    text: 'Teamwear, kit bags and equipment in your club or school colours, with your logo.',
+    text: 'Performance sportswear, kit bags and equipment in your club or school colours, with your logo.',
   },
   {
     icon: Package,

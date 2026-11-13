@@ -24,6 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title: p.metaTitle?.includes('Mantra Sports') ? { absolute: p.metaTitle } : (p.metaTitle ?? p.name),
       description: p.metaDescription ?? p.description?.slice(0, 160) ?? undefined,
+      alternates: { canonical: `/shop/${slug}` },
     }
   } catch {
     return {}

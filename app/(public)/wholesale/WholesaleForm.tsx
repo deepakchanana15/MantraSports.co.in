@@ -16,8 +16,7 @@ const PRODUCT_OPTIONS = [
   'Wicket-Keeping Gloves',
   'Helmets',
   'Leather Cricket Balls',
-  'Teamwear',
-  'Custom Apparel',
+  'Performance Sportswear',
   'Kit Bags & Accessories',
 ]
 

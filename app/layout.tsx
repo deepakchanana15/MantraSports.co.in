@@ -1,3 +1,4 @@
+import { OrganizationSchema, WebsiteSchema } from '@/components/seo/JsonLd'
 import type { Metadata, Viewport } from 'next'
 import { Inter, Oswald } from 'next/font/google'
 import { ThemeProvider } from '@/components/layout/ThemeProvider'
@@ -90,6 +91,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={`${inter.variable} ${oswald.variable} antialiased`}>
+        <OrganizationSchema />
+        <WebsiteSchema />
         <ThemeProvider>
           {children}
         </ThemeProvider>

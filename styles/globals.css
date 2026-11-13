@@ -239,3 +239,11 @@ body {
   float: left;
   height: 0;
 }
+
+/* ── Mobile layout (sitewide) ─────────────────────────────────── */
+@media (max-width: 767px) {
+  html, body { overflow-x: clip; }
+  [style*="minmax(240px"] { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 12px !important; }
+  [style*="padding"][style*="60px"],
+  [style*="padding"][style*="80px"] { padding-left: 20px !important; padding-right: 20px !important; }
+}
