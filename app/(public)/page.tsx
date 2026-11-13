@@ -8,7 +8,7 @@ import { getGoogleReviews } from '@/lib/google-reviews'
 export const metadata: Metadata = {
   title: { absolute: 'Mantra Sports India — Premium English Willow Cricket Bats & Gear' },
   description:
-    'Shop premium English willow cricket bats, protective gear, leather balls, teamwear and accessories from Mantra Sports India. Free delivery across India. B2B & wholesale enquiries welcome.',
+    'Shop English willow cricket bats, protective gear, leather balls and performance sportswear from Mantra Sports India. Pay by UPI or card; we ship across India.',
 }
 
 function toDisplay(p: {
