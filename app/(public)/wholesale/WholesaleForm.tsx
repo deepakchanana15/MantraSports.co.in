@@ -26,6 +26,7 @@ export function WholesaleForm({ productName, heading = 'Request a B2B Quote' }: 
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
   const [selected, setSelected] = useState<string[]>([])
+  const [brochureUrls, setBrochureUrls] = useState<string[]>([])
 
   const toggle = (item: string) =>
     setSelected((prev) => (prev.includes(item) ? prev.filter((x) => x !== item) : [...prev, item]))
@@ -46,6 +47,7 @@ export function WholesaleForm({ productName, heading = 'Request a B2B Quote' }: 
     const result = await submitEnquiry(fd)
     if (result.ok) {
       setSuccess(true)
+      setBrochureUrls(result.brochureUrls ?? [])
     } else {
       setError(result.error ?? 'Could not send your enquiry.')
     }
@@ -62,6 +64,22 @@ export function WholesaleForm({ productName, heading = 'Request a B2B Quote' }: 
         <p className="max-w-[360px] text-[15px] leading-relaxed" style={{ color: '#6B6B6B' }}>
           Thank you for your B2B enquiry. Our team will contact you by email or phone with pricing and next steps.
         </p>
+        {brochureUrls.length > 0 && (
+          <a
+            href={brochureUrls[0]}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex items-center gap-2 rounded-[2px] font-display text-[13px] font-bold uppercase tracking-[0.1em] text-white transition-colors"
+            style={{ background: '#e85d1a', padding: '14px 28px' }}
+          >
+            Download Brochure <ArrowRight className="h-4 w-4" />
+          </a>
+        )}
+        {brochureUrls.length > 0 && (
+          <p className="mt-3 text-[12px]" style={{ color: '#A0A0A0' }}>
+            We&apos;ve also emailed you a copy.
+          </p>
+        )}
         <p className="mt-4 font-display text-[13px] font-semibold uppercase tracking-wider" style={{ color: '#e85d1a' }}>
           Team Mantra Sports India
         </p>

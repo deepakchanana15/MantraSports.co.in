@@ -62,7 +62,40 @@ async function sendToMantraOS(params: {
   }
 }
 
-export async function submitEnquiry(formData: FormData): Promise<{ ok: boolean; error?: string }> {
+/**
+ * Separate from sendToMantraOS above (which is untouched) — flags the same
+ * lead as having been sent the B2B brochure and emails it via MantraOS
+ * (Brevo). Only called for WHOLESALE enquiries. The caller needs
+ * downloadUrls back to show a real, clickable "Download brochure" button —
+ * auto-triggering a download after an async call gets blocked by browsers,
+ * so this never does that.
+ */
+async function requestBrochure(params: { name: string; email: string; phone: string | null }): Promise<string[]> {
+  const key = process.env.MANTRA_LEAD_INTAKE_KEY
+  if (!key) return []
+
+  try {
+    const res = await fetch('https://mantra-os-api.vercel.app/v1/leads/brochure', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-intake-key': key },
+      signal: AbortSignal.timeout(5000),
+      body: JSON.stringify({
+        name: params.name,
+        email: params.email,
+        phone: params.phone || undefined,
+        locale: 'en',
+      }),
+    })
+    if (!res.ok) return []
+    const data = (await res.json()) as { downloadUrls?: string[] }
+    return data.downloadUrls ?? []
+  } catch (err) {
+    console.error('MantraOS brochure request failed:', err)
+    return []
+  }
+}
+
+export async function submitEnquiry(formData: FormData): Promise<{ ok: boolean; error?: string; brochureUrls?: string[] }> {
   try {
     const name = (formData.get('name') as string ?? '').trim()
     const email = (formData.get('email') as string ?? '').trim()
