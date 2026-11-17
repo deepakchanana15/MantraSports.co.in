@@ -95,6 +95,32 @@ async function requestBrochure(params: { name: string; email: string; phone: str
   }
 }
 
+/**
+ * B2C counterpart to requestBrochure above — a "thanks for reaching out"
+ * email with a link to the company's own blog, for GENERAL enquiries.
+ * Fire-and-forget: there's no button to show, so the caller doesn't need
+ * to wait on this.
+ */
+async function requestWelcome(params: { name: string; email: string; phone: string | null }) {
+  const key = process.env.MANTRA_LEAD_INTAKE_KEY
+  if (!key) return
+
+  try {
+    await fetch('https://mantra-os-api.vercel.app/v1/leads/welcome', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-intake-key': key },
+      signal: AbortSignal.timeout(5000),
+      body: JSON.stringify({
+        name: params.name,
+        email: params.email,
+        phone: params.phone || undefined,
+      }),
+    })
+  } catch (err) {
+    console.error('MantraOS welcome email request failed:', err)
+  }
+}
+
 export async function submitEnquiry(formData: FormData): Promise<{ ok: boolean; error?: string; brochureUrls?: string[] }> {
   try {
     const name = (formData.get('name') as string ?? '').trim()
@@ -135,6 +161,7 @@ export async function submitEnquiry(formData: FormData): Promise<{ ok: boolean; 
     await sendToMantraOS({ name, email, phone, company, country, quantity, productName, message, type })
 
     const brochureUrls = type === 'WHOLESALE' ? await requestBrochure({ name, email, phone }) : undefined
+    if (type === 'GENERAL') void requestWelcome({ name, email, phone })
 
     revalidatePath('/admin/enquiries')
     return { ok: true, brochureUrls }
