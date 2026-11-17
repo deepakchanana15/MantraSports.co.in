@@ -134,8 +134,10 @@ export async function submitEnquiry(formData: FormData): Promise<{ ok: boolean; 
 
     await sendToMantraOS({ name, email, phone, company, country, quantity, productName, message, type })
 
+    const brochureUrls = type === 'WHOLESALE' ? await requestBrochure({ name, email, phone }) : undefined
+
     revalidatePath('/admin/enquiries')
-    return { ok: true }
+    return { ok: true, brochureUrls }
   } catch {
     return { ok: false, error: 'Something went wrong. Please try again.' }
   }
